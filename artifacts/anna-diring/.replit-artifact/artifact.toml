@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Анна Диринг — Психолог"
+version = "1.0.0"
+id = "artifacts/anna-diring"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24173
+
+[services.development]
+run = "pnpm --filter @workspace/anna-diring run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/anna-diring", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/anna-diring/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24173"
+BASE_PATH = "/"
