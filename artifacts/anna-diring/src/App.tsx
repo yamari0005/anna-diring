@@ -26,7 +26,7 @@ function App() {
 
       <main className="flex-grow flex flex-col">
         {/* HERO SECTION */}
-        <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+        <section className="relative min-h-[70vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden">
           {/* Background image / texture */}
           <div className="absolute inset-0 z-0 opacity-40">
             <img 
@@ -53,8 +53,9 @@ function App() {
             
             <FadeIn direction="up" delay={0.6}>
               <a 
-                href="#contacts"
-                onClick={scrollToContacts}
+                href="https://dikidi.net/1773633?p=0.pi"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
               >
                 Записаться на консультацию
@@ -64,12 +65,12 @@ function App() {
         </section>
 
         {/* APPROACH SECTION */}
-        <section className="py-24 md:py-32 px-6 bg-accent/30 relative">
+        <section className="py-16 md:py-20 px-6 bg-accent/30 relative">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div className="order-2 md:order-1 relative h-[60vh] rounded-2xl overflow-hidden shadow-xl shadow-muted/50">
+            <div className="order-2 md:order-1 relative h-[50vh] rounded-2xl overflow-hidden shadow-xl shadow-muted/50">
               <img 
-                src="/images/water-ripples.jpg" 
-                alt="Спокойная вода" 
+                src="/images/nature-calm.jpg" 
+                alt="Спокойная природа" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -94,10 +95,10 @@ function App() {
         </section>
 
         {/* FOR WHOM SECTION */}
-        <section className="py-24 md:py-32 px-6 relative bg-background">
+        <section className="py-16 md:py-20 px-6 relative bg-background">
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
-              <h2 className="text-3xl md:text-5xl font-serif mb-16 text-center">Вам это нужно, если...</h2>
+              <h2 className="text-3xl md:text-5xl font-serif mb-12 text-center">Вам это нужно, если...</h2>
             </FadeIn>
             
             <div className="flex flex-col gap-6">
@@ -117,16 +118,60 @@ function App() {
           </div>
         </section>
 
-        {/* ABOUT SECTION */}
-        <section className="py-24 md:py-32 px-6 bg-secondary/10 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
-            <img src="/images/linen-texture.jpg" alt="" className="w-full h-full object-cover mix-blend-multiply" />
-          </div>
-          
-          <div className="max-w-3xl mx-auto relative z-10 text-center">
+        {/* HOW A SESSION WORKS SECTION */}
+        <section className="py-16 md:py-20 px-6 relative bg-accent/30">
+          <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
-              <span className="block text-sm uppercase tracking-widest text-primary font-medium mb-6">Обо мне</span>
-              <p className="text-2xl md:text-4xl font-serif text-foreground leading-relaxed italic">
+              <h2 className="text-3xl md:text-5xl font-serif mb-8 text-center">Как проходит консультация</h2>
+            </FadeIn>
+
+            <FadeIn direction="up" delay={0.1}>
+              <p className="text-lg text-muted-foreground leading-relaxed font-light text-center max-w-2xl mx-auto mb-12">
+                Все консультации проходят онлайн в удобном для вас формате (видеозвонок в мессенджере). Длительность зависит от выбранной услуги:
+              </p>
+            </FadeIn>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              {[
+                { title: "Консультация клинического психолога", duration: "60 минут" },
+                { title: "Диагностика семейных отношений", duration: "60 минут" },
+                { title: "Профориентация подростка", duration: "60 минут" },
+                { title: "Работа с метафорическими картами (МАК)", duration: "60 минут" },
+                { title: "Персональная медитация", duration: "25 минут" },
+              ].map((item, index) => (
+                <FadeIn key={index} direction="up" delay={0.1 + index * 0.05}>
+                  <div className="bg-white border border-border p-6 rounded-2xl flex items-start justify-between gap-4 h-full shadow-sm">
+                    <p className="text-base md:text-lg text-foreground/90 font-light">{item.title}</p>
+                    <span className="text-sm uppercase tracking-widest text-primary whitespace-nowrap flex-shrink-0 mt-1">{item.duration}</span>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+
+            <FadeIn direction="up" delay={0.3}>
+              <p className="text-lg text-muted-foreground leading-relaxed font-light text-center">
+                Точное время и формат мы обсудим при записи.
+              </p>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* ABOUT SECTION */}
+        <section className="py-16 md:py-20 px-6 bg-secondary/10 relative overflow-hidden">
+          <div className="max-w-5xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-[minmax(0,280px)_1fr] gap-12 items-center">
+            <FadeIn direction="up" className="mx-auto md:mx-0">
+              <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg shadow-muted/50 border border-border">
+                <img 
+                  src="/images/anna-portrait.jpg" 
+                  alt="Анна Диринг" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </FadeIn>
+
+            <FadeIn direction="up" delay={0.1}>
+              <span className="block text-sm uppercase tracking-widest text-primary font-medium mb-6 text-center md:text-left">Обо мне</span>
+              <p className="text-2xl md:text-4xl font-serif text-foreground leading-relaxed italic text-center md:text-left">
                 «Я Анна Диринг. Я верю, что успех клиента — это главный допинг психолога. Моя цель — чтобы вы стали настолько устойчивыми, что я больше не понадобилась.»
               </p>
             </FadeIn>
@@ -135,7 +180,7 @@ function App() {
       </main>
 
       {/* FOOTER / CONTACTS */}
-      <footer id="contacts" className="bg-foreground text-background py-20 px-6">
+      <footer id="contacts" className="bg-foreground text-background py-16 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
           <div>
             <FadeIn direction="up">
@@ -173,10 +218,24 @@ function App() {
                 </svg>
               </a>
             </FadeIn>
+
+            <FadeIn direction="up" delay={0.4} className="w-full md:w-auto pt-4 border-t border-background/10 md:text-right">
+              <p className="text-background/70 text-sm uppercase tracking-widest mb-3">
+                Запись на консультацию и расписание:
+              </p>
+              <a 
+                href="https://dikidi.net/1773633?p=0.pi" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-background text-foreground px-6 py-3 rounded-full text-sm uppercase tracking-widest hover:bg-background/90 transition-colors duration-300"
+              >
+                Открыть расписание на Dikidi
+              </a>
+            </FadeIn>
           </div>
         </div>
         
-        <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-background/10 text-sm text-background/40 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-background/10 text-sm text-background/40 flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© {new Date().getFullYear()} Анна Диринг. Все права защищены.</p>
           <p>Психологическое консультирование</p>
         </div>
