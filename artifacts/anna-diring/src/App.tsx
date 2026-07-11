@@ -226,12 +226,20 @@ function App() {
           
           <div className="flex flex-col items-start md:items-end justify-center gap-8">
             <FadeIn direction="up" delay={0.1} className="w-full md:w-auto">
-              <a href="tel:+79259070234" className="block text-2xl md:text-3xl font-light hover:text-primary transition-colors duration-300">
-                +7 (925) 907-02-34
+              <p className="text-background/70 text-lg md:text-xl uppercase tracking-widest mb-4">
+                Запись на консультацию и расписание:
+              </p>
+              <a 
+                href="https://dikidi.net/1773633?p=0.pi" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-background text-foreground px-8 py-4 rounded-full text-base uppercase tracking-widest hover:bg-background/90 transition-colors duration-300"
+              >
+                Открыть расписание на Dikidi
               </a>
             </FadeIn>
             
-            <FadeIn direction="up" delay={0.2} className="w-full md:w-auto">
+            <FadeIn direction="up" delay={0.2} className="w-full md:w-auto pt-4 border-t border-background/10 md:text-right">
               <a href="mailto:Annadiring@yandex.ru" className="block text-xl md:text-2xl font-light hover:text-primary transition-colors duration-300">
                 Annadiring@yandex.ru
               </a>
@@ -249,20 +257,6 @@ function App() {
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
-              </a>
-            </FadeIn>
-
-            <FadeIn direction="up" delay={0.4} className="w-full md:w-auto pt-4 border-t border-background/10 md:text-right">
-              <p className="text-background/70 text-sm uppercase tracking-widest mb-3">
-                Запись на консультацию и расписание:
-              </p>
-              <a 
-                href="https://dikidi.net/1773633?p=0.pi" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-background text-foreground px-6 py-3 rounded-full text-sm uppercase tracking-widest hover:bg-background/90 transition-colors duration-300"
-              >
-                Открыть расписание на Dikidi
               </a>
             </FadeIn>
           </div>
