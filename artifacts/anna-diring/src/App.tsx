@@ -2,11 +2,11 @@ import React from 'react';
 import { FadeIn } from './components/FadeIn';
 
 function App() {
-  const scrollToContacts = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    const contacts = document.getElementById('contacts');
-    if (contacts) {
-      contacts.scrollIntoView({ behavior: 'smooth' });
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -14,19 +14,52 @@ function App() {
     <div className="min-h-[100dvh] w-full bg-background text-foreground flex flex-col font-sans">
       {/* HEADER */}
       <header className="w-full py-6 px-6 md:px-12 flex justify-between items-center fixed top-0 z-50 bg-background/80 backdrop-blur-md border-b border-transparent transition-all duration-300">
-        <div className="font-serif text-xl md:text-2xl tracking-wide font-medium">Анна Диринг</div>
-        <a 
-          href="#contacts" 
-          onClick={scrollToContacts}
-          className="text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
-        >
-          Контакты
-        </a>
+        <div>
+          <div className="font-serif text-xl md:text-2xl tracking-wide font-medium">Анна Диринг</div>
+          <div className="text-xs md:text-sm text-muted-foreground font-light tracking-wide">клинический психолог</div>
+        </div>
+        <nav className="flex items-center gap-5 md:gap-8">
+          <a
+            href="#approach"
+            onClick={(e) => scrollToSection(e, 'approach')}
+            className="hidden sm:inline text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Подход
+          </a>
+          <a
+            href="#for-whom"
+            onClick={(e) => scrollToSection(e, 'for-whom')}
+            className="hidden sm:inline text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Для кого
+          </a>
+          <a
+            href="#about"
+            onClick={(e) => scrollToSection(e, 'about')}
+            className="hidden sm:inline text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Обо мне
+          </a>
+          <a
+            href="#consultation"
+            onClick={(e) => scrollToSection(e, 'consultation')}
+            className="hidden sm:inline text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Консультация
+          </a>
+          <a 
+            href="#contacts" 
+            onClick={(e) => scrollToSection(e, 'contacts')}
+            className="text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Контакты
+          </a>
+        </nav>
       </header>
 
       <main className="flex-grow flex flex-col">
         {/* HERO SECTION */}
-        <section className="relative min-h-[70vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden">
+        <section className="relative min-h-[60vh] flex items-center justify-center pt-28 pb-12 px-6 overflow-hidden">
           {/* Background image / texture */}
           <div className="absolute inset-0 z-0 opacity-40">
             <img 
@@ -65,7 +98,7 @@ function App() {
         </section>
 
         {/* APPROACH SECTION */}
-        <section className="py-16 md:py-20 px-6 bg-accent/30 relative">
+        <section id="approach" className="py-12 md:py-16 px-6 bg-accent/30 relative">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="order-2 md:order-1 relative h-[50vh] rounded-2xl overflow-hidden shadow-xl shadow-muted/50">
               <img 
@@ -95,15 +128,15 @@ function App() {
         </section>
 
         {/* FOR WHOM SECTION */}
-        <section className="py-16 md:py-20 px-6 relative bg-background">
+        <section id="for-whom" className="py-12 md:py-16 px-6 relative bg-background">
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
-              <h2 className="text-3xl md:text-5xl font-serif mb-12 text-center">Вам это нужно, если...</h2>
+              <h2 className="text-3xl md:text-5xl font-serif mb-10 text-center">Вам это нужно, если...</h2>
             </FadeIn>
             
             <div className="flex flex-col gap-6">
               {[
-                "Если вы привыкли всё тянуть на себе",
+                "Если вы привыкли всё тянуть на себя",
                 "Если нужно принять сложное решение, но страшно",
                 "Если вы чувствуете выгорание и потерю вкуса к жизни"
               ].map((item, index) => (
@@ -119,19 +152,19 @@ function App() {
         </section>
 
         {/* HOW A SESSION WORKS SECTION */}
-        <section className="py-16 md:py-20 px-6 relative bg-accent/30">
+        <section id="consultation" className="py-12 md:py-16 px-6 relative bg-accent/30">
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
-              <h2 className="text-3xl md:text-5xl font-serif mb-8 text-center">Как проходит консультация</h2>
+              <h2 className="text-3xl md:text-5xl font-serif mb-6 text-center">Как проходит консультация</h2>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.1}>
-              <p className="text-lg text-muted-foreground leading-relaxed font-light text-center max-w-2xl mx-auto mb-12">
+              <p className="text-lg text-muted-foreground leading-relaxed font-light text-center max-w-2xl mx-auto mb-10">
                 Все консультации проходят онлайн в удобном для вас формате (видеозвонок в мессенджере). Длительность зависит от выбранной услуги:
               </p>
             </FadeIn>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {[
                 { title: "Консультация клинического психолога", duration: "60 минут" },
                 { title: "Диагностика семейных отношений", duration: "60 минут" },
@@ -157,12 +190,12 @@ function App() {
         </section>
 
         {/* ABOUT SECTION */}
-        <section className="py-16 md:py-20 px-6 bg-secondary/10 relative overflow-hidden">
+        <section id="about" className="py-12 md:py-16 px-6 bg-secondary/10 relative overflow-hidden">
           <div className="max-w-5xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-[minmax(0,280px)_1fr] gap-12 items-center">
             <FadeIn direction="up" className="mx-auto md:mx-0">
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg shadow-muted/50 border border-border">
                 <img 
-                  src="/images/anna-portrait.jpg" 
+                  src="/images/anna-portrait-bw.jpg" 
                   alt="Анна Диринг" 
                   className="w-full h-full object-cover"
                 />
@@ -172,7 +205,7 @@ function App() {
             <FadeIn direction="up" delay={0.1}>
               <span className="block text-sm uppercase tracking-widest text-primary font-medium mb-6 text-center md:text-left">Обо мне</span>
               <p className="text-2xl md:text-4xl font-serif text-foreground leading-relaxed italic text-center md:text-left">
-                «Я Анна Диринг. Я верю, что успех клиента — это главный допинг психолога. Моя цель — чтобы вы стали настолько устойчивыми, что я больше не понадобилась.»
+                «Я Анна Диринг. Верю, что успех клиента — это главный допинг психолога. Моя цель — чтобы вы стали настолько устойчивыми, что я больше не понадобилась.»
               </p>
             </FadeIn>
           </div>
@@ -180,7 +213,7 @@ function App() {
       </main>
 
       {/* FOOTER / CONTACTS */}
-      <footer id="contacts" className="bg-foreground text-background py-16 px-6">
+      <footer id="contacts" className="bg-foreground text-background py-12 md:py-16 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
           <div>
             <FadeIn direction="up">
@@ -235,7 +268,7 @@ function App() {
           </div>
         </div>
         
-        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-background/10 text-sm text-background/40 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-background/10 text-sm text-background/40 flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© {new Date().getFullYear()} Анна Диринг. Все права защищены.</p>
           <p>Психологическое консультирование</p>
         </div>
