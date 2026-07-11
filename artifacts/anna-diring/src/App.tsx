@@ -22,35 +22,35 @@ function App() {
           <a
             href="#approach"
             onClick={(e) => scrollToSection(e, 'approach')}
-            className="hidden sm:inline text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
             Подход
           </a>
           <a
             href="#for-whom"
             onClick={(e) => scrollToSection(e, 'for-whom')}
-            className="hidden sm:inline text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
             Для кого
           </a>
           <a
             href="#about"
             onClick={(e) => scrollToSection(e, 'about')}
-            className="hidden sm:inline text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
             Обо мне
           </a>
           <a
             href="#consultation"
             onClick={(e) => scrollToSection(e, 'consultation')}
-            className="hidden sm:inline text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
             Консультация
           </a>
           <a 
             href="#contacts" 
             onClick={(e) => scrollToSection(e, 'contacts')}
-            className="text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+            className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
             Контакты
           </a>
@@ -98,7 +98,7 @@ function App() {
         </section>
 
         {/* APPROACH SECTION */}
-        <section id="approach" className="py-12 md:py-16 px-6 bg-accent/30 relative">
+        <section id="approach" className="py-12 md:py-16 px-6 bg-accent/30 relative" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="order-2 md:order-1 relative h-[50vh] rounded-2xl overflow-hidden shadow-xl shadow-muted/50">
               <img 
@@ -128,7 +128,7 @@ function App() {
         </section>
 
         {/* FOR WHOM SECTION */}
-        <section id="for-whom" className="py-12 md:py-16 px-6 relative bg-background">
+        <section id="for-whom" className="py-12 md:py-16 px-6 relative bg-background" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <h2 className="text-3xl md:text-5xl font-serif mb-10 text-center">Вам это нужно, если...</h2>
@@ -138,7 +138,11 @@ function App() {
               {[
                 "Если вы привыкли всё тянуть на себя",
                 "Если нужно принять сложное решение, но страшно",
-                "Если вы чувствуете выгорание и потерю вкуса к жизни"
+                "Если вы чувствуете выгорание и потерю вкуса к жизни",
+                "Если вы боитесь показаться слабым или несовершенным",
+                "Если вам трудно просить о помощи",
+                "Если вы постоянно сомневаетесь в своих решениях",
+                "Если вы чувствуете, что живёте не свою жизнь"
               ].map((item, index) => (
                 <FadeIn key={index} direction="up" delay={0.1 + index * 0.1}>
                   <div className="bg-white border border-border p-8 rounded-2xl flex items-start gap-6 hover:border-primary/50 transition-colors duration-500 group shadow-sm">
@@ -152,7 +156,7 @@ function App() {
         </section>
 
         {/* HOW A SESSION WORKS SECTION */}
-        <section id="consultation" className="py-12 md:py-16 px-6 relative bg-accent/30">
+        <section id="consultation" className="py-12 md:py-16 px-6 relative bg-accent/30" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <h2 className="text-3xl md:text-5xl font-serif mb-6 text-center">Как проходит консультация</h2>
@@ -182,15 +186,28 @@ function App() {
             </div>
 
             <FadeIn direction="up" delay={0.3}>
-              <p className="text-lg text-muted-foreground leading-relaxed font-light text-center">
+              <p className="text-lg text-muted-foreground leading-relaxed font-light text-center mb-8">
                 Точное время и формат мы обсудим при записи.
               </p>
+            </FadeIn>
+
+            <FadeIn direction="up" delay={0.4}>
+              <div className="flex justify-center">
+                <a 
+                  href="https://dikidi.net/1773633?p=0.pi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
+                >
+                  Записаться на консультацию
+                </a>
+              </div>
             </FadeIn>
           </div>
         </section>
 
         {/* ABOUT SECTION */}
-        <section id="about" className="py-12 md:py-16 px-6 bg-secondary/10 relative overflow-hidden">
+        <section id="about" className="py-12 md:py-16 px-6 bg-secondary/10 relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-5xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-[minmax(0,280px)_1fr] gap-12 items-center">
             <FadeIn direction="up" className="mx-auto md:mx-0">
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg shadow-muted/50 border border-border">
@@ -213,7 +230,7 @@ function App() {
       </main>
 
       {/* FOOTER / CONTACTS */}
-      <footer id="contacts" className="bg-foreground text-background py-12 md:py-16 px-6">
+      <footer id="contacts" className="bg-foreground text-background py-12 md:py-16 px-6" style={{ scrollMarginTop: '100px' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
           <div>
             <FadeIn direction="up">
