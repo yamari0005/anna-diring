@@ -507,6 +507,59 @@ function App() {
             </FadeIn>
           </div>
         </section>
+
+        {/* BOOKING SECTION */}
+        <section id="booking" className="py-12 md:py-20 px-6 bg-accent/30" style={{ scrollMarginTop: '100px' }}>
+          <div className="max-w-4xl mx-auto">
+            <FadeIn direction="up">
+              <h2 className="text-3xl md:text-5xl font-serif mb-4 text-center">Запись на консультацию</h2>
+            </FadeIn>
+
+            <FadeIn direction="up" delay={0.1}>
+              <p className="text-lg text-muted-foreground font-light leading-relaxed text-center max-w-2xl mx-auto mb-10">
+                Пожалуйста, заполните короткую анкету ниже. Это поможет мне лучше понять вашу ситуацию до нашей встречи. После отправки формы вы сможете выбрать удобное время.
+              </p>
+            </FadeIn>
+
+            {/* Шаг 1: Анкета */}
+            <FadeIn direction="up" delay={0.15}>
+              <div className="mb-14">
+                <div className="flex items-center gap-4 mb-5">
+                  <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">1</span>
+                  <h3 className="text-xl md:text-2xl font-serif text-foreground">Заполните анкету</h3>
+                </div>
+                <div className="rounded-2xl border border-border shadow-lg shadow-muted/40 overflow-hidden bg-white">
+                  <iframe
+                    src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/"
+                    title="Анкета для консультации"
+                    className="w-full block"
+                    style={{ width: '100%', height: '850px', border: 'none' }}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Шаг 2: Выбор времени */}
+            <FadeIn direction="up" delay={0.2}>
+              <div className="bg-white border border-border rounded-2xl p-8 md:p-10 shadow-sm text-center flex flex-col items-center gap-4">
+                <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm mb-1">2</span>
+                <h3 className="text-xl md:text-2xl font-serif text-foreground">Шаг 2: Выберите время</h3>
+                <p className="text-base text-muted-foreground font-light leading-relaxed max-w-md">
+                  После заполнения формы нажмите кнопку ниже, чтобы перейти в календарь и выбрать свободный слот.
+                </p>
+                <a
+                  href="https://dikidi.net/1773633?p=0.pi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm mt-2"
+                >
+                  Выбрать время консультации →
+                </a>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
       </main>
 
       {/* FOOTER / CONTACTS */}
