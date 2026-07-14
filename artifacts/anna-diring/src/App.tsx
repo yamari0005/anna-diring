@@ -47,10 +47,24 @@ function App() {
           >
             Консультация
           </a>
+          <a
+            href="#preparation"
+            onClick={(e) => scrollToSection(e, 'preparation')}
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Как подготовиться
+          </a>
+          <a
+            href="#booking"
+            onClick={(e) => scrollToSection(e, 'booking')}
+            className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Записаться
+          </a>
           <a 
             href="#contacts" 
             onClick={(e) => scrollToSection(e, 'contacts')}
-            className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
             Контакты
           </a>
@@ -84,12 +98,12 @@ function App() {
               </p>
             </FadeIn>
             
-            <FadeIn direction="up" delay={0.6}>
+            <FadeIn direction="up" delay={0.6} className="w-full sm:w-auto">
               <a 
                 href="https://dikidi.net/1773633?p=0.pi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
               >
                 Записаться на консультацию
               </a>
@@ -197,7 +211,7 @@ function App() {
                   href="https://dikidi.net/1773633?p=0.pi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
                 >
                   Записаться на консультацию
                 </a>
@@ -207,7 +221,7 @@ function App() {
         </section>
 
         {/* PREPARE FOR CONSULTATION SECTION */}
-        <section id="prepare" className="py-12 md:py-20 px-6 bg-background" style={{ scrollMarginTop: '100px' }}>
+        <section id="preparation" className="py-12 md:py-20 px-6 bg-background" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <div className="flex justify-center mb-4">
@@ -287,7 +301,8 @@ function App() {
                       <p className="text-sm text-muted-foreground mt-1 font-light">«Что прямо сейчас причиняет мне больше всего страданий?»</p>
                     </div>
                   </div>
-                  <div className="overflow-x-auto">
+                  {/* Desktop: table */}
+                  <div className="hidden sm:block overflow-x-auto">
                     <table className="w-full text-sm border-collapse">
                       <thead>
                         <tr className="border-b border-border">
@@ -311,6 +326,21 @@ function App() {
                       </tbody>
                     </table>
                   </div>
+                  {/* Mobile: cards */}
+                  <div className="sm:hidden flex flex-col gap-3">
+                    {[
+                      ['Эмоции', 'Постоянная тревога, чувство вины, апатия, раздражительность'],
+                      ['Отношения', 'Конфликты с партнёром, одиночество, страх близости'],
+                      ['Работа', 'Выгорание, отсутствие смысла, страх ошибки'],
+                      ['Тело', 'Усталость, бессонница, психосоматика'],
+                      ['Самооценка', 'Чувство неудачника, самокритика, неуверенность'],
+                    ].map(([sphere, pain]) => (
+                      <div key={sphere} className="bg-accent/30 rounded-xl p-3">
+                        <p className="text-xs uppercase tracking-widest text-foreground font-medium mb-1">{sphere}</p>
+                        <p className="text-xs text-muted-foreground font-light">{pain}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </FadeIn>
 
@@ -324,7 +354,8 @@ function App() {
                       <p className="text-sm text-muted-foreground mt-1 font-light">«Как я пойму, что стало легче? Что изменится?»</p>
                     </div>
                   </div>
-                  <div className="overflow-x-auto">
+                  {/* Desktop: table */}
+                  <div className="hidden sm:block overflow-x-auto">
                     <table className="w-full text-sm border-collapse">
                       <thead>
                         <tr className="border-b border-border">
@@ -346,6 +377,20 @@ function App() {
                         ))}
                       </tbody>
                     </table>
+                  </div>
+                  {/* Mobile: cards */}
+                  <div className="sm:hidden flex flex-col gap-3">
+                    {[
+                      ['Тревоге', 'Перестану просыпаться с учащённым сердцебиением'],
+                      ['Чувстве вины', 'Перестану извиняться без причины'],
+                      ['Апатии', 'Появится желание что-то делать'],
+                      ['Конфликтах', 'Научусь спокойно говорить о своих чувствах'],
+                    ].map(([pain, sign]) => (
+                      <div key={pain} className="bg-accent/30 rounded-xl p-3">
+                        <p className="text-xs uppercase tracking-widest text-foreground font-medium mb-1">{pain}</p>
+                        <p className="text-xs text-muted-foreground font-light">{sign}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </FadeIn>
@@ -409,7 +454,8 @@ function App() {
             {/* Примеры хороших и плохих запросов */}
             <FadeIn direction="up" delay={0.3}>
               <h3 className="text-2xl md:text-3xl font-serif mb-6 text-center text-foreground">Примеры запросов</h3>
-              <div className="overflow-x-auto mb-12 rounded-2xl border border-border shadow-sm">
+              {/* Desktop: table */}
+              <div className="hidden sm:block overflow-x-auto mb-12 rounded-2xl border border-border shadow-sm">
                 <table className="w-full text-sm border-collapse bg-white">
                   <thead>
                     <tr className="border-b border-border">
@@ -432,6 +478,27 @@ function App() {
                     ))}
                   </tbody>
                 </table>
+              </div>
+              {/* Mobile: cards */}
+              <div className="sm:hidden flex flex-col gap-4 mb-12">
+                {[
+                  ['«Хочу стать счастливой»', '«Хочу перестать просыпаться с чувством вины»'],
+                  ['«Хочу, чтобы муж перестал кричать»', '«Хочу научиться спокойно реагировать на критику и говорить о своих чувствах»'],
+                  ['«Хочу найти себя»', '«Хочу понять, что мне нравится делать, и найти время для этого»'],
+                  ['«Мне плохо, помогите»', '«Я хочу уменьшить тревогу, которая мешает мне работать и общаться»'],
+                  ['«Хочу избавиться от депрессии»', '«Хочу вернуть способность радоваться тому, что раньше приносило удовольствие»'],
+                ].map(([bad, good], i) => (
+                  <div key={i} className="rounded-2xl border border-border shadow-sm overflow-hidden">
+                    <div className="px-4 py-3 bg-[hsl(10,45%,96%)] text-[hsl(10,25%,42%)] text-sm font-light italic">
+                      <span className="text-xs uppercase tracking-widest text-[hsl(10,40%,45%)] font-medium block mb-1">❌ Плохой запрос</span>
+                      {bad}
+                    </div>
+                    <div className="px-4 py-3 bg-[hsl(104,30%,96%)] text-[hsl(104,20%,28%)] text-sm font-light">
+                      <span className="text-xs uppercase tracking-widest text-[hsl(104,28%,32%)] font-medium block mb-1">✅ Хороший запрос</span>
+                      {good}
+                    </div>
+                  </div>
+                ))}
               </div>
             </FadeIn>
 
@@ -475,9 +542,9 @@ function App() {
             <FadeIn direction="up" delay={0.35}>
               <div className="flex justify-center">
                 <a
-                  href="#contacts"
-                  onClick={(e) => scrollToSection(e, 'contacts')}
-                  className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm"
+                  href="#booking"
+                  onClick={(e) => scrollToSection(e, 'booking')}
+                  className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm"
                 >
                   Перейти к записи на консультацию
                 </a>
@@ -534,6 +601,7 @@ function App() {
                     title="Анкета для консультации"
                     className="w-full block"
                     style={{ width: '100%', height: '850px', border: 'none' }}
+                    frameBorder="0"
                     loading="lazy"
                   />
                 </div>
@@ -552,7 +620,7 @@ function App() {
                   href="https://dikidi.net/1773633?p=0.pi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm mt-2"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm mt-2"
                 >
                   Выбрать время консультации →
                 </a>
@@ -583,7 +651,7 @@ function App() {
                 href="https://dikidi.net/1773633?p=0.pi" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-background text-foreground px-8 py-4 rounded-full text-base uppercase tracking-widest hover:bg-background/90 transition-colors duration-300"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-background text-foreground px-8 py-4 rounded-full text-base uppercase tracking-widest hover:bg-background/90 transition-colors duration-300"
               >
                 Открыть расписание на Dikidi
               </a>
