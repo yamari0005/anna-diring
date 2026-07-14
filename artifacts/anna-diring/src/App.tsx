@@ -39,22 +39,54 @@ function App() {
           <div className="text-xs md:text-sm text-muted-foreground font-light tracking-wide">клинический психолог</div>
         </div>
         <nav className="flex items-center gap-5 md:gap-8">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.id}
-              href={`#${link.id}`}
-              onClick={(e) => scrollToSection(e, link.id)}
-              className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
-            >
-              {link.label}
-            </a>
-          ))}
+          <a
+            href="#approach"
+            onClick={(e) => scrollToSection(e, 'approach')}
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Подход
+          </a>
+          <a
+            href="#for-whom"
+            onClick={(e) => scrollToSection(e, 'for-whom')}
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Для кого
+          </a>
+          <a
+            href="#about"
+            onClick={(e) => scrollToSection(e, 'about')}
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Обо мне
+          </a>
+          <a
+            href="#consultation"
+            onClick={(e) => scrollToSection(e, 'consultation')}
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Консультация
+          </a>
+          <a
+            href="#preparation"
+            onClick={(e) => scrollToSection(e, 'preparation')}
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Как подготовиться
+          </a>
           <a
             href="#booking"
             onClick={(e) => scrollToSection(e, 'booking')}
             className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
             Записаться
+          </a>
+          <a
+            href="#contacts"
+            onClick={(e) => scrollToSection(e, 'contacts')}
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Контакты
           </a>
 
           {/* Mobile: hamburger toggle, always to the left of "Записаться" */}
