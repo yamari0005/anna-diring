@@ -206,6 +206,278 @@ function App() {
           </div>
         </section>
 
+        {/* PREPARE FOR CONSULTATION SECTION */}
+        <section id="prepare" className="py-12 md:py-20 px-6 bg-background" style={{ scrollMarginTop: '100px' }}>
+          <div className="max-w-4xl mx-auto">
+            <FadeIn direction="up">
+              <h2 className="text-3xl md:text-5xl font-serif mb-4 text-center">Как подготовиться к консультации</h2>
+            </FadeIn>
+
+            {/* Что такое запрос */}
+            <FadeIn direction="up" delay={0.1}>
+              <div className="mt-10 mb-10 bg-accent/40 border border-border rounded-2xl p-8">
+                <h3 className="text-xl md:text-2xl font-serif mb-4 text-foreground">Что такое «запрос»?</h3>
+                <p className="text-lg text-muted-foreground font-light leading-relaxed">
+                  Запрос — это ответ на вопрос: <span className="text-foreground font-normal">«Чего я хочу добиться в терапии? Что должно измениться в моей жизни?»</span>
+                </p>
+              </div>
+            </FadeIn>
+
+            {/* Хороший vs Плохой запрос */}
+            <FadeIn direction="up" delay={0.15}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-base font-medium text-primary uppercase tracking-widest">✓ Хороший запрос</span>
+                  </div>
+                  <ul className="flex flex-col gap-3">
+                    {[
+                      { label: 'Конкретный', ex: '«я хочу перестать просыпаться с тревогой»' },
+                      { label: 'Измеримый', ex: '«я хочу плакать не чаще 2 раз в неделю»' },
+                      { label: 'Реалистичный', ex: '«я хочу научиться говорить "нет"»' },
+                    ].map((item) => (
+                      <li key={item.label} className="flex flex-col gap-0.5">
+                        <span className="text-sm uppercase tracking-wide text-foreground font-medium">{item.label}</span>
+                        <span className="text-sm text-muted-foreground font-light italic">{item.ex}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-base font-medium text-muted-foreground uppercase tracking-widest">✗ Плохой запрос</span>
+                  </div>
+                  <ul className="flex flex-col gap-3">
+                    {[
+                      { label: 'Слишком общий', ex: '«мне плохо, сделайте что-нибудь»' },
+                      { label: 'Неизмеримый', ex: '«хочу быть счастливым»' },
+                      { label: 'Ориентированный на других', ex: '«хочу, чтобы муж меня понял»' },
+                    ].map((item) => (
+                      <li key={item.label} className="flex flex-col gap-0.5">
+                        <span className="text-sm uppercase tracking-wide text-foreground font-medium">{item.label}</span>
+                        <span className="text-sm text-muted-foreground font-light italic">{item.ex}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Пошаговая инструкция */}
+            <FadeIn direction="up" delay={0.2}>
+              <h3 className="text-2xl md:text-3xl font-serif mb-8 text-center text-foreground">Пошаговая инструкция</h3>
+            </FadeIn>
+
+            <div className="flex flex-col gap-6 mb-12">
+              {/* Шаг 1 */}
+              <FadeIn direction="up" delay={0.22}>
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                  <div className="flex items-start gap-4 mb-4">
+                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-medium">1</span>
+                    <div>
+                      <h4 className="text-lg md:text-xl font-serif text-foreground">Определите «зону боли»</h4>
+                      <p className="text-sm text-muted-foreground mt-1 font-light">«Что прямо сейчас причиняет мне больше всего страданий?»</p>
+                    </div>
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm border-collapse">
+                      <thead>
+                        <tr className="border-b border-border">
+                          <th className="text-left py-2 pr-4 text-xs uppercase tracking-widest text-muted-foreground font-medium w-1/3">Сфера жизни</th>
+                          <th className="text-left py-2 text-xs uppercase tracking-widest text-muted-foreground font-medium">Примеры боли</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {[
+                          ['Эмоции', 'Постоянная тревога, чувство вины, апатия, раздражительность'],
+                          ['Отношения', 'Конфликты с партнёром, одиночество, страх близости'],
+                          ['Работа', 'Выгорание, отсутствие смысла, страх ошибки'],
+                          ['Тело', 'Усталость, бессонница, психосоматика'],
+                          ['Самооценка', 'Чувство неудачника, самокритика, неуверенность'],
+                        ].map(([sphere, pain]) => (
+                          <tr key={sphere} className="border-b border-border/50 last:border-0">
+                            <td className="py-2.5 pr-4 text-foreground font-medium align-top">{sphere}</td>
+                            <td className="py-2.5 text-muted-foreground font-light">{pain}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </FadeIn>
+
+              {/* Шаг 2 */}
+              <FadeIn direction="up" delay={0.24}>
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                  <div className="flex items-start gap-4 mb-4">
+                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-medium">2</span>
+                    <div>
+                      <h4 className="text-lg md:text-xl font-serif text-foreground">Представьте «желаемое состояние»</h4>
+                      <p className="text-sm text-muted-foreground mt-1 font-light">«Как я пойму, что стало легче? Что изменится?»</p>
+                    </div>
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm border-collapse">
+                      <thead>
+                        <tr className="border-b border-border">
+                          <th className="text-left py-2 pr-4 text-xs uppercase tracking-widest text-muted-foreground font-medium w-1/3">Если боль в…</th>
+                          <th className="text-left py-2 text-xs uppercase tracking-widest text-muted-foreground font-medium">Как вы это заметите?</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {[
+                          ['Тревоге', 'Перестану просыпаться с учащённым сердцебиением'],
+                          ['Чувстве вины', 'Перестану извиняться без причины'],
+                          ['Апатии', 'Появится желание что-то делать'],
+                          ['Конфликтах', 'Научусь спокойно говорить о своих чувствах'],
+                        ].map(([pain, sign]) => (
+                          <tr key={pain} className="border-b border-border/50 last:border-0">
+                            <td className="py-2.5 pr-4 text-foreground font-medium align-top">{pain}</td>
+                            <td className="py-2.5 text-muted-foreground font-light">{sign}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </FadeIn>
+
+              {/* Шаг 3 */}
+              <FadeIn direction="up" delay={0.26}>
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                  <div className="flex items-start gap-4 mb-4">
+                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-medium">3</span>
+                    <div>
+                      <h4 className="text-lg md:text-xl font-serif text-foreground">Сформулируйте запрос по формуле</h4>
+                    </div>
+                  </div>
+                  <div className="bg-accent/50 rounded-xl px-6 py-4 mb-4 text-center">
+                    <p className="text-base md:text-lg font-serif text-foreground italic">
+                      «Я хочу <span className="text-primary not-italic font-medium">[конкретное изменение]</span>, чтобы <span className="text-primary not-italic font-medium">[как это повлияет на мою жизнь]</span>»
+                    </p>
+                  </div>
+                  <ul className="flex flex-col gap-2">
+                    {[
+                      '«Я хочу перестать винить себя за каждую ошибку, чтобы чувствовать себя спокойнее и увереннее»',
+                      '«Я хочу научиться говорить «нет», чтобы перестать чувствовать себя использованной»',
+                      '«Я хочу вернуть интерес к жизни, чтобы просыпаться с желанием что-то делать»',
+                    ].map((ex) => (
+                      <li key={ex} className="flex items-start gap-3 text-sm text-muted-foreground font-light">
+                        <span className="text-primary mt-0.5 flex-shrink-0">—</span>
+                        <span className="italic">{ex}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeIn>
+
+              {/* Шаг 4 */}
+              <FadeIn direction="up" delay={0.28}>
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                  <div className="flex items-start gap-4 mb-5">
+                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-medium">4</span>
+                    <div>
+                      <h4 className="text-lg md:text-xl font-serif text-foreground">Проверьте запрос на «прочность»</h4>
+                    </div>
+                  </div>
+                  <ul className="flex flex-col gap-3">
+                    {[
+                      'Запрос конкретный (не «стать счастливым», а «перестать просыпаться с тревогой»)',
+                      'Запрос про меня, а не про других («хочу, чтобы муж…» — это не запрос)',
+                      'Я могу измерить результат («я пойму, что стало лучше, когда…»)',
+                      'Запрос реалистичный и достижимый',
+                      'Запрос связан с тем, что я могу изменить в себе',
+                    ].map((criterion, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="flex-shrink-0 w-5 h-5 rounded border-2 border-primary/40 mt-0.5"></span>
+                        <span className="text-sm text-muted-foreground font-light">{criterion}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Примеры хороших и плохих запросов */}
+            <FadeIn direction="up" delay={0.3}>
+              <h3 className="text-2xl md:text-3xl font-serif mb-6 text-center text-foreground">Примеры запросов</h3>
+              <div className="overflow-x-auto mb-12 rounded-2xl border border-border shadow-sm">
+                <table className="w-full text-sm border-collapse bg-white">
+                  <thead>
+                    <tr className="border-b border-border bg-accent/30">
+                      <th className="text-left px-5 py-3 text-xs uppercase tracking-widest text-muted-foreground font-medium w-1/2">❌ Плохой запрос</th>
+                      <th className="text-left px-5 py-3 text-xs uppercase tracking-widest text-primary font-medium w-1/2">✅ Хороший запрос</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ['«Хочу стать счастливой»', '«Хочу перестать просыпаться с чувством вины»'],
+                      ['«Хочу, чтобы муж перестал кричать»', '«Хочу научиться спокойно реагировать на критику и говорить о своих чувствах»'],
+                      ['«Хочу найти себя»', '«Хочу понять, что мне нравится делать, и найти время для этого»'],
+                      ['«Мне плохо, помогите»', '«Я хочу уменьшить тревогу, которая мешает мне работать и общаться»'],
+                      ['«Хочу избавиться от депрессии»', '«Хочу вернуть способность радоваться тому, что раньше приносило удовольствие»'],
+                    ].map(([bad, good], i) => (
+                      <tr key={i} className="border-b border-border/50 last:border-0">
+                        <td className="px-5 py-3 text-muted-foreground font-light align-top italic">{bad}</td>
+                        <td className="px-5 py-3 text-foreground font-light align-top">{good}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </FadeIn>
+
+            {/* Что делать, если не получается */}
+            <FadeIn direction="up" delay={0.32}>
+              <h3 className="text-2xl md:text-3xl font-serif mb-6 text-center text-foreground">Что делать, если не получается сформулировать запрос?</h3>
+              <div className="flex flex-col gap-4 mb-12">
+                {[
+                  {
+                    num: '1',
+                    title: 'Начните с самого простого',
+                    text: '«Я не знаю, чего хочу, но знаю, что чувствую [назвать чувство]. Я хочу, чтобы это чувство стало слабее».',
+                    ex: 'Например: «Я чувствую постоянную усталость и пустоту. Я хочу, чтобы у меня появились силы и желание что-то делать».',
+                  },
+                  {
+                    num: '2',
+                    title: 'Используйте технику «Пустой стул»',
+                    text: 'Представьте, что напротив вас сидит ваша лучшая подруга. Она пришла к вам и говорит то же самое, что вы чувствуете. Что бы вы ей посоветовали? О чём бы она попросила психолога?',
+                    ex: '',
+                  },
+                  {
+                    num: '3',
+                    title: 'Спросите у психолога',
+                    text: 'На первой сессии психолог поможет сформулировать запрос. Это нормально — не знать ответа сразу. Вы можете сказать:',
+                    ex: '«Я пока не могу чётко сформулировать, чего хочу. Я просто знаю, что так больше не могу. Помогите мне разобраться».',
+                  },
+                ].map((item) => (
+                  <div key={item.num} className="bg-white border border-border rounded-2xl p-6 shadow-sm flex items-start gap-4">
+                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-accent text-foreground flex items-center justify-center text-sm font-medium">{item.num}</span>
+                    <div>
+                      <p className="text-base font-medium text-foreground mb-2">{item.title}</p>
+                      <p className="text-sm text-muted-foreground font-light leading-relaxed">{item.text}</p>
+                      {item.ex && <p className="text-sm text-muted-foreground font-light leading-relaxed mt-2 italic">{item.ex}</p>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+
+            {/* CTA */}
+            <FadeIn direction="up" delay={0.35}>
+              <div className="flex justify-center">
+                <a
+                  href="#contacts"
+                  onClick={(e) => scrollToSection(e, 'contacts')}
+                  className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
+                >
+                  Перейти к записи на консультацию
+                </a>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+
         {/* ABOUT SECTION */}
         <section id="about" className="py-12 md:py-16 px-6 bg-secondary/10 relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-5xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-[minmax(0,280px)_1fr] gap-12 items-center">
