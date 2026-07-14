@@ -101,9 +101,8 @@ function App() {
             
             <FadeIn direction="up" delay={0.6} className="w-full sm:w-auto">
               <a 
-                href="https://dikidi.net/1773633?p=0.pi"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#booking"
+                onClick={(e) => scrollToSection(e, 'booking')}
                 className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
               >
                 Записаться на консультацию
@@ -113,7 +112,7 @@ function App() {
         </section>
 
         {/* APPROACH SECTION */}
-        <section id="approach" className="py-12 md:py-16 px-6 bg-accent/30 relative" style={{ scrollMarginTop: '100px' }}>
+        <section id="approach" className="py-10 md:py-14 px-6 bg-accent/30 relative" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="order-2 md:order-1 relative h-[50vh] rounded-2xl overflow-hidden shadow-xl shadow-muted/50">
               <img 
@@ -143,7 +142,7 @@ function App() {
         </section>
 
         {/* FOR WHOM SECTION */}
-        <section id="for-whom" className="py-12 md:py-16 px-6 relative bg-background" style={{ scrollMarginTop: '100px' }}>
+        <section id="for-whom" className="py-10 md:py-14 px-6 relative bg-background" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <h2 className="text-3xl md:text-5xl font-serif mb-10 text-center">Вам это нужно, если...</h2>
@@ -171,7 +170,7 @@ function App() {
         </section>
 
         {/* HOW A SESSION WORKS SECTION */}
-        <section id="consultation" className="py-12 md:py-16 px-6 relative bg-accent/30" style={{ scrollMarginTop: '100px' }}>
+        <section id="consultation" className="py-10 md:py-14 px-6 relative bg-accent/30" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <h2 className="text-3xl md:text-5xl font-serif mb-6 text-center">Как проходит консультация</h2>
@@ -209,9 +208,8 @@ function App() {
             <FadeIn direction="up" delay={0.4}>
               <div className="flex justify-center">
                 <a 
-                  href="https://dikidi.net/1773633?p=0.pi"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#booking"
+                  onClick={(e) => scrollToSection(e, 'booking')}
                   className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
                 >
                   Записаться на консультацию
@@ -222,7 +220,7 @@ function App() {
         </section>
 
         {/* PREPARE FOR CONSULTATION SECTION */}
-        <section id="preparation" className="py-12 md:py-20 px-6 bg-background" style={{ scrollMarginTop: '100px' }}>
+        <section id="preparation" className="py-10 md:py-14 px-6 bg-background" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <div className="flex justify-center mb-4">
@@ -463,7 +461,7 @@ function App() {
         </section>
 
         {/* ABOUT SECTION */}
-        <section id="about" className="py-12 md:py-16 px-6 bg-secondary/10 relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
+        <section id="about" className="py-10 md:py-14 px-6 bg-secondary/10 relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-5xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-[minmax(0,280px)_1fr] gap-12 items-center">
             <FadeIn direction="up" className="mx-auto md:mx-0">
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg shadow-muted/50 border border-border">
@@ -485,7 +483,7 @@ function App() {
         </section>
 
         {/* BOOKING SECTION */}
-        <section id="booking" className="py-12 md:py-20 px-6 bg-accent/30" style={{ scrollMarginTop: '100px' }}>
+        <section id="booking" className="py-10 md:py-14 px-6 bg-accent/30" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <h2 className="text-3xl md:text-5xl font-serif mb-4 text-center">Запись на консультацию</h2>
