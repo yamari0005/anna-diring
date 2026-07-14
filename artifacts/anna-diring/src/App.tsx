@@ -210,25 +210,32 @@ function App() {
         <section id="prepare" className="py-12 md:py-20 px-6 bg-background" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
+              <div className="flex justify-center mb-4">
+                <span className="text-3xl md:text-4xl">📋</span>
+              </div>
               <h2 className="text-3xl md:text-5xl font-serif mb-4 text-center">Как подготовиться к консультации</h2>
             </FadeIn>
 
             {/* Что такое запрос */}
             <FadeIn direction="up" delay={0.1}>
-              <div className="mt-10 mb-10 bg-accent/40 border border-border rounded-2xl p-8">
-                <h3 className="text-xl md:text-2xl font-serif mb-4 text-foreground">Что такое «запрос»?</h3>
-                <p className="text-lg text-muted-foreground font-light leading-relaxed">
-                  Запрос — это ответ на вопрос: <span className="text-foreground font-normal">«Чего я хочу добиться в терапии? Что должно измениться в моей жизни?»</span>
-                </p>
+              <div className="mt-10 mb-10 bg-accent/50 border border-border rounded-2xl p-8 shadow-sm flex items-start gap-4">
+                <span className="text-2xl md:text-3xl flex-shrink-0 mt-0.5">💡</span>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-serif mb-3 text-foreground">Что такое «запрос»?</h3>
+                  <p className="text-lg text-muted-foreground font-light leading-relaxed">
+                    Запрос — это ответ на вопрос: <span className="text-foreground font-normal">«Чего я хочу добиться в терапии? Что должно измениться в моей жизни?»</span>
+                  </p>
+                </div>
               </div>
             </FadeIn>
 
             {/* Хороший vs Плохой запрос */}
             <FadeIn direction="up" delay={0.15}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                <div className="bg-[hsl(104,30%,96%)] border border-[hsl(104,25%,82%)] rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-base font-medium text-primary uppercase tracking-widest">✓ Хороший запрос</span>
+                    <span className="text-xl">✅</span>
+                    <span className="text-base font-medium text-[hsl(104,28%,32%)] uppercase tracking-widest">Хороший запрос</span>
                   </div>
                   <ul className="flex flex-col gap-3">
                     {[
@@ -237,15 +244,16 @@ function App() {
                       { label: 'Реалистичный', ex: '«я хочу научиться говорить "нет"»' },
                     ].map((item) => (
                       <li key={item.label} className="flex flex-col gap-0.5">
-                        <span className="text-sm uppercase tracking-wide text-foreground font-medium">{item.label}</span>
-                        <span className="text-sm text-muted-foreground font-light italic">{item.ex}</span>
+                        <span className="text-sm uppercase tracking-wide text-[hsl(104,28%,28%)] font-medium">{item.label}</span>
+                        <span className="text-sm text-[hsl(104,15%,38%)] font-light italic">{item.ex}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                <div className="bg-[hsl(10,45%,96%)] border border-[hsl(10,40%,85%)] rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-base font-medium text-muted-foreground uppercase tracking-widest">✗ Плохой запрос</span>
+                    <span className="text-xl">❌</span>
+                    <span className="text-base font-medium text-[hsl(10,40%,45%)] uppercase tracking-widest">Плохой запрос</span>
                   </div>
                   <ul className="flex flex-col gap-3">
                     {[
@@ -254,8 +262,8 @@ function App() {
                       { label: 'Ориентированный на других', ex: '«хочу, чтобы муж меня понял»' },
                     ].map((item) => (
                       <li key={item.label} className="flex flex-col gap-0.5">
-                        <span className="text-sm uppercase tracking-wide text-foreground font-medium">{item.label}</span>
-                        <span className="text-sm text-muted-foreground font-light italic">{item.ex}</span>
+                        <span className="text-sm uppercase tracking-wide text-[hsl(10,40%,38%)] font-medium">{item.label}</span>
+                        <span className="text-sm text-[hsl(10,25%,45%)] font-light italic">{item.ex}</span>
                       </li>
                     ))}
                   </ul>
@@ -271,9 +279,9 @@ function App() {
             <div className="flex flex-col gap-6 mb-12">
               {/* Шаг 1 */}
               <FadeIn direction="up" delay={0.22}>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-start gap-4 mb-4">
-                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-medium">1</span>
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">1</span>
                     <div>
                       <h4 className="text-lg md:text-xl font-serif text-foreground">Определите «зону боли»</h4>
                       <p className="text-sm text-muted-foreground mt-1 font-light">«Что прямо сейчас причиняет мне больше всего страданий?»</p>
@@ -308,9 +316,9 @@ function App() {
 
               {/* Шаг 2 */}
               <FadeIn direction="up" delay={0.24}>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-start gap-4 mb-4">
-                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-medium">2</span>
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">2</span>
                     <div>
                       <h4 className="text-lg md:text-xl font-serif text-foreground">Представьте «желаемое состояние»</h4>
                       <p className="text-sm text-muted-foreground mt-1 font-light">«Как я пойму, что стало легче? Что изменится?»</p>
@@ -344,14 +352,14 @@ function App() {
 
               {/* Шаг 3 */}
               <FadeIn direction="up" delay={0.26}>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-start gap-4 mb-4">
-                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-medium">3</span>
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">3</span>
                     <div>
                       <h4 className="text-lg md:text-xl font-serif text-foreground">Сформулируйте запрос по формуле</h4>
                     </div>
                   </div>
-                  <div className="bg-accent/50 rounded-xl px-6 py-4 mb-4 text-center">
+                  <div className="bg-accent/50 border border-border/60 rounded-xl px-6 py-4 mb-4 text-center">
                     <p className="text-base md:text-lg font-serif text-foreground italic">
                       «Я хочу <span className="text-primary not-italic font-medium">[конкретное изменение]</span>, чтобы <span className="text-primary not-italic font-medium">[как это повлияет на мою жизнь]</span>»
                     </p>
@@ -373,9 +381,9 @@ function App() {
 
               {/* Шаг 4 */}
               <FadeIn direction="up" delay={0.28}>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-start gap-4 mb-5">
-                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-medium">4</span>
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">4</span>
                     <div>
                       <h4 className="text-lg md:text-xl font-serif text-foreground">Проверьте запрос на «прочность»</h4>
                     </div>
@@ -389,7 +397,7 @@ function App() {
                       'Запрос связан с тем, что я могу изменить в себе',
                     ].map((criterion, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <span className="flex-shrink-0 w-5 h-5 rounded border-2 border-primary/40 mt-0.5"></span>
+                        <span className="flex-shrink-0 w-5 h-5 rounded-md bg-[hsl(104,30%,94%)] border border-[hsl(104,25%,75%)] text-[hsl(104,28%,32%)] mt-0.5 flex items-center justify-center text-[10px]">✓</span>
                         <span className="text-sm text-muted-foreground font-light">{criterion}</span>
                       </li>
                     ))}
@@ -404,9 +412,9 @@ function App() {
               <div className="overflow-x-auto mb-12 rounded-2xl border border-border shadow-sm">
                 <table className="w-full text-sm border-collapse bg-white">
                   <thead>
-                    <tr className="border-b border-border bg-accent/30">
-                      <th className="text-left px-5 py-3 text-xs uppercase tracking-widest text-muted-foreground font-medium w-1/2">❌ Плохой запрос</th>
-                      <th className="text-left px-5 py-3 text-xs uppercase tracking-widest text-primary font-medium w-1/2">✅ Хороший запрос</th>
+                    <tr className="border-b border-border">
+                      <th className="text-left px-5 py-3 text-xs uppercase tracking-widest text-[hsl(10,40%,45%)] font-medium w-1/2 bg-[hsl(10,45%,96%)]">❌ Плохой запрос</th>
+                      <th className="text-left px-5 py-3 text-xs uppercase tracking-widest text-[hsl(104,28%,32%)] font-medium w-1/2 bg-[hsl(104,30%,96%)]">✅ Хороший запрос</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -417,9 +425,9 @@ function App() {
                       ['«Мне плохо, помогите»', '«Я хочу уменьшить тревогу, которая мешает мне работать и общаться»'],
                       ['«Хочу избавиться от депрессии»', '«Хочу вернуть способность радоваться тому, что раньше приносило удовольствие»'],
                     ].map(([bad, good], i) => (
-                      <tr key={i} className="border-b border-border/50 last:border-0">
-                        <td className="px-5 py-3 text-muted-foreground font-light align-top italic">{bad}</td>
-                        <td className="px-5 py-3 text-foreground font-light align-top">{good}</td>
+                      <tr key={i} className="border-b border-border/50 last:border-0 hover:bg-accent/20 transition-colors duration-200">
+                        <td className="px-5 py-3 text-[hsl(10,25%,42%)] font-light align-top italic bg-[hsl(10,45%,98%)]">{bad}</td>
+                        <td className="px-5 py-3 text-[hsl(104,20%,28%)] font-light align-top bg-[hsl(104,30%,98%)]">{good}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -451,8 +459,8 @@ function App() {
                     ex: '«Я пока не могу чётко сформулировать, чего хочу. Я просто знаю, что так больше не могу. Помогите мне разобраться».',
                   },
                 ].map((item) => (
-                  <div key={item.num} className="bg-white border border-border rounded-2xl p-6 shadow-sm flex items-start gap-4">
-                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-accent text-foreground flex items-center justify-center text-sm font-medium">{item.num}</span>
+                  <div key={item.num} className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-4">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-secondary text-secondary-foreground flex items-center justify-center text-base font-serif shadow-sm">{item.num}</span>
                     <div>
                       <p className="text-base font-medium text-foreground mb-2">{item.title}</p>
                       <p className="text-sm text-muted-foreground font-light leading-relaxed">{item.text}</p>
@@ -469,7 +477,7 @@ function App() {
                 <a
                   href="#contacts"
                   onClick={(e) => scrollToSection(e, 'contacts')}
-                  className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
+                  className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm"
                 >
                   Перейти к записи на консультацию
                 </a>
