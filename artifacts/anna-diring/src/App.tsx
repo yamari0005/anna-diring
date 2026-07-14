@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FadeIn } from './components/FadeIn';
 import { InfoTable, ComparisonTable } from './components/ResponsiveTable';
 
+const NAV_LINKS = [
+  { id: 'approach', label: 'Подход' },
+  { id: 'for-whom', label: 'Для кого' },
+  { id: 'about', label: 'Обо мне' },
+  { id: 'consultation', label: 'Консультация' },
+  { id: 'preparation', label: 'Как подготовиться' },
+  { id: 'contacts', label: 'Контакты' },
+];
+
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
+    setIsMenuOpen(false);
     const target = document.getElementById(id);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   return (
     <div className="min-h-[100dvh] w-full bg-background text-foreground flex flex-col font-sans">
@@ -20,41 +39,16 @@ function App() {
           <div className="text-xs md:text-sm text-muted-foreground font-light tracking-wide">клинический психолог</div>
         </div>
         <nav className="flex items-center gap-5 md:gap-8">
-          <a
-            href="#approach"
-            onClick={(e) => scrollToSection(e, 'approach')}
-            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
-          >
-            Подход
-          </a>
-          <a
-            href="#for-whom"
-            onClick={(e) => scrollToSection(e, 'for-whom')}
-            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
-          >
-            Для кого
-          </a>
-          <a
-            href="#about"
-            onClick={(e) => scrollToSection(e, 'about')}
-            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
-          >
-            Обо мне
-          </a>
-          <a
-            href="#consultation"
-            onClick={(e) => scrollToSection(e, 'consultation')}
-            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
-          >
-            Консультация
-          </a>
-          <a
-            href="#preparation"
-            onClick={(e) => scrollToSection(e, 'preparation')}
-            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
-          >
-            Как подготовиться
-          </a>
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={(e) => scrollToSection(e, link.id)}
+              className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+            >
+              {link.label}
+            </a>
+          ))}
           <a
             href="#booking"
             onClick={(e) => scrollToSection(e, 'booking')}
@@ -62,15 +56,63 @@ function App() {
           >
             Записаться
           </a>
-          <a 
-            href="#contacts" 
-            onClick={(e) => scrollToSection(e, 'contacts')}
-            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+
+          {/* Mobile: hamburger toggle, always to the left of "Записаться" */}
+          <button
+            type="button"
+            aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="sm:hidden order-first -mr-1 relative w-8 h-8 flex items-center justify-center text-foreground"
           >
-            Контакты
-          </a>
+            <span
+              className={`absolute w-5 h-[1.5px] bg-current transition-all duration-300 ${
+                isMenuOpen ? 'rotate-45' : '-translate-y-[6px]'
+              }`}
+            />
+            <span
+              className={`absolute w-5 h-[1.5px] bg-current transition-all duration-300 ${
+                isMenuOpen ? 'opacity-0' : 'opacity-100'
+              }`}
+            />
+            <span
+              className={`absolute w-5 h-[1.5px] bg-current transition-all duration-300 ${
+                isMenuOpen ? '-rotate-45' : 'translate-y-[6px]'
+              }`}
+            />
+          </button>
         </nav>
       </header>
+
+      {/* MOBILE MENU OVERLAY */}
+      <div
+        className={`sm:hidden fixed inset-0 z-40 bg-foreground/20 backdrop-blur-[2px] transition-opacity duration-300 ${
+          isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      />
+
+      {/* MOBILE MENU DROPDOWN */}
+      <div
+        className={`sm:hidden fixed top-0 left-0 right-0 z-[60] pt-24 px-6 pb-6 bg-background border-b border-border shadow-lg transition-all duration-300 ease-out origin-top ${
+          isMenuOpen
+            ? 'opacity-100 scale-y-100 pointer-events-auto'
+            : 'opacity-0 scale-y-95 pointer-events-none'
+        }`}
+      >
+        <nav className="flex flex-col divide-y divide-border">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={(e) => scrollToSection(e, link.id)}
+              className="py-4 text-base tracking-wide text-foreground/90 hover:text-foreground active:text-foreground transition-colors duration-200"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
 
       <main className="flex-grow flex flex-col">
         {/* HERO SECTION */}
