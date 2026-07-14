@@ -509,7 +509,14 @@ function App() {
                     src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/"
                     title="Анкета для консультации"
                     className="w-full block"
-                    style={{ width: '100%', height: '850px', border: 'none' }}
+                    style={{
+                      width: '100%',
+                      height: '600px',
+                      border: '1px solid #e5e7eb',
+                      borderRadius: '12px',
+                      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                      overflow: 'hidden',
+                    }}
                     frameBorder="0"
                     loading="lazy"
                   />
