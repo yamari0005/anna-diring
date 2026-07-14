@@ -1,5 +1,6 @@
 import React from 'react';
 import { FadeIn } from './components/FadeIn';
+import { InfoTable, ComparisonTable } from './components/ResponsiveTable';
 
 function App() {
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -47,10 +48,24 @@ function App() {
           >
             Консультация
           </a>
+          <a
+            href="#preparation"
+            onClick={(e) => scrollToSection(e, 'preparation')}
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Как подготовиться
+          </a>
+          <a
+            href="#booking"
+            onClick={(e) => scrollToSection(e, 'booking')}
+            className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Записаться
+          </a>
           <a 
             href="#contacts" 
             onClick={(e) => scrollToSection(e, 'contacts')}
-            className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
             Контакты
           </a>
@@ -84,12 +99,11 @@ function App() {
               </p>
             </FadeIn>
             
-            <FadeIn direction="up" delay={0.6}>
+            <FadeIn direction="up" delay={0.6} className="w-full sm:w-auto">
               <a 
-                href="https://dikidi.net/1773633?p=0.pi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
+                href="#booking"
+                onClick={(e) => scrollToSection(e, 'booking')}
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
               >
                 Записаться на консультацию
               </a>
@@ -98,7 +112,7 @@ function App() {
         </section>
 
         {/* APPROACH SECTION */}
-        <section id="approach" className="py-12 md:py-16 px-6 bg-accent/30 relative" style={{ scrollMarginTop: '100px' }}>
+        <section id="approach" className="py-10 md:py-14 px-6 bg-accent/30 relative" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="order-2 md:order-1 relative h-[50vh] rounded-2xl overflow-hidden shadow-xl shadow-muted/50">
               <img 
@@ -128,7 +142,7 @@ function App() {
         </section>
 
         {/* FOR WHOM SECTION */}
-        <section id="for-whom" className="py-12 md:py-16 px-6 relative bg-background" style={{ scrollMarginTop: '100px' }}>
+        <section id="for-whom" className="py-10 md:py-14 px-6 relative bg-background" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <h2 className="text-3xl md:text-5xl font-serif mb-10 text-center">Вам это нужно, если...</h2>
@@ -156,7 +170,7 @@ function App() {
         </section>
 
         {/* HOW A SESSION WORKS SECTION */}
-        <section id="consultation" className="py-12 md:py-16 px-6 relative bg-accent/30" style={{ scrollMarginTop: '100px' }}>
+        <section id="consultation" className="py-10 md:py-14 px-6 relative bg-accent/30" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <h2 className="text-3xl md:text-5xl font-serif mb-6 text-center">Как проходит консультация</h2>
@@ -194,10 +208,9 @@ function App() {
             <FadeIn direction="up" delay={0.4}>
               <div className="flex justify-center">
                 <a 
-                  href="https://dikidi.net/1773633?p=0.pi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
+                  href="#booking"
+                  onClick={(e) => scrollToSection(e, 'booking')}
+                  className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
                 >
                   Записаться на консультацию
                 </a>
@@ -206,8 +219,249 @@ function App() {
           </div>
         </section>
 
+        {/* PREPARE FOR CONSULTATION SECTION */}
+        <section id="preparation" className="py-10 md:py-14 px-6 bg-background" style={{ scrollMarginTop: '100px' }}>
+          <div className="max-w-4xl mx-auto">
+            <FadeIn direction="up">
+              <div className="flex justify-center mb-4">
+                <span className="text-3xl md:text-4xl">📋</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-serif mb-4 text-center">Как подготовиться к консультации</h2>
+            </FadeIn>
+
+            {/* Что такое запрос */}
+            <FadeIn direction="up" delay={0.1}>
+              <div className="mt-10 mb-10 bg-accent/50 border border-border rounded-2xl p-8 shadow-sm flex items-start gap-4">
+                <span className="text-2xl md:text-3xl flex-shrink-0 mt-0.5">💡</span>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-serif mb-3 text-foreground">Что такое «запрос»?</h3>
+                  <p className="text-lg text-muted-foreground font-light leading-relaxed">
+                    Запрос — это ответ на вопрос: <span className="text-foreground font-normal">«Чего я хочу добиться в терапии? Что должно измениться в моей жизни?»</span>
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Хороший vs Плохой запрос */}
+            <FadeIn direction="up" delay={0.15}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+                <div className="bg-[hsl(104,30%,96%)] border border-[hsl(104,25%,82%)] rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-xl">✅</span>
+                    <span className="text-base font-medium text-[hsl(104,28%,32%)] uppercase tracking-widest">Хороший запрос</span>
+                  </div>
+                  <ul className="flex flex-col gap-3">
+                    {[
+                      { label: 'Конкретный', ex: '«я хочу перестать просыпаться с тревогой»' },
+                      { label: 'Измеримый', ex: '«я хочу плакать не чаще 2 раз в неделю»' },
+                      { label: 'Реалистичный', ex: '«я хочу научиться говорить "нет"»' },
+                    ].map((item) => (
+                      <li key={item.label} className="flex flex-col gap-0.5">
+                        <span className="text-sm uppercase tracking-wide text-[hsl(104,28%,28%)] font-medium">{item.label}</span>
+                        <span className="text-sm text-[hsl(104,15%,38%)] font-light italic">{item.ex}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-[hsl(10,45%,96%)] border border-[hsl(10,40%,85%)] rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-xl">❌</span>
+                    <span className="text-base font-medium text-[hsl(10,40%,45%)] uppercase tracking-widest">Плохой запрос</span>
+                  </div>
+                  <ul className="flex flex-col gap-3">
+                    {[
+                      { label: 'Слишком общий', ex: '«мне плохо, сделайте что-нибудь»' },
+                      { label: 'Неизмеримый', ex: '«хочу быть счастливым»' },
+                      { label: 'Ориентированный на других', ex: '«хочу, чтобы муж меня понял»' },
+                    ].map((item) => (
+                      <li key={item.label} className="flex flex-col gap-0.5">
+                        <span className="text-sm uppercase tracking-wide text-[hsl(10,40%,38%)] font-medium">{item.label}</span>
+                        <span className="text-sm text-[hsl(10,25%,45%)] font-light italic">{item.ex}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Пошаговая инструкция */}
+            <FadeIn direction="up" delay={0.2}>
+              <h3 className="text-2xl md:text-3xl font-serif mb-8 text-center text-foreground">Пошаговая инструкция</h3>
+            </FadeIn>
+
+            <div className="flex flex-col gap-6 mb-12">
+              {/* Шаг 1 */}
+              <FadeIn direction="up" delay={0.22}>
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-start gap-4 mb-4">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">1</span>
+                    <div>
+                      <h4 className="text-lg md:text-xl font-serif text-foreground">Определите «зону боли»</h4>
+                      <p className="text-sm text-muted-foreground mt-1 font-light">«Что прямо сейчас причиняет мне больше всего страданий?»</p>
+                    </div>
+                  </div>
+                  <InfoTable
+                    leftHeader="Сфера жизни"
+                    rightHeader="Примеры боли"
+                    rows={[
+                      ['Эмоции', 'Постоянная тревога, чувство вины, апатия, раздражительность'],
+                      ['Отношения', 'Конфликты с партнёром, одиночество, страх близости'],
+                      ['Работа', 'Выгорание, отсутствие смысла, страх ошибки'],
+                      ['Тело', 'Усталость, бессонница, психосоматика'],
+                      ['Самооценка', 'Чувство неудачника, самокритика, неуверенность'],
+                    ]}
+                  />
+                </div>
+              </FadeIn>
+
+              {/* Шаг 2 */}
+              <FadeIn direction="up" delay={0.24}>
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-start gap-4 mb-4">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">2</span>
+                    <div>
+                      <h4 className="text-lg md:text-xl font-serif text-foreground">Представьте «желаемое состояние»</h4>
+                      <p className="text-sm text-muted-foreground mt-1 font-light">«Как я пойму, что стало легче? Что изменится?»</p>
+                    </div>
+                  </div>
+                  <InfoTable
+                    leftHeader="Если боль в…"
+                    rightHeader="Как вы это заметите?"
+                    rows={[
+                      ['Тревоге', 'Перестану просыпаться с учащённым сердцебиением'],
+                      ['Чувстве вины', 'Перестану извиняться без причины'],
+                      ['Апатии', 'Появится желание что-то делать'],
+                      ['Конфликтах', 'Научусь спокойно говорить о своих чувствах'],
+                    ]}
+                  />
+                </div>
+              </FadeIn>
+
+              {/* Шаг 3 */}
+              <FadeIn direction="up" delay={0.26}>
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-start gap-4 mb-4">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">3</span>
+                    <div>
+                      <h4 className="text-lg md:text-xl font-serif text-foreground">Сформулируйте запрос по формуле</h4>
+                    </div>
+                  </div>
+                  <div className="bg-accent/50 border border-border/60 rounded-xl px-6 py-4 mb-4 text-center">
+                    <p className="text-base md:text-lg font-serif text-foreground italic">
+                      «Я хочу <span className="text-primary not-italic font-medium">[конкретное изменение]</span>, чтобы <span className="text-primary not-italic font-medium">[как это повлияет на мою жизнь]</span>»
+                    </p>
+                  </div>
+                  <ul className="flex flex-col gap-2">
+                    {[
+                      '«Я хочу перестать винить себя за каждую ошибку, чтобы чувствовать себя спокойнее и увереннее»',
+                      '«Я хочу научиться говорить «нет», чтобы перестать чувствовать себя использованной»',
+                      '«Я хочу вернуть интерес к жизни, чтобы просыпаться с желанием что-то делать»',
+                    ].map((ex) => (
+                      <li key={ex} className="flex items-start gap-3 text-sm text-muted-foreground font-light">
+                        <span className="text-primary mt-0.5 flex-shrink-0">—</span>
+                        <span className="italic">{ex}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeIn>
+
+              {/* Шаг 4 */}
+              <FadeIn direction="up" delay={0.28}>
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-start gap-4 mb-5">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">4</span>
+                    <div>
+                      <h4 className="text-lg md:text-xl font-serif text-foreground">Проверьте запрос на «прочность»</h4>
+                    </div>
+                  </div>
+                  <ul className="flex flex-col gap-3">
+                    {[
+                      'Запрос конкретный (не «стать счастливым», а «перестать просыпаться с тревогой»)',
+                      'Запрос про меня, а не про других («хочу, чтобы муж…» — это не запрос)',
+                      'Я могу измерить результат («я пойму, что стало лучше, когда…»)',
+                      'Запрос реалистичный и достижимый',
+                      'Запрос связан с тем, что я могу изменить в себе',
+                    ].map((criterion, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="flex-shrink-0 w-5 h-5 rounded-md bg-[hsl(104,30%,94%)] border border-[hsl(104,25%,75%)] text-[hsl(104,28%,32%)] mt-0.5 flex items-center justify-center text-[10px]">✓</span>
+                        <span className="text-sm text-muted-foreground font-light">{criterion}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Примеры хороших и плохих запросов */}
+            <FadeIn direction="up" delay={0.3}>
+              <h3 className="text-2xl md:text-3xl font-serif mb-6 text-center text-foreground">Примеры запросов</h3>
+              <ComparisonTable
+                badHeader="❌ Плохой запрос"
+                goodHeader="✅ Хороший запрос"
+                rows={[
+                  ['«Хочу стать счастливой»', '«Хочу перестать просыпаться с чувством вины»'],
+                  ['«Хочу, чтобы муж перестал кричать»', '«Хочу научиться спокойно реагировать на критику и говорить о своих чувствах»'],
+                  ['«Хочу найти себя»', '«Хочу понять, что мне нравится делать, и найти время для этого»'],
+                  ['«Мне плохо, помогите»', '«Я хочу уменьшить тревогу, которая мешает мне работать и общаться»'],
+                  ['«Хочу избавиться от депрессии»', '«Хочу вернуть способность радоваться тому, что раньше приносило удовольствие»'],
+                ]}
+              />
+            </FadeIn>
+
+            {/* Что делать, если не получается */}
+            <FadeIn direction="up" delay={0.32}>
+              <h3 className="text-2xl md:text-3xl font-serif mb-6 text-center text-foreground">Что делать, если не получается сформулировать запрос?</h3>
+              <div className="flex flex-col gap-4 mb-12">
+                {[
+                  {
+                    num: '1',
+                    title: 'Начните с самого простого',
+                    text: '«Я не знаю, чего хочу, но знаю, что чувствую [назвать чувство]. Я хочу, чтобы это чувство стало слабее».',
+                    ex: 'Например: «Я чувствую постоянную усталость и пустоту. Я хочу, чтобы у меня появились силы и желание что-то делать».',
+                  },
+                  {
+                    num: '2',
+                    title: 'Используйте технику «Пустой стул»',
+                    text: 'Представьте, что напротив вас сидит ваша лучшая подруга. Она пришла к вам и говорит то же самое, что вы чувствуете. Что бы вы ей посоветовали? О чём бы она попросила психолога?',
+                    ex: '',
+                  },
+                  {
+                    num: '3',
+                    title: 'Спросите у психолога',
+                    text: 'На первой сессии психолог поможет сформулировать запрос. Это нормально — не знать ответа сразу. Вы можете сказать:',
+                    ex: '«Я пока не могу чётко сформулировать, чего хочу. Я просто знаю, что так больше не могу. Помогите мне разобраться».',
+                  },
+                ].map((item) => (
+                  <div key={item.num} className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-4">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-secondary text-secondary-foreground flex items-center justify-center text-base font-serif shadow-sm">{item.num}</span>
+                    <div>
+                      <p className="text-base font-medium text-foreground mb-2">{item.title}</p>
+                      <p className="text-sm text-muted-foreground font-light leading-relaxed">{item.text}</p>
+                      {item.ex && <p className="text-sm text-muted-foreground font-light leading-relaxed mt-2 italic">{item.ex}</p>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+
+            {/* CTA */}
+            <FadeIn direction="up" delay={0.35}>
+              <div className="flex justify-center">
+                <a
+                  href="#booking"
+                  onClick={(e) => scrollToSection(e, 'booking')}
+                  className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm"
+                >
+                  Перейти к записи на консультацию
+                </a>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+
         {/* ABOUT SECTION */}
-        <section id="about" className="py-12 md:py-16 px-6 bg-secondary/10 relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
+        <section id="about" className="py-10 md:py-14 px-6 bg-secondary/10 relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-5xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-[minmax(0,280px)_1fr] gap-12 items-center">
             <FadeIn direction="up" className="mx-auto md:mx-0">
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg shadow-muted/50 border border-border">
@@ -224,6 +478,67 @@ function App() {
               <p className="text-2xl md:text-4xl font-serif text-foreground leading-relaxed italic text-center md:text-left">
                 «Я Анна Диринг. Верю, что успех клиента — это главный допинг психолога. Моя цель — чтобы вы стали настолько устойчивыми, что я больше не понадобилась.»
               </p>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* BOOKING SECTION */}
+        <section id="booking" className="py-10 md:py-14 px-6 bg-accent/30" style={{ scrollMarginTop: '100px' }}>
+          <div className="max-w-4xl mx-auto">
+            <FadeIn direction="up">
+              <h2 className="text-3xl md:text-5xl font-serif mb-4 text-center">Запись на консультацию</h2>
+            </FadeIn>
+
+            <FadeIn direction="up" delay={0.1}>
+              <p className="text-lg text-muted-foreground font-light leading-relaxed text-center max-w-2xl mx-auto mb-10">
+                Пожалуйста, заполните короткую анкету ниже. Это поможет мне лучше понять вашу ситуацию до нашей встречи. После отправки формы вы сможете выбрать удобное время.
+              </p>
+            </FadeIn>
+
+            {/* Шаг 1: Анкета */}
+            <FadeIn direction="up" delay={0.15}>
+              <div className="mb-14">
+                <div className="flex items-center gap-4 mb-5">
+                  <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">1</span>
+                  <h3 className="text-xl md:text-2xl font-serif text-foreground">Заполните анкету</h3>
+                </div>
+                <div className="rounded-2xl border border-border shadow-lg shadow-muted/40 overflow-hidden bg-white">
+                  <iframe
+                    src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/"
+                    title="Анкета для консультации"
+                    className="w-full block"
+                    style={{
+                      width: '100%',
+                      height: '600px',
+                      border: '1px solid #e5e7eb',
+                      borderRadius: '12px',
+                      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                      overflow: 'hidden',
+                    }}
+                    frameBorder="0"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Шаг 2: Выбор времени */}
+            <FadeIn direction="up" delay={0.2}>
+              <div className="bg-white border border-border rounded-2xl p-8 md:p-10 shadow-sm text-center flex flex-col items-center gap-4">
+                <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm mb-1">2</span>
+                <h3 className="text-xl md:text-2xl font-serif text-foreground">Шаг 2: Выберите время</h3>
+                <p className="text-base text-muted-foreground font-light leading-relaxed max-w-md">
+                  После заполнения формы нажмите кнопку ниже, чтобы перейти в календарь и выбрать свободный слот.
+                </p>
+                <a
+                  href="https://dikidi.net/1773633?p=0.pi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm mt-2"
+                >
+                  Выбрать время консультации →
+                </a>
+              </div>
             </FadeIn>
           </div>
         </section>
@@ -250,7 +565,7 @@ function App() {
                 href="https://dikidi.net/1773633?p=0.pi" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-background text-foreground px-8 py-4 rounded-full text-base uppercase tracking-widest hover:bg-background/90 transition-colors duration-300"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-background text-foreground px-8 py-4 rounded-full text-base uppercase tracking-widest hover:bg-background/90 transition-colors duration-300"
               >
                 Открыть расписание на Dikidi
               </a>
