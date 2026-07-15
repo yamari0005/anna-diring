@@ -324,14 +324,11 @@ function App() {
 
             {/* Что такое запрос */}
             <FadeIn direction="up" delay={0.1}>
-              <div className="mt-10 mb-10 bg-accent/50 border border-border rounded-2xl p-8 shadow-sm flex items-start gap-4">
-                <span className="text-2xl md:text-3xl flex-shrink-0 mt-0.5">💡</span>
-                <div>
-                  <h3 className="text-xl md:text-2xl font-serif mb-3 text-foreground">Что такое «запрос»?</h3>
-                  <p className="text-lg text-muted-foreground font-light leading-relaxed">
-                    Запрос — это ответ на вопрос: <span className="text-foreground font-normal">«Чего я хочу добиться в терапии? Что должно измениться в моей жизни?»</span>
-                  </p>
-                </div>
+              <div className="mt-10 mb-10 bg-accent/50 border border-border rounded-2xl p-8 shadow-sm">
+                <h3 className="text-xl md:text-2xl font-serif mb-3 text-foreground">Что такое «запрос»?</h3>
+                <p className="text-lg text-muted-foreground font-light leading-relaxed">
+                  Запрос — это ответ на вопрос: <span className="text-foreground font-normal">«Чего я хочу добиться в терапии? Что должно измениться в моей жизни?»</span>
+                </p>
               </div>
             </FadeIn>
 
@@ -540,6 +537,15 @@ function App() {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-6 bg-[hsl(104,30%,96%)] border border-[hsl(104,25%,82%)] rounded-xl p-5 md:p-6 shadow-sm">
+                <h4 className="text-sm uppercase tracking-widest text-[hsl(104,28%,32%)] font-medium mb-2">
+                  Гарантия конфиденциальности
+                </h4>
+                <p className="text-sm md:text-base text-muted-foreground font-light leading-relaxed">
+                  Всё, что обсуждается на сессии, остаётся строго между нами. Я соблюдаю этический кодекс психолога и гарантирую полную конфиденциальность. Это ваше безопасное пространство.
+                </p>
+              </div>
             </FadeIn>
           </div>
         </section>
@@ -655,6 +661,9 @@ function App() {
                 </svg>
                 Мой канал в Telegram
               </a>
+              <p className="mt-2 text-sm md:text-base leading-relaxed text-background/50">
+                300+ постов о психологии, ответы на частые вопросы и реальные кейсы из практики (анонимно)
+              </p>
             </FadeIn>
           </div>
         </div>
