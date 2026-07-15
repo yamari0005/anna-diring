@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FadeIn } from './components/FadeIn';
 import { InfoTable, ComparisonTable } from './components/ResponsiveTable';
 import { PreparationAccordion } from './components/PreparationAccordion';
+import { ScrollToTopButton } from './components/ScrollToTopButton';
 
 const NAV_LINKS = [
   { id: 'approach', label: 'Подход' },
@@ -625,6 +626,8 @@ function App() {
           <p>Психологическое консультирование</p>
         </div>
       </footer>
+
+      <ScrollToTopButton />
     </div>
   );
 }
