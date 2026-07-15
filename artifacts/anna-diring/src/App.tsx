@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FadeIn } from './components/FadeIn';
 import { InfoTable, ComparisonTable } from './components/ResponsiveTable';
+import { PreparationAccordion } from './components/PreparationAccordion';
 
 const NAV_LINKS = [
   { id: 'approach', label: 'Подход' },
@@ -13,6 +14,7 @@ const NAV_LINKS = [
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showExamples, setShowExamples] = useState(false);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -297,9 +299,6 @@ function App() {
         <section id="preparation" className="py-10 md:py-14 px-6 bg-background" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
-              <div className="flex justify-center mb-4">
-                <span className="text-3xl md:text-4xl">📋</span>
-              </div>
               <h2 className="text-3xl md:text-5xl font-serif mb-4 text-center">Как подготовиться к консультации</h2>
             </FadeIn>
 
@@ -358,129 +357,55 @@ function App() {
               </div>
             </FadeIn>
 
-            {/* Пошаговая инструкция */}
+            {/* Пошаговая инструкция — интерактивный аккордеон */}
             <FadeIn direction="up" delay={0.2}>
-              <h3 className="text-2xl md:text-3xl font-serif mb-8 text-center text-foreground">Пошаговая инструкция</h3>
+              <h3 className="text-2xl md:text-3xl font-serif mb-3 text-center text-foreground">Пошаговая инструкция</h3>
+              <p className="text-sm text-muted-foreground font-light text-center mb-8 max-w-xl mx-auto">
+                Заполните каждый шаг своими ответами — они сохранятся в этом браузере, и вы сможете вернуться к ним позже.
+              </p>
             </FadeIn>
 
-            <div className="flex flex-col gap-6 mb-12">
-              {/* Шаг 1 */}
-              <FadeIn direction="up" delay={0.22}>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-start gap-4 mb-4">
-                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">1</span>
-                    <div>
-                      <h4 className="text-lg md:text-xl font-serif text-foreground">Определите «зону боли»</h4>
-                      <p className="text-sm text-muted-foreground mt-1 font-light">«Что прямо сейчас причиняет мне больше всего страданий?»</p>
-                    </div>
-                  </div>
-                  <InfoTable
-                    leftHeader="Сфера жизни"
-                    rightHeader="Примеры боли"
-                    rows={[
-                      ['Эмоции', 'Постоянная тревога, чувство вины, апатия, раздражительность'],
-                      ['Отношения', 'Конфликты с партнёром, одиночество, страх близости'],
-                      ['Работа', 'Выгорание, отсутствие смысла, страх ошибки'],
-                      ['Тело', 'Усталость, бессонница, психосоматика'],
-                      ['Самооценка', 'Чувство неудачника, самокритика, неуверенность'],
-                    ]}
-                  />
-                </div>
-              </FadeIn>
-
-              {/* Шаг 2 */}
-              <FadeIn direction="up" delay={0.24}>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-start gap-4 mb-4">
-                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">2</span>
-                    <div>
-                      <h4 className="text-lg md:text-xl font-serif text-foreground">Представьте «желаемое состояние»</h4>
-                      <p className="text-sm text-muted-foreground mt-1 font-light">«Как я пойму, что стало легче? Что изменится?»</p>
-                    </div>
-                  </div>
-                  <InfoTable
-                    leftHeader="Если боль в…"
-                    rightHeader="Как вы это заметите?"
-                    rows={[
-                      ['Тревоге', 'Перестану просыпаться с учащённым сердцебиением'],
-                      ['Чувстве вины', 'Перестану извиняться без причины'],
-                      ['Апатии', 'Появится желание что-то делать'],
-                      ['Конфликтах', 'Научусь спокойно говорить о своих чувствах'],
-                    ]}
-                  />
-                </div>
-              </FadeIn>
-
-              {/* Шаг 3 */}
-              <FadeIn direction="up" delay={0.26}>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-start gap-4 mb-4">
-                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">3</span>
-                    <div>
-                      <h4 className="text-lg md:text-xl font-serif text-foreground">Сформулируйте запрос по формуле</h4>
-                    </div>
-                  </div>
-                  <div className="bg-accent/50 border border-border/60 rounded-xl px-6 py-4 mb-4 text-center">
-                    <p className="text-base md:text-lg font-serif text-foreground italic">
-                      «Я хочу <span className="text-primary not-italic font-medium">[конкретное изменение]</span>, чтобы <span className="text-primary not-italic font-medium">[как это повлияет на мою жизнь]</span>»
-                    </p>
-                  </div>
-                  <ul className="flex flex-col gap-2">
-                    {[
-                      '«Я хочу перестать винить себя за каждую ошибку, чтобы чувствовать себя спокойнее и увереннее»',
-                      '«Я хочу научиться говорить «нет», чтобы перестать чувствовать себя использованной»',
-                      '«Я хочу вернуть интерес к жизни, чтобы просыпаться с желанием что-то делать»',
-                    ].map((ex) => (
-                      <li key={ex} className="flex items-start gap-3 text-sm text-muted-foreground font-light">
-                        <span className="text-primary mt-0.5 flex-shrink-0">—</span>
-                        <span className="italic">{ex}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </FadeIn>
-
-              {/* Шаг 4 */}
-              <FadeIn direction="up" delay={0.28}>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-start gap-4 mb-5">
-                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">4</span>
-                    <div>
-                      <h4 className="text-lg md:text-xl font-serif text-foreground">Проверьте запрос на «прочность»</h4>
-                    </div>
-                  </div>
-                  <ul className="flex flex-col gap-3">
-                    {[
-                      'Запрос конкретный (не «стать счастливым», а «перестать просыпаться с тревогой»)',
-                      'Запрос про меня, а не про других («хочу, чтобы муж…» — это не запрос)',
-                      'Я могу измерить результат («я пойму, что стало лучше, когда…»)',
-                      'Запрос реалистичный и достижимый',
-                      'Запрос связан с тем, что я могу изменить в себе',
-                    ].map((criterion, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="flex-shrink-0 w-5 h-5 rounded-md bg-[hsl(104,30%,94%)] border border-[hsl(104,25%,75%)] text-[hsl(104,28%,32%)] mt-0.5 flex items-center justify-center text-[10px]">✓</span>
-                        <span className="text-sm text-muted-foreground font-light">{criterion}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </FadeIn>
-            </div>
+            <FadeIn direction="up" delay={0.22}>
+              <div className="mb-12">
+                <PreparationAccordion />
+              </div>
+            </FadeIn>
 
             {/* Примеры хороших и плохих запросов */}
             <FadeIn direction="up" delay={0.3}>
-              <h3 className="text-2xl md:text-3xl font-serif mb-6 text-center text-foreground">Примеры запросов</h3>
-              <ComparisonTable
-                badHeader="❌ Плохой запрос"
-                goodHeader="✅ Хороший запрос"
-                rows={[
-                  ['«Хочу стать счастливой»', '«Хочу перестать просыпаться с чувством вины»'],
-                  ['«Хочу, чтобы муж перестал кричать»', '«Хочу научиться спокойно реагировать на критику и говорить о своих чувствах»'],
-                  ['«Хочу найти себя»', '«Хочу понять, что мне нравится делать, и найти время для этого»'],
-                  ['«Мне плохо, помогите»', '«Я хочу уменьшить тревогу, которая мешает мне работать и общаться»'],
-                  ['«Хочу избавиться от депрессии»', '«Хочу вернуть способность радоваться тому, что раньше приносило удовольствие»'],
-                ]}
-              />
+              <div className="mb-12">
+                <h3 className="text-2xl md:text-3xl font-serif mb-4 text-center text-foreground">Примеры хороших и плохих запросов</h3>
+                <div className="flex justify-center mb-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowExamples((v) => !v)}
+                    aria-expanded={showExamples}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border bg-white text-sm md:text-base uppercase tracking-widest text-foreground shadow-sm hover:shadow-md hover:bg-accent/40 transition-all duration-300"
+                  >
+                    {showExamples ? 'Скрыть' : 'Показать примеры'}
+                    <span className={`transition-transform duration-300 ${showExamples ? 'rotate-180' : ''}`}>
+                      {showExamples ? '▲' : '▼'}
+                    </span>
+                  </button>
+                </div>
+                {showExamples && (
+                  <div className="animate-in fade-in slide-in-from-top-2 duration-300">
+                    <div className="pt-6">
+                      <ComparisonTable
+                        badHeader="❌ Плохой запрос"
+                        goodHeader="✅ Хороший запрос"
+                        rows={[
+                          ['«Хочу стать счастливой»', '«Хочу перестать просыпаться с чувством вины»'],
+                          ['«Хочу, чтобы муж перестал кричать»', '«Хочу научиться спокойно реагировать на критику и говорить о своих чувствах»'],
+                          ['«Хочу найти себя»', '«Хочу понять, что мне нравится делать, и найти время для этого»'],
+                          ['«Мне плохо, помогите»', '«Я хочу уменьшить тревогу, которая мешает мне работать и общаться»'],
+                          ['«Хочу избавиться от депрессии»', '«Хочу вернуть способность радоваться тому, что раньше приносило удовольствие»'],
+                        ]}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
             </FadeIn>
 
             {/* Что делать, если не получается */}
@@ -516,6 +441,30 @@ function App() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </FadeIn>
+
+            {/* Зачем нужен хороший запрос */}
+            <FadeIn direction="up" delay={0.33}>
+              <div className="bg-accent/40 border border-border/60 rounded-2xl px-6 md:px-10 py-8 mb-12 text-center">
+                <p className="text-lg md:text-xl font-serif font-bold text-foreground mb-4 leading-snug italic">
+                  Хороший запрос — это не обязанность, а инструмент.
+                </p>
+                <p className="text-sm text-muted-foreground font-light mb-4 leading-snug">Он помогает:</p>
+                <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
+                  {[
+                    { who: 'Психологу', what: 'понять, куда двигаться' },
+                    { who: 'Вам', what: 'видеть прогресс' },
+                    { who: 'Терапии', what: 'быть эффективной' },
+                  ].map((item) => (
+                    <div key={item.who} className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2" />
+                      <p className="text-sm text-muted-foreground font-light leading-snug">
+                        <span className="text-foreground font-medium">{item.who}</span> — {item.what}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </FadeIn>
 
@@ -658,11 +607,14 @@ function App() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 text-lg font-medium tracking-wide uppercase hover:text-primary transition-colors duration-300"
               >
-                Написать в Telegram
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
+                <svg width="24" height="24" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+                  <circle cx="120" cy="120" r="120" fill="#229ED9" />
+                  <path
+                    d="M50 118l124-48c6-2 11 1 9 10l-21 100c-2 8-7 10-14 6l-38-28-18 17c-2 2-4 4-8 4l3-40 73-66c3-3-1-5-5-2l-90 57-39-12c-8-3-8-8 2-11z"
+                    fill="white"
+                  />
                 </svg>
+                Мой канал в Telegram
               </a>
             </FadeIn>
           </div>
