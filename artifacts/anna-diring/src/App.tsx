@@ -14,6 +14,7 @@ const NAV_LINKS = [
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showExamples, setShowExamples] = useState(false);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -372,18 +373,42 @@ function App() {
 
             {/* Примеры хороших и плохих запросов */}
             <FadeIn direction="up" delay={0.3}>
-              <h3 className="text-2xl md:text-3xl font-serif mb-6 text-center text-foreground">Примеры запросов</h3>
-              <ComparisonTable
-                badHeader="❌ Плохой запрос"
-                goodHeader="✅ Хороший запрос"
-                rows={[
-                  ['«Хочу стать счастливой»', '«Хочу перестать просыпаться с чувством вины»'],
-                  ['«Хочу, чтобы муж перестал кричать»', '«Хочу научиться спокойно реагировать на критику и говорить о своих чувствах»'],
-                  ['«Хочу найти себя»', '«Хочу понять, что мне нравится делать, и найти время для этого»'],
-                  ['«Мне плохо, помогите»', '«Я хочу уменьшить тревогу, которая мешает мне работать и общаться»'],
-                  ['«Хочу избавиться от депрессии»', '«Хочу вернуть способность радоваться тому, что раньше приносило удовольствие»'],
-                ]}
-              />
+              <div className="mb-12">
+                <h3 className="text-2xl md:text-3xl font-serif mb-4 text-center text-foreground">Примеры хороших и плохих запросов</h3>
+                <div className="flex justify-center mb-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowExamples((v) => !v)}
+                    aria-expanded={showExamples}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border bg-white text-sm md:text-base uppercase tracking-widest text-foreground shadow-sm hover:shadow-md hover:bg-accent/40 transition-all duration-300"
+                  >
+                    {showExamples ? 'Скрыть' : 'Показать примеры'}
+                    <span className={`transition-transform duration-300 ${showExamples ? 'rotate-180' : ''}`}>
+                      {showExamples ? '▲' : '▼'}
+                    </span>
+                  </button>
+                </div>
+                <div
+                  className="grid transition-[grid-template-rows] duration-500 ease-in-out"
+                  style={{ gridTemplateRows: showExamples ? '1fr' : '0fr' }}
+                >
+                  <div className="overflow-hidden">
+                    <div className="pt-6">
+                      <ComparisonTable
+                        badHeader="❌ Плохой запрос"
+                        goodHeader="✅ Хороший запрос"
+                        rows={[
+                          ['«Хочу стать счастливой»', '«Хочу перестать просыпаться с чувством вины»'],
+                          ['«Хочу, чтобы муж перестал кричать»', '«Хочу научиться спокойно реагировать на критику и говорить о своих чувствах»'],
+                          ['«Хочу найти себя»', '«Хочу понять, что мне нравится делать, и найти время для этого»'],
+                          ['«Мне плохо, помогите»', '«Я хочу уменьшить тревогу, которая мешает мне работать и общаться»'],
+                          ['«Хочу избавиться от депрессии»', '«Хочу вернуть способность радоваться тому, что раньше приносило удовольствие»'],
+                        ]}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </FadeIn>
 
             {/* Что делать, если не получается */}
@@ -419,6 +444,30 @@ function App() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </FadeIn>
+
+            {/* Зачем нужен хороший запрос */}
+            <FadeIn direction="up" delay={0.33}>
+              <div className="bg-accent/40 border border-border/60 rounded-2xl px-6 md:px-10 py-8 mb-12 text-center">
+                <p className="text-lg md:text-xl font-serif text-foreground mb-6 italic">
+                  Хороший запрос — это не обязанность, а инструмент.
+                </p>
+                <p className="text-sm text-muted-foreground font-light mb-5">Он помогает:</p>
+                <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
+                  {[
+                    { who: 'Психологу', what: 'понять, куда двигаться' },
+                    { who: 'Вам', what: 'видеть прогресс' },
+                    { who: 'Терапии', what: 'быть эффективной' },
+                  ].map((item) => (
+                    <div key={item.who} className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2" />
+                      <p className="text-sm text-muted-foreground font-light leading-relaxed">
+                        <span className="text-foreground font-medium">{item.who}</span> — {item.what}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </FadeIn>
 
@@ -561,7 +610,7 @@ function App() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 text-lg font-medium tracking-wide uppercase hover:text-primary transition-colors duration-300"
               >
-                Написать в Telegram
+                Мой канал в Telegram
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
