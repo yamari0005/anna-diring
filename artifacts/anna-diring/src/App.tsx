@@ -524,29 +524,18 @@ function App() {
 
               <ul className="mt-8 flex flex-col gap-3">
                 {[
-                  {
-                    icon: '🎓',
-                    text: <span>Магистр клинической психологии</span>,
-                  },
-                  {
-                    icon: '🎯',
-                    text: <span>Специализация: <span className="text-foreground font-light">тревога, последствия травм, выгорание</span></span>,
-                  },
-                  {
-                    icon: '🛠',
-                    text: (
-                      <span>
-                        Методы:{' '}
-                        <strong className="font-semibold text-foreground">КПТ</strong>
-                        <span className="text-muted-foreground font-light"> (когнитивно-поведенческая терапия)</span>
-                        {' '}и{' '}
-                        <strong className="font-semibold text-foreground">ДПДГ (EMDR)</strong>
-                      </span>
-                    ),
-                  },
-                ].map(({ icon, text }, i) => (
+                  <span>Магистр клинической психологии</span>,
+                  <span>Специализация: <span className="text-foreground font-light">тревога, последствия травм, выгорание</span></span>,
+                  <span>
+                    Методы:{' '}
+                    <strong className="font-semibold text-foreground">КПТ</strong>
+                    <span className="text-muted-foreground font-light"> (когнитивно-поведенческая терапия)</span>
+                    {' '}и{' '}
+                    <strong className="font-semibold text-foreground">ДПДГ (EMDR)</strong>
+                  </span>,
+                ].map((text, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm md:text-base text-muted-foreground font-light leading-snug">
-                    <span className="flex-shrink-0 text-base mt-0.5" aria-hidden="true">{icon}</span>
+                    <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-primary/50 mt-2" aria-hidden="true" />
                     {text}
                   </li>
                 ))}
