@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FadeIn } from './components/FadeIn';
 import { InfoTable, ComparisonTable } from './components/ResponsiveTable';
+import { PreparationAccordion } from './components/PreparationAccordion';
 
 const NAV_LINKS = [
   { id: 'approach', label: 'Подход' },
@@ -297,9 +298,6 @@ function App() {
         <section id="preparation" className="py-10 md:py-14 px-6 bg-background" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
-              <div className="flex justify-center mb-4">
-                <span className="text-3xl md:text-4xl">📋</span>
-              </div>
               <h2 className="text-3xl md:text-5xl font-serif mb-4 text-center">Как подготовиться к консультации</h2>
             </FadeIn>
 
@@ -358,114 +356,19 @@ function App() {
               </div>
             </FadeIn>
 
-            {/* Пошаговая инструкция */}
+            {/* Пошаговая инструкция — интерактивный аккордеон */}
             <FadeIn direction="up" delay={0.2}>
-              <h3 className="text-2xl md:text-3xl font-serif mb-8 text-center text-foreground">Пошаговая инструкция</h3>
+              <h3 className="text-2xl md:text-3xl font-serif mb-3 text-center text-foreground">Пошаговая инструкция</h3>
+              <p className="text-sm text-muted-foreground font-light text-center mb-8 max-w-xl mx-auto">
+                Заполните каждый шаг своими ответами — они сохранятся в этом браузере, и вы сможете вернуться к ним позже.
+              </p>
             </FadeIn>
 
-            <div className="flex flex-col gap-6 mb-12">
-              {/* Шаг 1 */}
-              <FadeIn direction="up" delay={0.22}>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-start gap-4 mb-4">
-                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">1</span>
-                    <div>
-                      <h4 className="text-lg md:text-xl font-serif text-foreground">Определите «зону боли»</h4>
-                      <p className="text-sm text-muted-foreground mt-1 font-light">«Что прямо сейчас причиняет мне больше всего страданий?»</p>
-                    </div>
-                  </div>
-                  <InfoTable
-                    leftHeader="Сфера жизни"
-                    rightHeader="Примеры боли"
-                    rows={[
-                      ['Эмоции', 'Постоянная тревога, чувство вины, апатия, раздражительность'],
-                      ['Отношения', 'Конфликты с партнёром, одиночество, страх близости'],
-                      ['Работа', 'Выгорание, отсутствие смысла, страх ошибки'],
-                      ['Тело', 'Усталость, бессонница, психосоматика'],
-                      ['Самооценка', 'Чувство неудачника, самокритика, неуверенность'],
-                    ]}
-                  />
-                </div>
-              </FadeIn>
-
-              {/* Шаг 2 */}
-              <FadeIn direction="up" delay={0.24}>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-start gap-4 mb-4">
-                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">2</span>
-                    <div>
-                      <h4 className="text-lg md:text-xl font-serif text-foreground">Представьте «желаемое состояние»</h4>
-                      <p className="text-sm text-muted-foreground mt-1 font-light">«Как я пойму, что стало легче? Что изменится?»</p>
-                    </div>
-                  </div>
-                  <InfoTable
-                    leftHeader="Если боль в…"
-                    rightHeader="Как вы это заметите?"
-                    rows={[
-                      ['Тревоге', 'Перестану просыпаться с учащённым сердцебиением'],
-                      ['Чувстве вины', 'Перестану извиняться без причины'],
-                      ['Апатии', 'Появится желание что-то делать'],
-                      ['Конфликтах', 'Научусь спокойно говорить о своих чувствах'],
-                    ]}
-                  />
-                </div>
-              </FadeIn>
-
-              {/* Шаг 3 */}
-              <FadeIn direction="up" delay={0.26}>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-start gap-4 mb-4">
-                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">3</span>
-                    <div>
-                      <h4 className="text-lg md:text-xl font-serif text-foreground">Сформулируйте запрос по формуле</h4>
-                    </div>
-                  </div>
-                  <div className="bg-accent/50 border border-border/60 rounded-xl px-6 py-4 mb-4 text-center">
-                    <p className="text-base md:text-lg font-serif text-foreground italic">
-                      «Я хочу <span className="text-primary not-italic font-medium">[конкретное изменение]</span>, чтобы <span className="text-primary not-italic font-medium">[как это повлияет на мою жизнь]</span>»
-                    </p>
-                  </div>
-                  <ul className="flex flex-col gap-2">
-                    {[
-                      '«Я хочу перестать винить себя за каждую ошибку, чтобы чувствовать себя спокойнее и увереннее»',
-                      '«Я хочу научиться говорить «нет», чтобы перестать чувствовать себя использованной»',
-                      '«Я хочу вернуть интерес к жизни, чтобы просыпаться с желанием что-то делать»',
-                    ].map((ex) => (
-                      <li key={ex} className="flex items-start gap-3 text-sm text-muted-foreground font-light">
-                        <span className="text-primary mt-0.5 flex-shrink-0">—</span>
-                        <span className="italic">{ex}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </FadeIn>
-
-              {/* Шаг 4 */}
-              <FadeIn direction="up" delay={0.28}>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-start gap-4 mb-5">
-                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">4</span>
-                    <div>
-                      <h4 className="text-lg md:text-xl font-serif text-foreground">Проверьте запрос на «прочность»</h4>
-                    </div>
-                  </div>
-                  <ul className="flex flex-col gap-3">
-                    {[
-                      'Запрос конкретный (не «стать счастливым», а «перестать просыпаться с тревогой»)',
-                      'Запрос про меня, а не про других («хочу, чтобы муж…» — это не запрос)',
-                      'Я могу измерить результат («я пойму, что стало лучше, когда…»)',
-                      'Запрос реалистичный и достижимый',
-                      'Запрос связан с тем, что я могу изменить в себе',
-                    ].map((criterion, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="flex-shrink-0 w-5 h-5 rounded-md bg-[hsl(104,30%,94%)] border border-[hsl(104,25%,75%)] text-[hsl(104,28%,32%)] mt-0.5 flex items-center justify-center text-[10px]">✓</span>
-                        <span className="text-sm text-muted-foreground font-light">{criterion}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </FadeIn>
-            </div>
+            <FadeIn direction="up" delay={0.22}>
+              <div className="mb-12">
+                <PreparationAccordion />
+              </div>
+            </FadeIn>
 
             {/* Примеры хороших и плохих запросов */}
             <FadeIn direction="up" delay={0.3}>
