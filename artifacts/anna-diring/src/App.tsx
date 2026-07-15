@@ -661,7 +661,7 @@ function App() {
                 </svg>
                 Мой канал в Telegram
               </a>
-              <p className="mt-2 text-sm text-background/40 md:text-right">
+              <p className="mt-2 text-sm md:text-base leading-relaxed text-background/50">
                 300+ постов о психологии, ответы на частые вопросы и реальные кейсы из практики (анонимно)
               </p>
             </FadeIn>
