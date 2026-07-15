@@ -112,7 +112,13 @@ function AccordionStep({
           <h4 className="text-lg md:text-xl font-serif text-foreground">{title}</h4>
         </div>
         <span
-          className={`flex-shrink-0 text-xl text-muted-foreground transition-transform duration-300 ${
+          role="button"
+          tabIndex={-1}
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggle();
+          }}
+          className={`flex-shrink-0 text-xl text-muted-foreground transition-transform duration-300 cursor-pointer ${
             isOpen ? 'rotate-180' : ''
           }`}
           aria-hidden="true"
@@ -121,12 +127,8 @@ function AccordionStep({
         </span>
       </button>
 
-      <div
-        className={`grid transition-all duration-300 ease-in-out ${
-          isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-        }`}
-      >
-        <div className="overflow-hidden">
+      {isOpen && (
+        <div className="animate-in fade-in slide-in-from-top-2 duration-300">
           <div className="px-5 md:px-6 pb-6 pt-0 leading-snug">
             <p className="text-sm md:text-base text-muted-foreground font-light italic mb-3 leading-snug">{question}</p>
             {children}
@@ -167,7 +169,7 @@ function AccordionStep({
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -190,7 +192,7 @@ const textareaClass =
 
 export function PreparationAccordion() {
   const [answers, setAnswers] = useState<Answers>(DEFAULT_ANSWERS);
-  const [openStep, setOpenStep] = useState<1 | 2 | 3 | 4>(1);
+  const [openStep, setOpenStep] = useState<1 | 2 | 3 | 4 | null>(null);
   const [showSaved, setShowSaved] = useState(false);
   const savedTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hasLoaded = useRef(false);
@@ -217,6 +219,9 @@ export function PreparationAccordion() {
 
   const goTo = (step: 1 | 2 | 3 | 4) => setOpenStep(step);
 
+  const toggleStep = (step: 1 | 2 | 3 | 4) =>
+    setOpenStep((prev) => (prev === step ? null : step));
+
   const toggleCriterion = (index: number) => {
     setAnswers((prev) => {
       const next = [...prev.step4Criteria];
@@ -231,7 +236,7 @@ export function PreparationAccordion() {
       <div className="mb-8">
         <div className="flex items-center justify-between mb-2">
           <span className="text-xs uppercase tracking-widest text-muted-foreground font-medium">
-            Шаг {openStep} из 4
+            {openStep ? `Шаг ${openStep} из 4` : 'Выберите шаг'}
           </span>
           <span className="text-xs uppercase tracking-widest text-muted-foreground font-medium">
             Заполнено: {completedCount} / 4
@@ -240,7 +245,7 @@ export function PreparationAccordion() {
         <div className="h-1.5 w-full rounded-full bg-accent/60 overflow-hidden mb-3">
           <div
             className="h-full bg-[hsl(104,35%,45%)] transition-all duration-500 ease-out rounded-full"
-            style={{ width: `${(openStep / 4) * 100}%` }}
+            style={{ width: `${(completedCount / 4) * 100}%` }}
           />
         </div>
         <div className="flex items-center justify-center gap-3">
@@ -273,7 +278,7 @@ export function PreparationAccordion() {
           question="«Что прямо сейчас причиняет мне больше всего страданий?»"
           isOpen={openStep === 1}
           isComplete={isStepComplete(1, answers)}
-          onToggle={() => setOpenStep(openStep === 1 ? 1 : 1)}
+          onToggle={() => toggleStep(1)}
           onNext={() => goTo(2)}
           onBack={() => goTo(1)}
           isFirst
@@ -311,7 +316,7 @@ export function PreparationAccordion() {
           question="«Как я пойму, что стало легче? Что изменится?»"
           isOpen={openStep === 2}
           isComplete={isStepComplete(2, answers)}
-          onToggle={() => setOpenStep(openStep === 2 ? 2 : 2)}
+          onToggle={() => toggleStep(2)}
           onNext={() => goTo(3)}
           onBack={() => goTo(1)}
           isFirst={false}
@@ -348,7 +353,7 @@ export function PreparationAccordion() {
           question="Формула хорошего запроса поможет собрать всё, что вы написали выше, в одну фразу."
           isOpen={openStep === 3}
           isComplete={isStepComplete(3, answers)}
-          onToggle={() => setOpenStep(openStep === 3 ? 3 : 3)}
+          onToggle={() => toggleStep(3)}
           onNext={() => goTo(4)}
           onBack={() => goTo(2)}
           isFirst={false}
@@ -391,7 +396,7 @@ export function PreparationAccordion() {
           question="Пройдите по чек-листу и отметьте, что уже выполняется."
           isOpen={openStep === 4}
           isComplete={isStepComplete(4, answers)}
-          onToggle={() => setOpenStep(openStep === 4 ? 4 : 4)}
+          onToggle={() => toggleStep(4)}
           onNext={() => goTo(4)}
           onBack={() => goTo(3)}
           isFirst={false}
