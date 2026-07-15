@@ -388,11 +388,8 @@ function App() {
                     </span>
                   </button>
                 </div>
-                <div
-                  className="grid transition-[grid-template-rows] duration-500 ease-in-out"
-                  style={{ gridTemplateRows: showExamples ? '1fr' : '0fr' }}
-                >
-                  <div className="overflow-hidden">
+                {showExamples && (
+                  <div className="animate-in fade-in slide-in-from-top-2 duration-300">
                     <div className="pt-6">
                       <ComparisonTable
                         badHeader="❌ Плохой запрос"
@@ -407,7 +404,7 @@ function App() {
                       />
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             </FadeIn>
 
