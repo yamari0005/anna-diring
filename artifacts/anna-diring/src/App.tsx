@@ -176,7 +176,26 @@ function App() {
               </p>
             </FadeIn>
             
-            <FadeIn direction="up" delay={0.6} className="w-full sm:w-auto">
+            <FadeIn direction="up" delay={0.55}>
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mb-8 text-xs md:text-sm text-muted-foreground font-light">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-primary/50 flex-shrink-0" />
+                  Магистр клинической психологии
+                </span>
+                <span className="hidden sm:block text-border">·</span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-primary/50 flex-shrink-0 sm:hidden" />
+                  Тревога, травмы, выгорание
+                </span>
+                <span className="hidden sm:block text-border">·</span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-primary/50 flex-shrink-0 sm:hidden" />
+                  Методы: <strong className="font-medium text-foreground">КПТ</strong>&nbsp;и&nbsp;<strong className="font-medium text-foreground">ДПДГ (EMDR)</strong>
+                </span>
+              </div>
+            </FadeIn>
+
+            <FadeIn direction="up" delay={0.7} className="w-full sm:w-auto">
               <a 
                 href="#booking"
                 onClick={(e) => scrollToSection(e, 'booking')}
@@ -502,6 +521,25 @@ function App() {
               <p className="text-2xl md:text-4xl font-serif text-foreground leading-relaxed italic text-center md:text-left">
                 «Я Анна Диринг. Верю, что успех клиента — это главный допинг психолога. Моя цель — чтобы вы стали настолько устойчивыми, что я больше не понадобилась.»
               </p>
+
+              <ul className="mt-8 flex flex-col gap-3">
+                {[
+                  <span>Магистр клинической психологии</span>,
+                  <span>Специализация: <span className="text-foreground font-light">тревога, последствия травм, выгорание</span></span>,
+                  <span>
+                    Методы:{' '}
+                    <strong className="font-semibold text-foreground">КПТ</strong>
+                    <span className="text-muted-foreground font-light"> (когнитивно-поведенческая терапия)</span>
+                    {' '}и{' '}
+                    <strong className="font-semibold text-foreground">ДПДГ (EMDR)</strong>
+                  </span>,
+                ].map((text, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm md:text-base text-muted-foreground font-light leading-snug">
+                    <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-primary/50 mt-2" aria-hidden="true" />
+                    {text}
+                  </li>
+                ))}
+              </ul>
             </FadeIn>
           </div>
         </section>
