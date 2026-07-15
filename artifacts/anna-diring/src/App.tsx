@@ -450,11 +450,11 @@ function App() {
             {/* Зачем нужен хороший запрос */}
             <FadeIn direction="up" delay={0.33}>
               <div className="bg-accent/40 border border-border/60 rounded-2xl px-6 md:px-10 py-8 mb-12 text-center">
-                <p className="text-lg md:text-xl font-serif text-foreground mb-6 italic">
+                <p className="text-lg md:text-xl font-serif font-bold text-foreground mb-4 leading-snug italic">
                   Хороший запрос — это не обязанность, а инструмент.
                 </p>
-                <p className="text-sm text-muted-foreground font-light mb-5">Он помогает:</p>
-                <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
+                <p className="text-sm text-muted-foreground font-light mb-4 leading-snug">Он помогает:</p>
+                <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
                   {[
                     { who: 'Психологу', what: 'понять, куда двигаться' },
                     { who: 'Вам', what: 'видеть прогресс' },
@@ -462,7 +462,7 @@ function App() {
                   ].map((item) => (
                     <div key={item.who} className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2" />
-                      <p className="text-sm text-muted-foreground font-light leading-relaxed">
+                      <p className="text-sm text-muted-foreground font-light leading-snug">
                         <span className="text-foreground font-medium">{item.who}</span> — {item.what}
                       </p>
                     </div>
@@ -610,11 +610,14 @@ function App() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 text-lg font-medium tracking-wide uppercase hover:text-primary transition-colors duration-300"
               >
-                Мой канал в Telegram
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
+                <svg width="24" height="24" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+                  <circle cx="120" cy="120" r="120" fill="#229ED9" />
+                  <path
+                    d="M50 118l124-48c6-2 11 1 9 10l-21 100c-2 8-7 10-14 6l-38-28-18 17c-2 2-4 4-8 4l3-40 73-66c3-3-1-5-5-2l-90 57-39-12c-8-3-8-8 2-11z"
+                    fill="white"
+                  />
                 </svg>
+                Мой канал в Telegram
               </a>
             </FadeIn>
           </div>

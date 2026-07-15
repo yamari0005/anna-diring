@@ -127,11 +127,11 @@ function AccordionStep({
         }`}
       >
         <div className="overflow-hidden">
-          <div className="px-5 md:px-6 pb-6 pt-0">
-            <p className="text-sm md:text-base text-muted-foreground font-light italic mb-5">{question}</p>
+          <div className="px-5 md:px-6 pb-6 pt-0 leading-snug">
+            <p className="text-sm md:text-base text-muted-foreground font-light italic mb-3 leading-snug">{question}</p>
             {children}
 
-            <div className="flex items-center justify-between gap-3 mt-6 flex-wrap">
+            <div className="flex items-center justify-between gap-3 mt-4 flex-wrap">
               <button
                 type="button"
                 onClick={onBack}
@@ -279,7 +279,7 @@ export function PreparationAccordion() {
           isFirst
           isLast={false}
         >
-          <div className="mb-5">
+          <div className="mb-3">
             <InfoTable
               leftHeader="Сфера жизни"
               rightHeader="Примеры боли"
@@ -292,12 +292,12 @@ export function PreparationAccordion() {
               ]}
             />
           </div>
-          <label className="block text-xs uppercase tracking-widest text-muted-foreground font-medium mb-2">
+          <label className="block text-xs uppercase tracking-widest text-muted-foreground font-medium mb-1.5">
             Запишите одну главную «зону боли»
           </label>
           <textarea
             className={textareaClass}
-            rows={3}
+            rows={2}
             value={answers.step1}
             onChange={(e) => setAnswers((prev) => ({ ...prev, step1: e.target.value }))}
             placeholder="Например: постоянная тревога и бессонница из-за работы…"
@@ -317,7 +317,7 @@ export function PreparationAccordion() {
           isFirst={false}
           isLast={false}
         >
-          <div className="mb-5">
+          <div className="mb-3">
             <InfoTable
               leftHeader="Если боль в…"
               rightHeader="Как вы это заметите?"
@@ -329,12 +329,12 @@ export function PreparationAccordion() {
               ]}
             />
           </div>
-          <label className="block text-xs uppercase tracking-widest text-muted-foreground font-medium mb-2">
+          <label className="block text-xs uppercase tracking-widest text-muted-foreground font-medium mb-1.5">
             Запишите, как вы поймёте, что стало лучше
           </label>
           <textarea
             className={textareaClass}
-            rows={3}
+            rows={2}
             value={answers.step2}
             onChange={(e) => setAnswers((prev) => ({ ...prev, step2: e.target.value }))}
             placeholder="Например: перестану просыпаться среди ночи и буду спокойнее реагировать на критику…"
@@ -354,30 +354,30 @@ export function PreparationAccordion() {
           isFirst={false}
           isLast={false}
         >
-          <div className="bg-accent/50 border border-border/60 rounded-xl px-6 py-4 mb-4 text-center">
-            <p className="text-base md:text-lg font-serif text-foreground italic">
+          <div className="bg-accent/50 border border-border/60 rounded-xl px-6 py-3 mb-3 text-center">
+            <p className="text-base md:text-lg font-serif text-foreground italic leading-snug">
               «Я хочу <span className="text-primary not-italic font-medium">[конкретное изменение]</span>, чтобы{' '}
               <span className="text-primary not-italic font-medium">[как это повлияет на мою жизнь]</span>»
             </p>
           </div>
-          <ul className="flex flex-col gap-2 mb-5">
+          <ul className="flex flex-col gap-1.5 mb-3">
             {[
               '«Я хочу перестать винить себя за каждую ошибку, чтобы чувствовать себя спокойнее и увереннее»',
               '«Я хочу научиться говорить «нет», чтобы перестать чувствовать себя использованной»',
               '«Я хочу вернуть интерес к жизни, чтобы просыпаться с желанием что-то делать»',
             ].map((ex) => (
-              <li key={ex} className="flex items-start gap-3 text-sm text-muted-foreground font-light">
+              <li key={ex} className="flex items-start gap-3 text-sm text-muted-foreground font-light leading-snug">
                 <span className="text-primary mt-0.5 flex-shrink-0">—</span>
                 <span className="italic">{ex}</span>
               </li>
             ))}
           </ul>
-          <label className="block text-xs uppercase tracking-widest text-muted-foreground font-medium mb-2">
+          <label className="block text-xs uppercase tracking-widest text-muted-foreground font-medium mb-1.5">
             Запишите свой запрос
           </label>
           <textarea
             className={textareaClass}
-            rows={3}
+            rows={2}
             value={answers.step3}
             onChange={(e) => setAnswers((prev) => ({ ...prev, step3: e.target.value }))}
             placeholder="«Я хочу…, чтобы…»"
@@ -397,7 +397,7 @@ export function PreparationAccordion() {
           isFirst={false}
           isLast
         >
-          <ul className="flex flex-col gap-3 mb-5">
+          <ul className="flex flex-col gap-2 mb-3">
             {CRITERIA.map((criterion, i) => (
               <li key={i}>
                 <label className="flex items-start gap-3 cursor-pointer select-none">
@@ -407,17 +407,17 @@ export function PreparationAccordion() {
                     onChange={() => toggleCriterion(i)}
                     className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-md border border-[hsl(104,25%,75%)] accent-[hsl(104,35%,40%)] cursor-pointer"
                   />
-                  <span className="text-sm text-muted-foreground font-light">{criterion}</span>
+                  <span className="text-sm text-muted-foreground font-light leading-snug">{criterion}</span>
                 </label>
               </li>
             ))}
           </ul>
-          <label className="block text-xs uppercase tracking-widest text-muted-foreground font-medium mb-2">
+          <label className="block text-xs uppercase tracking-widest text-muted-foreground font-medium mb-1.5">
             Финальная формулировка запроса (можно скопировать из шага 3 и уточнить)
           </label>
           <textarea
             className={textareaClass}
-            rows={3}
+            rows={2}
             value={answers.step4Final}
             onChange={(e) => setAnswers((prev) => ({ ...prev, step4Final: e.target.value }))}
             placeholder="«Я хочу…, чтобы…»"
