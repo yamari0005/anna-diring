@@ -677,7 +677,7 @@ function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
           <div>
             <FadeIn direction="up">
-              <p className="text-4xl md:text-5xl font-serif text-background leading-snug mb-0">
+              <p className="text-lg md:text-xl font-light text-background/80 leading-relaxed max-w-sm">
                 Запишитесь на первую консультацию, чтобы обсудить ваш запрос и понять, насколько вам комфортно работать со мной.
               </p>
             </FadeIn>
@@ -720,7 +720,7 @@ function App() {
                 </svg>
                 Мой канал в Telegram
               </a>
-              <p className="mt-2 text-sm md:text-base leading-relaxed text-background/50">
+              <p className="mt-2 text-lg leading-relaxed text-background/50">
                 300+ постов о психологии, ответы на частые вопросы и реальные кейсы из практики (анонимно)
               </p>
             </FadeIn>
