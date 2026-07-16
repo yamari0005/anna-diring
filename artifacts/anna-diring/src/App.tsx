@@ -616,20 +616,16 @@ function App() {
               </p>
             </FadeIn>
 
-            {/* Текст-поддержка перед формой */}
-            <FadeIn direction="up" delay={0.12}>
-              <p className="text-base text-gray-600 leading-relaxed text-center max-w-xl mx-auto mb-8">
-                Не переживайте, если не можете точно описать проблему. Просто напишите, что вас беспокоит, и мы разберёмся вместе на первой встрече.
-              </p>
-            </FadeIn>
-
             {/* Шаг 1: Анкета */}
             <FadeIn direction="up" delay={0.15}>
               <div className="mb-14">
-                <div className="flex items-center gap-4 mb-5">
+                <div className="flex items-center gap-4 mb-2">
                   <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">1</span>
                   <h3 className="text-xl md:text-2xl font-serif text-foreground">Заполните анкету</h3>
                 </div>
+                <p className="text-sm text-gray-500 italic font-light mt-2 mb-5 max-w-lg ml-14">
+                  Не переживайте, если не можете точно описать проблему. Просто напишите, что вас беспокоит, и мы разберёмся вместе на первой встрече.
+                </p>
                 <div className="rounded-2xl border border-border shadow-lg shadow-muted/40 overflow-hidden bg-white">
                   <iframe
                     src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/"
@@ -673,7 +669,7 @@ function App() {
       </main>
 
       {/* FOOTER / CONTACTS */}
-      <footer id="contacts" className="bg-gradient-to-b from-gray-800 to-gray-900 text-background py-12 md:py-16 px-6" style={{ scrollMarginTop: '100px' }}>
+      <footer id="contacts" className="bg-gray-700 text-background py-12 md:py-16 px-6" style={{ scrollMarginTop: '100px' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
           <div>
             <FadeIn direction="up">
@@ -721,7 +717,7 @@ function App() {
                 Мой канал в Telegram
               </a>
               <p className="mt-2 text-lg leading-relaxed text-background/50">
-                300+ постов о психологии, ответы на частые вопросы и реальные кейсы из практики (анонимно)
+                300+ постов о психологии, ответы на частые вопросы<br />и реальные кейсы из практики (анонимно)
               </p>
             </FadeIn>
           </div>
