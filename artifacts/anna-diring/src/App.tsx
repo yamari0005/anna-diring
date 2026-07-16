@@ -3,6 +3,32 @@ import { FadeIn } from './components/FadeIn';
 import { InfoTable, ComparisonTable } from './components/ResponsiveTable';
 import { PreparationAccordion } from './components/PreparationAccordion';
 import { ScrollToTopButton } from './components/ScrollToTopButton';
+import { downloadChecklist } from './utils/downloadChecklist';
+
+/* ── Decorative botanical blob ─────────────────────────────────────── */
+function SectionDecor({ flip = false }: { flip?: boolean }) {
+  return (
+    <div className="relative w-full h-20 overflow-hidden pointer-events-none select-none" aria-hidden="true">
+      <svg
+        viewBox="0 0 1440 80"
+        preserveAspectRatio="xMidYMid slice"
+        className="absolute inset-0 w-full h-full opacity-[0.07]"
+        style={flip ? { transform: 'scaleX(-1)' } : undefined}
+      >
+        {/* Left leaf */}
+        <ellipse cx="120" cy="60" rx="90" ry="28" fill="currentColor" className="text-primary" transform="rotate(-18 120 60)" />
+        <ellipse cx="110" cy="55" rx="55" ry="10" fill="currentColor" className="text-secondary" transform="rotate(-18 110 55)" />
+        {/* Right leaf */}
+        <ellipse cx="1320" cy="25" rx="80" ry="22" fill="currentColor" className="text-primary" transform="rotate(14 1320 25)" />
+        <ellipse cx="1330" cy="30" rx="45" ry="8" fill="currentColor" className="text-secondary" transform="rotate(14 1330 30)" />
+        {/* Center dots */}
+        <circle cx="720" cy="40" r="3" fill="currentColor" className="text-primary" />
+        <circle cx="740" cy="48" r="2" fill="currentColor" className="text-primary" />
+        <circle cx="700" cy="48" r="2" fill="currentColor" className="text-primary" />
+      </svg>
+    </div>
+  );
+}
 
 const NAV_LINKS = [
   { id: 'approach', label: 'Подход' },
@@ -227,7 +253,10 @@ function App() {
               
               <FadeIn direction="up" delay={0.2}>
                 <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                  Мой подход — это не бесконечный анализ детства. Мы работаем с тем, что болит сегодня: с выгоранием, страхом ошибок, комом в горле и необходимостью принимать решения. 
+                  Мой подход — это не бесконечный анализ детства. Мы работаем с тем, что болит сегодня: с выгоранием, страхом ошибок, комом в горле и необходимостью принимать решения.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed font-light mt-4">
+                  Работаю научными методами с доказанной эффективностью: <strong className="text-foreground font-medium">когнитивно-поведенческая терапия (КПТ)</strong> и <strong className="text-foreground font-medium">ДПДГ (EMDR)</strong>.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed font-light mt-4">
                   Я создаю пространство, где можно быть живым, а не «удобным».
@@ -236,6 +265,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <SectionDecor />
 
         {/* FOR WHOM SECTION */}
         <section id="for-whom" className="py-10 md:py-14 px-6 relative bg-background" style={{ scrollMarginTop: '100px' }}>
@@ -264,6 +295,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <SectionDecor flip />
 
         {/* HOW A SESSION WORKS SECTION */}
         <section id="consultation" className="py-10 md:py-14 px-6 relative bg-accent/30" style={{ scrollMarginTop: '100px' }}>
@@ -383,8 +416,26 @@ function App() {
             </FadeIn>
 
             <FadeIn direction="up" delay={0.22}>
-              <div className="mb-12">
+              <div className="mb-8">
                 <PreparationAccordion />
+              </div>
+            </FadeIn>
+
+            {/* PDF download button */}
+            <FadeIn direction="up" delay={0.25}>
+              <div className="flex justify-center mb-12">
+                <button
+                  type="button"
+                  onClick={downloadChecklist}
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border border-primary/40 bg-accent/60 text-sm md:text-base text-foreground tracking-wide shadow-sm hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Скачать чек-лист в PDF
+                </button>
               </div>
             </FadeIn>
 
@@ -500,6 +551,8 @@ function App() {
           </div>
         </section>
 
+        <SectionDecor />
+
         {/* ABOUT SECTION */}
         <section id="about" className="py-10 md:py-14 px-6 bg-secondary/10 relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-5xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-[minmax(0,280px)_1fr] gap-12 items-center">
@@ -563,6 +616,13 @@ function App() {
               </p>
             </FadeIn>
 
+            {/* Текст-поддержка перед формой */}
+            <FadeIn direction="up" delay={0.12}>
+              <p className="text-base text-gray-600 leading-relaxed text-center max-w-xl mx-auto mb-8">
+                Не переживайте, если не можете точно описать проблему. Просто напишите, что вас беспокоит, и мы разберёмся вместе на первой встрече.
+              </p>
+            </FadeIn>
+
             {/* Шаг 1: Анкета */}
             <FadeIn direction="up" delay={0.15}>
               <div className="mb-14">
@@ -613,12 +673,11 @@ function App() {
       </main>
 
       {/* FOOTER / CONTACTS */}
-      <footer id="contacts" className="bg-foreground text-background py-12 md:py-16 px-6" style={{ scrollMarginTop: '100px' }}>
+      <footer id="contacts" className="bg-gradient-to-b from-gray-800 to-gray-900 text-background py-12 md:py-16 px-6" style={{ scrollMarginTop: '100px' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
           <div>
             <FadeIn direction="up">
-              <h2 className="text-4xl md:text-5xl font-serif mb-6">Начать работу</h2>
-              <p className="text-background/70 text-lg max-w-sm font-light mb-10">
+              <p className="text-4xl md:text-5xl font-serif text-background leading-snug mb-0">
                 Запишитесь на первую консультацию, чтобы обсудить ваш запрос и понять, насколько вам комфортно работать со мной.
               </p>
             </FadeIn>
