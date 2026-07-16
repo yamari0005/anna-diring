@@ -669,7 +669,7 @@ function App() {
       </main>
 
       {/* FOOTER / CONTACTS */}
-      <footer id="contacts" className="bg-gray-700 text-background py-12 md:py-16 px-6" style={{ scrollMarginTop: '100px' }}>
+      <footer id="contacts" className="bg-stone-800 text-background py-12 md:py-16 px-6" style={{ scrollMarginTop: '100px' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
           <div>
             <FadeIn direction="up">
