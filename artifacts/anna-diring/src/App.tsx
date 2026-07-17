@@ -5,30 +5,6 @@ import { PreparationAccordion } from './components/PreparationAccordion';
 import { ScrollToTopButton } from './components/ScrollToTopButton';
 import { downloadChecklist } from './utils/downloadChecklist';
 
-/* ── Decorative botanical blob ─────────────────────────────────────── */
-function SectionDecor({ flip = false }: { flip?: boolean }) {
-  return (
-    <div className="relative w-full h-20 overflow-hidden pointer-events-none select-none" aria-hidden="true">
-      <svg
-        viewBox="0 0 1440 80"
-        preserveAspectRatio="xMidYMid slice"
-        className="absolute inset-0 w-full h-full opacity-[0.07]"
-        style={flip ? { transform: 'scaleX(-1)' } : undefined}
-      >
-        {/* Left leaf */}
-        <ellipse cx="120" cy="60" rx="90" ry="28" fill="currentColor" className="text-primary" transform="rotate(-18 120 60)" />
-        <ellipse cx="110" cy="55" rx="55" ry="10" fill="currentColor" className="text-secondary" transform="rotate(-18 110 55)" />
-        {/* Right leaf */}
-        <ellipse cx="1320" cy="25" rx="80" ry="22" fill="currentColor" className="text-primary" transform="rotate(14 1320 25)" />
-        <ellipse cx="1330" cy="30" rx="45" ry="8" fill="currentColor" className="text-secondary" transform="rotate(14 1330 30)" />
-        {/* Center dots */}
-        <circle cx="720" cy="40" r="3" fill="currentColor" className="text-primary" />
-        <circle cx="740" cy="48" r="2" fill="currentColor" className="text-primary" />
-        <circle cx="700" cy="48" r="2" fill="currentColor" className="text-primary" />
-      </svg>
-    </div>
-  );
-}
 
 const NAV_LINKS = [
   { id: 'approach', label: 'Подход' },
@@ -61,6 +37,24 @@ function App() {
 
   return (
     <div className="min-h-[100dvh] w-full bg-background text-foreground flex flex-col font-sans">
+
+      {/* ── Global botanical background ───────────────────────────────── */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        {/* top-right corner */}
+        <img
+          src="/images/hero-light.jpg"
+          alt=""
+          className="absolute -top-16 -right-16 w-[45vw] max-w-[560px] opacity-[0.055] mix-blend-multiply object-cover select-none"
+        />
+        {/* bottom-left corner — mirrored */}
+        <img
+          src="/images/hero-light.jpg"
+          alt=""
+          className="absolute -bottom-16 -left-16 w-[40vw] max-w-[500px] opacity-[0.045] mix-blend-multiply object-cover select-none"
+          style={{ transform: 'rotate(180deg)' }}
+        />
+      </div>
+
       {/* HEADER */}
       <header className="w-full py-6 px-6 md:px-12 flex justify-between items-center fixed top-0 z-50 bg-background/80 backdrop-blur-md border-b border-transparent transition-all duration-300">
         <div>
@@ -256,7 +250,7 @@ function App() {
                   Мой подход — это не бесконечный анализ детства. Мы работаем с тем, что болит сегодня: с выгоранием, страхом ошибок, комом в горле и необходимостью принимать решения.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed font-light mt-4">
-                  Работаю научными методами с доказанной эффективностью: <strong className="text-foreground font-medium">когнитивно-поведенческая терапия (КПТ)</strong> и <strong className="text-foreground font-medium">ДПДГ (EMDR)</strong>.
+                  Работаю научными методами с доказанной эффективностью: когнитивно-поведенческая терапия (КПТ) и ДПДГ (EMDR).
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed font-light mt-4">
                   Я создаю пространство, где можно быть живым, а не «удобным».
@@ -265,8 +259,6 @@ function App() {
             </div>
           </div>
         </section>
-
-        <SectionDecor />
 
         {/* FOR WHOM SECTION */}
         <section id="for-whom" className="py-10 md:py-14 px-6 relative bg-background" style={{ scrollMarginTop: '100px' }}>
@@ -295,8 +287,6 @@ function App() {
             </div>
           </div>
         </section>
-
-        <SectionDecor flip />
 
         {/* HOW A SESSION WORKS SECTION */}
         <section id="consultation" className="py-10 md:py-14 px-6 relative bg-accent/30" style={{ scrollMarginTop: '100px' }}>
@@ -550,8 +540,6 @@ function App() {
             </FadeIn>
           </div>
         </section>
-
-        <SectionDecor />
 
         {/* ABOUT SECTION */}
         <section id="about" className="py-10 md:py-14 px-6 bg-secondary/10 relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
