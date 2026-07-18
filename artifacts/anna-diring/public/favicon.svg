@@ -1,3 +1,14 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+  <!-- Rounded square, sage green from site palette hsl(104,11%,62%) -->
+  <rect width="180" height="180" rx="38" fill="#99a993"/>
+  <!-- Letter А, cream from site palette hsl(45,33%,97%) -->
+  <text
+    x="90"
+    y="132"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="118"
+    font-weight="normal"
+    text-anchor="middle"
+    fill="#faf9f5"
+  >А</text>
 </svg>
