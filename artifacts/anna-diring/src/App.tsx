@@ -6,6 +6,22 @@ import { ScrollToTopButton } from './components/ScrollToTopButton';
 import { downloadChecklist } from './utils/downloadChecklist';
 
 
+/** Subtle botanical image corner — reused across sections */
+function BotanicalBg({ side = 'right' }: { side?: 'right' | 'left' }) {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <img
+        src="/images/hero-light.jpg"
+        alt=""
+        className={`absolute w-[32vw] max-w-[380px] opacity-[0.09] mix-blend-multiply object-cover select-none ${
+          side === 'right' ? '-top-10 -right-10' : '-bottom-10 -left-10'
+        }`}
+        style={side === 'left' ? { transform: 'rotate(180deg)' } : undefined}
+      />
+    </div>
+  );
+}
+
 const NAV_LINKS = [
   { id: 'approach', label: 'Подход' },
   { id: 'for-whom', label: 'Для кого' },
@@ -18,6 +34,7 @@ const NAV_LINKS = [
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showExamples, setShowExamples] = useState(false);
+  const [selectedMood, setSelectedMood] = useState<string | null>(null);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -228,7 +245,8 @@ function App() {
         </section>
 
         {/* APPROACH SECTION */}
-        <section id="approach" className="py-10 md:py-14 px-6 bg-accent/30 relative" style={{ scrollMarginTop: '100px' }}>
+        <section id="approach" className="py-10 md:py-14 px-6 bg-accent/30 relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
+          <BotanicalBg side="right" />
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="order-2 md:order-1 relative h-[50vh] rounded-2xl overflow-hidden shadow-xl shadow-muted/50">
               <img 
@@ -261,7 +279,8 @@ function App() {
         </section>
 
         {/* FOR WHOM SECTION */}
-        <section id="for-whom" className="py-10 md:py-14 px-6 relative bg-background" style={{ scrollMarginTop: '100px' }}>
+        <section id="for-whom" className="py-10 md:py-14 px-6 relative bg-background overflow-hidden" style={{ scrollMarginTop: '100px' }}>
+          <BotanicalBg side="left" />
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <h2 className="text-3xl md:text-5xl font-serif mb-10 text-center">Вам это нужно, если...</h2>
@@ -285,11 +304,47 @@ function App() {
                 </FadeIn>
               ))}
             </div>
+
+            {/* Mood mini-widget */}
+            <FadeIn direction="up" delay={0.85}>
+              <div className="mt-10 text-center">
+                <p className="text-sm text-muted-foreground font-light mb-3 tracking-wide">Какое состояние у вас сейчас?</p>
+                <div className="flex flex-wrap justify-center gap-2 mb-4">
+                  {['Усталость', 'Тревога', 'Тупик', 'Бесит', 'Не могу остановиться'].map((mood) => (
+                    <button
+                      key={mood}
+                      type="button"
+                      onClick={() => setSelectedMood(selectedMood === mood ? null : mood)}
+                      className={`px-4 py-1.5 rounded-full text-sm border transition-all duration-300 ${
+                        selectedMood === mood
+                          ? 'bg-primary text-primary-foreground border-primary shadow-sm'
+                          : 'bg-white border-border text-muted-foreground hover:border-primary/50 hover:text-foreground'
+                      }`}
+                    >
+                      {mood}
+                    </button>
+                  ))}
+                </div>
+                {selectedMood && (
+                  <div className="animate-in fade-in slide-in-from-top-2 duration-300 flex flex-col items-center gap-3">
+                    <p className="text-sm text-foreground/75 font-light italic">Я понимаю это состояние. Давайте поговорим.</p>
+                    <a
+                      href="#booking"
+                      onClick={(e) => scrollToSection(e, 'booking')}
+                      className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-primary text-primary-foreground text-xs uppercase tracking-widest hover:bg-primary/90 transition-colors duration-300 shadow-sm"
+                    >
+                      Записаться
+                    </a>
+                  </div>
+                )}
+              </div>
+            </FadeIn>
           </div>
         </section>
 
         {/* HOW A SESSION WORKS SECTION */}
-        <section id="consultation" className="py-10 md:py-14 px-6 relative bg-accent/30" style={{ scrollMarginTop: '100px' }}>
+        <section id="consultation" className="py-10 md:py-14 px-6 relative bg-accent/30 overflow-hidden" style={{ scrollMarginTop: '100px' }}>
+          <BotanicalBg side="right" />
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <h2 className="text-3xl md:text-5xl font-serif mb-6 text-center">Как проходит консультация</h2>
@@ -339,7 +394,8 @@ function App() {
         </section>
 
         {/* PREPARE FOR CONSULTATION SECTION */}
-        <section id="preparation" className="py-10 md:py-14 px-6 bg-background" style={{ scrollMarginTop: '100px' }}>
+        <section id="preparation" className="py-10 md:py-14 px-6 bg-background relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
+          <BotanicalBg side="left" />
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <h2 className="text-3xl md:text-5xl font-serif mb-4 text-center">Как подготовиться к консультации</h2>
@@ -579,7 +635,18 @@ function App() {
                 ))}
               </ul>
 
-              <div className="mt-6 bg-[hsl(104,30%,96%)] border border-[hsl(104,25%,82%)] rounded-xl p-5 md:p-6 shadow-sm">
+              <a
+                href="https://dzen.ru/a/adPNnBjqsGIJwf7e"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 mb-4 inline-flex items-center gap-2 text-sm text-muted-foreground font-light hover:text-foreground transition-colors duration-300 group"
+              >
+                <span className="w-1 h-1 rounded-full bg-primary/50 flex-shrink-0 group-hover:bg-primary transition-colors duration-300" />
+                Мой путь в профессию: как я сама прошла через выгорание{' '}
+                <span className="text-primary group-hover:underline">Читать интервью →</span>
+              </a>
+
+              <div className="mt-2 bg-[hsl(104,30%,96%)] border border-[hsl(104,25%,82%)] rounded-xl p-5 md:p-6 shadow-sm">
                 <h4 className="text-sm uppercase tracking-widest text-[hsl(104,28%,32%)] font-medium mb-2">
                   Гарантия конфиденциальности
                 </h4>
@@ -592,7 +659,8 @@ function App() {
         </section>
 
         {/* BOOKING SECTION */}
-        <section id="booking" className="py-10 md:py-14 px-6 bg-accent/30" style={{ scrollMarginTop: '100px' }}>
+        <section id="booking" className="py-10 md:py-14 px-6 bg-accent/30 relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
+          <BotanicalBg side="right" />
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
               <h2 className="text-3xl md:text-5xl font-serif mb-4 text-center">Запись на консультацию</h2>
