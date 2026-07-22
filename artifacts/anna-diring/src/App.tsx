@@ -307,8 +307,8 @@ function App() {
 
             {/* Mood mini-widget */}
             <FadeIn direction="up" delay={0.85}>
-              <div className="mt-10 text-center">
-                <p className="text-sm text-muted-foreground font-light mb-3 tracking-wide">Какое состояние у вас сейчас?</p>
+              <div className="mt-10 text-center border-y border-border py-8">
+                <p className="text-[20px] text-foreground/80 font-light mb-4 tracking-wide">Какое состояние у вас сейчас?</p>
                 <div className="flex flex-wrap justify-center gap-2 mb-4">
                   {['Усталость', 'Тревога', 'Тупик', 'Бесит', 'Не могу остановиться'].map((mood) => (
                     <button
@@ -635,16 +635,17 @@ function App() {
                 ))}
               </ul>
 
-              <a
-                href="https://dzen.ru/a/adPNnBjqsGIJwf7e"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 mb-4 inline-flex items-center gap-2 text-sm text-muted-foreground font-light hover:text-foreground transition-colors duration-300 group"
-              >
-                <span className="w-1 h-1 rounded-full bg-primary/50 flex-shrink-0 group-hover:bg-primary transition-colors duration-300" />
-                Мой путь в профессию: как я сама прошла через выгорание{' '}
-                <span className="text-primary group-hover:underline">Читать интервью →</span>
-              </a>
+              <div className="mt-6 mb-4 border-y border-border py-5">
+                <a
+                  href="https://dzen.ru/a/adPNnBjqsGIJwf7e"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-block text-base md:text-lg text-muted-foreground font-light hover:text-foreground transition-colors duration-300"
+                >
+                  Мой путь в профессию: как я сама прошла через выгорание{' '}
+                  <span className="text-primary group-hover:underline">Читать интервью →</span>
+                </a>
+              </div>
 
               <div className="mt-2 bg-[hsl(104,30%,96%)] border border-[hsl(104,25%,82%)] rounded-xl p-5 md:p-6 shadow-sm">
                 <h4 className="text-sm uppercase tracking-widest text-[hsl(104,28%,32%)] font-medium mb-2">
