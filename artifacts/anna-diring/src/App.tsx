@@ -28,6 +28,7 @@ const NAV_LINKS = [
   { id: 'about', label: 'Обо мне' },
   { id: 'consultation', label: 'Консультация' },
   { id: 'preparation', label: 'Как подготовиться' },
+  { id: 'publications', label: 'Публикации' },
   { id: 'contacts', label: 'Контакты' },
 ];
 
@@ -35,6 +36,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showExamples, setShowExamples] = useState(false);
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
+  const [openCard, setOpenCard] = useState<'good' | 'bad' | null>(null);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -113,6 +115,13 @@ function App() {
             className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
             Как подготовиться
+          </a>
+          <a
+            href="#publications"
+            onClick={(e) => scrollToSection(e, 'publications')}
+            className="hidden sm:inline text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Публикации
           </a>
           <a
             href="#booking"
@@ -258,7 +267,7 @@ function App() {
             
             <div className="order-1 md:order-2 flex flex-col justify-center">
               <FadeIn direction="up">
-                <h2 className="text-3xl md:text-5xl font-serif mb-8 text-foreground">
+                <h2 className="text-2xl md:text-4xl font-serif mb-6 text-foreground">
                   Работа с состоянием<br/>«Здесь и сейчас»
                 </h2>
               </FadeIn>
@@ -283,7 +292,7 @@ function App() {
           <BotanicalBg side="left" />
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
-              <h2 className="text-3xl md:text-5xl font-serif mb-10 text-center">Вам это нужно, если...</h2>
+              <h2 className="text-2xl md:text-4xl font-serif mb-8 text-center">Вам это нужно, если...</h2>
             </FadeIn>
             
             <div className="flex flex-col gap-6">
@@ -297,9 +306,9 @@ function App() {
                 "Если вы чувствуете, что живёте не свою жизнь"
               ].map((item, index) => (
                 <FadeIn key={index} direction="up" delay={0.1 + index * 0.1}>
-                  <div className="bg-white border border-border p-8 rounded-2xl flex items-start gap-6 hover:border-primary/50 transition-colors duration-500 group shadow-sm">
-                    <div className="w-2 h-2 rounded-full bg-secondary mt-2.5 group-hover:bg-primary transition-colors duration-500 flex-shrink-0"></div>
-                    <p className="text-xl md:text-2xl font-light text-foreground/90">{item}</p>
+                  <div className="bg-white border border-border p-5 rounded-2xl flex items-start gap-5 hover:border-primary/50 transition-colors duration-500 group shadow-sm">
+                    <div className="w-2 h-2 rounded-full bg-secondary mt-2 group-hover:bg-primary transition-colors duration-500 flex-shrink-0"></div>
+                    <p className="text-lg md:text-xl font-light text-foreground/90">{item}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -347,7 +356,7 @@ function App() {
           <BotanicalBg side="right" />
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
-              <h2 className="text-3xl md:text-5xl font-serif mb-6 text-center">Как проходит консультация</h2>
+              <h2 className="text-2xl md:text-4xl font-serif mb-5 text-center">Как проходит консультация</h2>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.1}>
@@ -365,7 +374,7 @@ function App() {
                 { title: "Персональная медитация", duration: "25 минут" },
               ].map((item, index) => (
                 <FadeIn key={index} direction="up" delay={0.1 + index * 0.05}>
-                  <div className="bg-white border border-border p-6 rounded-2xl flex items-start justify-between gap-4 h-full shadow-sm">
+                  <div className="bg-white border border-border p-4 rounded-2xl flex items-start justify-between gap-4 h-full shadow-sm">
                     <p className="text-base md:text-lg text-foreground/90 font-light">{item.title}</p>
                     <span className="text-sm uppercase tracking-widest text-primary whitespace-nowrap flex-shrink-0 mt-1">{item.duration}</span>
                   </div>
@@ -398,7 +407,7 @@ function App() {
           <BotanicalBg side="left" />
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
-              <h2 className="text-3xl md:text-5xl font-serif mb-4 text-center">Как подготовиться к консультации</h2>
+              <h2 className="text-2xl md:text-4xl font-serif mb-4 text-center">Как подготовиться к консультации</h2>
             </FadeIn>
 
             {/* Что такое запрос */}
@@ -411,44 +420,64 @@ function App() {
               </div>
             </FadeIn>
 
-            {/* Хороший vs Плохой запрос */}
+            {/* Хороший vs Плохой запрос — аккордеон */}
             <FadeIn direction="up" delay={0.15}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-                <div className="bg-[hsl(104,30%,96%)] border border-[hsl(104,25%,82%)] rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="text-xl">✅</span>
-                    <span className="text-base font-medium text-[hsl(104,28%,32%)] uppercase tracking-widest">Хороший запрос</span>
+                {/* Хороший запрос */}
+                <div className="rounded-2xl border border-[hsl(104,25%,82%)] bg-[hsl(104,30%,96%)] shadow-sm overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setOpenCard(openCard === 'good' ? null : 'good')}
+                    className="w-full flex items-center justify-between gap-2 px-4 py-3.5 hover:bg-[hsl(104,25%,93%)] transition-colors duration-200"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span>✅</span>
+                      <span className="text-sm font-medium text-[hsl(104,28%,32%)] uppercase tracking-widest">Хороший запрос</span>
+                    </div>
+                    <span className={`text-[hsl(104,28%,32%)] text-lg leading-none transition-transform duration-300 ${openCard === 'good' ? 'rotate-180' : ''}`}>▾</span>
+                  </button>
+                  <div className={`transition-all duration-300 overflow-hidden ${openCard === 'good' ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <ul className="flex flex-col gap-3 px-4 pb-4">
+                      {[
+                        { label: 'Конкретный', ex: '«я хочу перестать просыпаться с тревогой»' },
+                        { label: 'Измеримый', ex: '«я хочу плакать не чаще 2 раз в неделю»' },
+                        { label: 'Реалистичный', ex: '«я хочу научиться говорить "нет"»' },
+                      ].map((item) => (
+                        <li key={item.label} className="flex flex-col gap-0.5">
+                          <span className="text-xs uppercase tracking-wide text-[hsl(104,28%,28%)] font-medium">{item.label}</span>
+                          <span className="text-xs text-[hsl(104,15%,38%)] font-light italic">{item.ex}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="flex flex-col gap-3">
-                    {[
-                      { label: 'Конкретный', ex: '«я хочу перестать просыпаться с тревогой»' },
-                      { label: 'Измеримый', ex: '«я хочу плакать не чаще 2 раз в неделю»' },
-                      { label: 'Реалистичный', ex: '«я хочу научиться говорить "нет"»' },
-                    ].map((item) => (
-                      <li key={item.label} className="flex flex-col gap-0.5">
-                        <span className="text-sm uppercase tracking-wide text-[hsl(104,28%,28%)] font-medium">{item.label}</span>
-                        <span className="text-sm text-[hsl(104,15%,38%)] font-light italic">{item.ex}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-                <div className="bg-[hsl(10,45%,96%)] border border-[hsl(10,40%,85%)] rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="text-xl">❌</span>
-                    <span className="text-base font-medium text-[hsl(10,40%,45%)] uppercase tracking-widest">Плохой запрос</span>
+                {/* Плохой запрос */}
+                <div className="rounded-2xl border border-[hsl(10,40%,85%)] bg-[hsl(10,45%,96%)] shadow-sm overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setOpenCard(openCard === 'bad' ? null : 'bad')}
+                    className="w-full flex items-center justify-between gap-2 px-4 py-3.5 hover:bg-[hsl(10,35%,93%)] transition-colors duration-200"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span>❌</span>
+                      <span className="text-sm font-medium text-[hsl(10,40%,45%)] uppercase tracking-widest">Плохой запрос</span>
+                    </div>
+                    <span className={`text-[hsl(10,40%,45%)] text-lg leading-none transition-transform duration-300 ${openCard === 'bad' ? 'rotate-180' : ''}`}>▾</span>
+                  </button>
+                  <div className={`transition-all duration-300 overflow-hidden ${openCard === 'bad' ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <ul className="flex flex-col gap-3 px-4 pb-4">
+                      {[
+                        { label: 'Слишком общий', ex: '«мне плохо, сделайте что-нибудь»' },
+                        { label: 'Неизмеримый', ex: '«хочу быть счастливым»' },
+                        { label: 'Ориентированный на других', ex: '«хочу, чтобы муж меня понял»' },
+                      ].map((item) => (
+                        <li key={item.label} className="flex flex-col gap-0.5">
+                          <span className="text-xs uppercase tracking-wide text-[hsl(10,40%,38%)] font-medium">{item.label}</span>
+                          <span className="text-xs text-[hsl(10,25%,45%)] font-light italic">{item.ex}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="flex flex-col gap-3">
-                    {[
-                      { label: 'Слишком общий', ex: '«мне плохо, сделайте что-нибудь»' },
-                      { label: 'Неизмеримый', ex: '«хочу быть счастливым»' },
-                      { label: 'Ориентированный на других', ex: '«хочу, чтобы муж меня понял»' },
-                    ].map((item) => (
-                      <li key={item.label} className="flex flex-col gap-0.5">
-                        <span className="text-sm uppercase tracking-wide text-[hsl(10,40%,38%)] font-medium">{item.label}</span>
-                        <span className="text-sm text-[hsl(10,25%,45%)] font-light italic">{item.ex}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </div>
             </FadeIn>
@@ -457,7 +486,7 @@ function App() {
             <FadeIn direction="up" delay={0.2}>
               <h3 className="text-2xl md:text-3xl font-serif mb-3 text-center text-foreground">Пошаговая инструкция</h3>
               <p className="text-sm text-muted-foreground font-light text-center mb-8 max-w-xl mx-auto">
-                Заполните каждый шаг своими ответами — они сохранятся в этом браузере, и вы сможете вернуться к ним позже.
+                Заполните каждый шаг своими ответами, чтобы сформулировать точный запрос к психологу. Ваши данные сохранятся в браузере — вы сможете вернуться к ним позже или скачать заполненный чек-лист в PDF.
               </p>
             </FadeIn>
 
@@ -546,7 +575,7 @@ function App() {
                     ex: '«Я пока не могу чётко сформулировать, чего хочу. Я просто знаю, что так больше не могу. Помогите мне разобраться».',
                   },
                 ].map((item) => (
-                  <div key={item.num} className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-4">
+                  <div key={item.num} className="bg-white border border-border rounded-2xl p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3">
                     <span className="flex-shrink-0 w-10 h-10 rounded-full bg-secondary text-secondary-foreground flex items-center justify-center text-base font-serif shadow-sm">{item.num}</span>
                     <div>
                       <p className="text-base font-medium text-foreground mb-2">{item.title}</p>
@@ -619,7 +648,7 @@ function App() {
               <ul className="mt-8 flex flex-col gap-3">
                 {[
                   <span>Магистр клинической психологии</span>,
-                  <span>Специализация: <span className="text-foreground font-light">тревога, последствия травм, выгорание</span></span>,
+                  <span>Специализация: <span className="text-foreground font-light">работа с тревожными расстройствами, паническими атаками, последствиями психологических травм и профессиональным выгоранием</span></span>,
                   <span>
                     Методы:{' '}
                     <strong className="font-semibold text-foreground">КПТ</strong>
@@ -635,9 +664,35 @@ function App() {
                 ))}
               </ul>
 
-              <div className="mt-6 mb-4 border-y border-border py-5">
+              {/* Образование */}
+              <div className="mt-5 border-t border-border pt-4 pb-3">
+                <p className="text-xs uppercase tracking-widest text-primary font-medium mb-3">Образование</p>
+                <div className="flex flex-col gap-2">
+                  <div>
+                    <p className="text-sm font-medium text-foreground">Магистр клинической психологии</p>
+                    <p className="text-xs text-muted-foreground font-light">Московский институт психоанализа</p>
+                  </div>
+                  <div className="mt-1">
+                    <p className="text-sm font-medium text-foreground">Дополнительное образование:</p>
+                    <ul className="mt-1 flex flex-col gap-0.5">
+                      {[
+                        'Психосоматика и психология телесности',
+                        'Метод ДПДГ/EMDR',
+                        'Сексология в психологическом консультировании',
+                      ].map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-xs text-muted-foreground font-light">
+                          <span className="flex-shrink-0 mt-1.5 w-1 h-1 rounded-full bg-primary/40" aria-hidden="true" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-1 mb-4 border-y border-border py-5">
                 <a
-                  href="https://dzen.ru/a/adPNnBjqsGIJwf7e"
+                  href="https://mkppr-svao.ru/liczabiznesa/liczabiznesa-anna-diring-praktikuyushhij-psiholog-terapiya-dlya-teh-kto-ustal-byt-silnym/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-block text-base md:text-lg text-muted-foreground font-light hover:text-foreground transition-colors duration-300"
@@ -655,6 +710,32 @@ function App() {
                   Всё, что обсуждается на сессии, остаётся строго между нами. Я соблюдаю этический кодекс психолога и гарантирую полную конфиденциальность. Это ваше безопасное пространство.
                 </p>
               </div>
+
+              {/* Публикации */}
+              <div id="publications" className="mt-5 scroll-mt-28">
+                <p className="text-xs uppercase tracking-widest text-primary font-medium mb-1">Мои статьи о психологии</p>
+                <p className="text-xs text-muted-foreground font-light mb-3">Полезные материалы о работе с внутренними состояниями:</p>
+                <ul className="flex flex-col divide-y divide-border">
+                  {[
+                    { title: 'Парадокс проявленности — почему мы боимся того, чего больше всего хотим', url: 'https://www.b17.ru/article/912007/' },
+                    { title: 'Внутренний критик — как перестать быть для себя жёстким начальником', url: 'https://www.b17.ru/article/892730/' },
+                    { title: 'Манипуляция через вину — вина как инструмент контроля', url: 'https://www.b17.ru/article/893759/' },
+                    { title: 'Самоповреждение — почему боль становится лекарством и как найти другой способ', url: 'https://www.b17.ru/article/892708/' },
+                  ].map((article) => (
+                    <li key={article.url} className="py-2.5">
+                      <a
+                        href={article.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-start justify-between gap-3 hover:text-foreground transition-colors duration-200"
+                      >
+                        <span className="text-sm text-muted-foreground font-light group-hover:text-foreground leading-snug">{article.title}</span>
+                        <span className="flex-shrink-0 text-xs text-primary group-hover:underline whitespace-nowrap mt-0.5">Читать →</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </FadeIn>
           </div>
         </section>
@@ -664,7 +745,7 @@ function App() {
           <BotanicalBg side="right" />
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
-              <h2 className="text-3xl md:text-5xl font-serif mb-4 text-center">Запись на консультацию</h2>
+              <h2 className="text-2xl md:text-4xl font-serif mb-4 text-center">Запись на консультацию</h2>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.1}>
@@ -732,6 +813,9 @@ function App() {
             <FadeIn direction="up">
               <p className="text-lg md:text-xl font-light text-background/80 leading-relaxed max-w-sm">
                 Запишитесь на первую консультацию, чтобы обсудить ваш запрос и понять, насколько вам комфортно работать со мной.
+              </p>
+              <p className="mt-3 text-base text-background/60 font-light">
+                Провожу индивидуальные консультации онлайн.
               </p>
             </FadeIn>
           </div>
