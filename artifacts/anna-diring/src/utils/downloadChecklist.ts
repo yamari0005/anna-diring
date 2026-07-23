@@ -61,6 +61,9 @@ function answerHtml(value: string, label: string): string {
 }
 
 export function downloadChecklist() {
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+  (window as any).gtag('event', 'download_checklist');
+}
   const answers = loadAnswers();
   const printWindow = window.open('', '_blank', 'width=820,height=1000');
   if (!printWindow) return;
