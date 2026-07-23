@@ -575,7 +575,7 @@ function App() {
                     ex: '«Я пока не могу чётко сформулировать, чего хочу. Я просто знаю, что так больше не могу. Помогите мне разобраться».',
                   },
                 ].map((item) => (
-                  <div key={item.num} className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-4">
+                  <div key={item.num} className="bg-white border border-border rounded-2xl p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3">
                     <span className="flex-shrink-0 w-10 h-10 rounded-full bg-secondary text-secondary-foreground flex items-center justify-center text-base font-serif shadow-sm">{item.num}</span>
                     <div>
                       <p className="text-base font-medium text-foreground mb-2">{item.title}</p>
@@ -713,7 +713,7 @@ function App() {
 
               {/* Публикации */}
               <div id="publications" className="mt-5 scroll-mt-28">
-                <p className="text-xs uppercase tracking-widest text-primary font-medium mb-1">Статьи о психологии</p>
+                <p className="text-xs uppercase tracking-widest text-primary font-medium mb-1">Мои статьи о психологии</p>
                 <p className="text-xs text-muted-foreground font-light mb-3">Полезные материалы о работе с внутренними состояниями:</p>
                 <ul className="flex flex-col divide-y divide-border">
                   {[
@@ -814,7 +814,7 @@ function App() {
               <p className="text-lg md:text-xl font-light text-background/80 leading-relaxed max-w-sm">
                 Запишитесь на первую консультацию, чтобы обсудить ваш запрос и понять, насколько вам комфортно работать со мной.
               </p>
-              <p className="mt-3 text-sm text-background/50 font-light">
+              <p className="mt-3 text-base text-background/60 font-light">
                 Провожу индивидуальные консультации онлайн.
               </p>
             </FadeIn>
