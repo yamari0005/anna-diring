@@ -692,7 +692,7 @@ function App() {
               </div>
 
               <div className="mt-1 mb-4 border-y border-border py-5">
-                <h3 className="text-xl md:text-2xl font-normal">
+                <h3 className="text-xl md:text-2xl font-light">
                   <a
                     href="https://mkppr-svao.ru/liczabiznesa/liczabiznesa-anna-diring-praktikuyushhij-psiholog-terapiya-dlya-teh-kto-ustal-byt-silnym/"
                     target="_blank"
