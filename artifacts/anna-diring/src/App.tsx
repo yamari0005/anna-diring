@@ -640,7 +640,7 @@ function App() {
             </FadeIn>
 
             <FadeIn direction="up" delay={0.1}>
-              <h2 className="block text-sm tracking-widest text-primary font-medium mb-6 text-center md:text-left">Обо мне</h2>
+              <h2 className="block text-lg tracking-widest text-primary font-medium mb-6 text-center md:text-left">Обо мне</h2>
               <p className="text-2xl md:text-4xl font-serif text-foreground leading-relaxed italic text-center md:text-left">
                 «Я Анна Диринг. Верю, что успех клиента — это главный допинг психолога. Моя цель — чтобы вы стали настолько устойчивыми, что я больше не понадобилась.»
               </p>
@@ -667,7 +667,7 @@ function App() {
 
               {/* Образование */}
               <div className="mt-5 border-t border-border pt-4 pb-3">
-                <h3 className="text-xs tracking-widest text-primary font-medium mb-3">Образование</h3>
+                <h3 className="text-base tracking-widest text-primary font-medium mb-3">Образование</h3>
                 <div className="flex flex-col gap-2">
                   <div>
                     <p className="text-sm font-light text-foreground">Магистр клинической психологии</p>
@@ -692,7 +692,7 @@ function App() {
               </div>
 
               <div className="mt-1 mb-4 border-y border-border py-5">
-                <h3 className="text-base md:text-lg font-light">
+                <h3 className="text-lg md:text-xl font-light">
                   <a
                     href="https://mkppr-svao.ru/liczabiznesa/liczabiznesa-anna-diring-praktikuyushhij-psiholog-terapiya-dlya-teh-kto-ustal-byt-silnym/"
                     target="_blank"
@@ -716,7 +716,7 @@ function App() {
 
               {/* Публикации */}
               <div id="publications" className="mt-5 scroll-mt-28">
-                <h3 className="text-xs tracking-widest text-primary font-medium mb-1">Мои статьи о психологии</h3>
+                <h3 className="text-base tracking-widest text-primary font-medium mb-1">Мои статьи о психологии</h3>
                 <p className="text-xs text-muted-foreground font-light mb-3">Полезные материалы о работе с внутренними состояниями:</p>
                 <ul className="flex flex-col divide-y divide-border">
                   {[
