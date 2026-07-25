@@ -640,7 +640,7 @@ function App() {
             </FadeIn>
 
             <FadeIn direction="up" delay={0.1}>
-              <span className="block text-sm uppercase tracking-widest text-primary font-medium mb-6 text-center md:text-left">Обо мне</span>
+              <h2 className="block text-sm tracking-widest text-primary font-medium mb-6 text-center md:text-left">Обо мне</h2>
               <p className="text-2xl md:text-4xl font-serif text-foreground leading-relaxed italic text-center md:text-left">
                 «Я Анна Диринг. Верю, что успех клиента — это главный допинг психолога. Моя цель — чтобы вы стали настолько устойчивыми, что я больше не понадобилась.»
               </p>
@@ -648,13 +648,14 @@ function App() {
               <ul className="mt-8 flex flex-col gap-3">
                 {[
                   <span>Магистр клинической психологии</span>,
-                  <span>Специализация: <span className="text-foreground font-light">работа с тревожными расстройствами, паническими атаками, последствиями психологических травм и профессиональным выгоранием</span></span>,
+                  <span>Специализация: <span className="text-foreground font-light">работа с тревожными расстройствами, паническими атаками, страхами, фобиями, последствиями психологических травм и профессиональным выгоранием</span></span>,
                   <span>
-                    Методы:{' '}
+                    Методы: проработка точечных запросов и травмирующих событий методами{' '}
                     <strong className="font-semibold text-foreground">КПТ</strong>
                     <span className="text-muted-foreground font-light"> (когнитивно-поведенческая терапия)</span>
                     {' '}и{' '}
                     <strong className="font-semibold text-foreground">ДПДГ (EMDR)</strong>
+                    <span className="text-muted-foreground font-light"> для быстрой проработки травм</span>
                   </span>,
                 ].map((text, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm md:text-base text-muted-foreground font-light leading-snug">
@@ -666,10 +667,10 @@ function App() {
 
               {/* Образование */}
               <div className="mt-5 border-t border-border pt-4 pb-3">
-                <p className="text-xs uppercase tracking-widest text-primary font-medium mb-3">Образование</p>
+                <h3 className="text-xs tracking-widest text-primary font-medium mb-3">Образование</h3>
                 <div className="flex flex-col gap-2">
                   <div>
-                    <p className="text-sm font-medium text-foreground">Магистр клинической психологии</p>
+                    <p className="text-sm font-light text-foreground">Магистр клинической психологии</p>
                     <p className="text-xs text-muted-foreground font-light">Московский институт психоанализа</p>
                   </div>
                   <div className="mt-1">
@@ -691,15 +692,17 @@ function App() {
               </div>
 
               <div className="mt-1 mb-4 border-y border-border py-5">
-                <a
-                  href="https://mkppr-svao.ru/liczabiznesa/liczabiznesa-anna-diring-praktikuyushhij-psiholog-terapiya-dlya-teh-kto-ustal-byt-silnym/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-block text-base md:text-lg text-muted-foreground font-light hover:text-foreground transition-colors duration-300"
-                >
-                  Мой путь в профессию: как я сама прошла через выгорание{' '}
-                  <span className="text-primary group-hover:underline">Читать интервью →</span>
-                </a>
+                <h3 className="text-base md:text-lg font-light">
+                  <a
+                    href="https://mkppr-svao.ru/liczabiznesa/liczabiznesa-anna-diring-praktikuyushhij-psiholog-terapiya-dlya-teh-kto-ustal-byt-silnym/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group text-muted-foreground hover:text-foreground transition-colors duration-300"
+                  >
+                    Мой путь в профессию: как я сама прошла через выгорание{' '}
+                    <span className="text-primary group-hover:underline">Читать интервью →</span>
+                  </a>
+                </h3>
               </div>
 
               <div className="mt-2 bg-[hsl(104,30%,96%)] border border-[hsl(104,25%,82%)] rounded-xl p-5 md:p-6 shadow-sm">
@@ -713,7 +716,7 @@ function App() {
 
               {/* Публикации */}
               <div id="publications" className="mt-5 scroll-mt-28">
-                <p className="text-xs uppercase tracking-widest text-primary font-medium mb-1">Мои статьи о психологии</p>
+                <h3 className="text-xs tracking-widest text-primary font-medium mb-1">Мои статьи о психологии</h3>
                 <p className="text-xs text-muted-foreground font-light mb-3">Полезные материалы о работе с внутренними состояниями:</p>
                 <ul className="flex flex-col divide-y divide-border">
                   {[
@@ -814,9 +817,9 @@ function App() {
               <p className="text-lg md:text-xl font-light text-background/80 leading-relaxed max-w-sm">
                 Запишитесь на первую консультацию, чтобы обсудить ваш запрос и понять, насколько вам комфортно работать со мной.
               </p>
-              <p className="mt-3 text-base text-background/60 font-light">
+              <h3 className="mt-3 text-base text-background/60 font-light">
                 Провожу индивидуальные консультации онлайн.
-              </p>
+              </h3>
             </FadeIn>
           </div>
           
