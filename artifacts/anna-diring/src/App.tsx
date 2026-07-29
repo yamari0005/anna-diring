@@ -37,6 +37,7 @@ function App() {
   const [showExamples, setShowExamples] = useState(false);
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
   const [openCard, setOpenCard] = useState<'good' | 'bad' | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -762,34 +763,25 @@ function App() {
             </FadeIn>
 
             {/* Шаг 1: Анкета */}
-            <FadeIn direction="up" delay={0.15}>
-              <div className="mb-14">
-                <div className="flex items-center gap-4 mb-2">
-                  <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">1</span>
-                  <h3 className="text-xl md:text-2xl font-serif text-foreground">Заполните анкету</h3>
-                </div>
-                <p className="text-sm text-gray-500 italic font-light mt-2 mb-5 max-w-lg ml-14">
-                  Не переживайте, если не можете точно описать проблему. Просто напишите, что вас беспокоит, и мы разберёмся вместе на первой встрече.
-                </p>
-                <div className="rounded-2xl border border-border shadow-lg shadow-muted/40 overflow-hidden bg-white">
-                  <iframe
-                    src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/"
-                    title="Анкета для консультации"
-                    className="w-full block"
-                    style={{
-                      width: '100%',
-                      height: '600px',
-                      border: '1px solid #e5e7eb',
-                      borderRadius: '12px',
-                      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                      overflow: 'hidden',
-                    }}
-                    frameBorder="0"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </FadeIn>
+<FadeIn direction="up" delay={0.15}>
+  <div className="mb-14 text-center">
+    <div className="flex justify-center items-center gap-4 mb-2">
+      <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">1</span>
+      <h3 className="text-xl md:text-2xl font-serif text-foreground">Заполните анкету</h3>
+    </div>
+    
+    <p className="text-sm text-gray-500 italic max-w-xl mx-auto mb-6">
+      Для того чтобы наша первая сессия прошла продуктивно, прошу ответить на несколько вопросов. Это поможет мне лучше понять вашу ситуацию до нашей встречи. После отправки формы вы сможете выбрать удобное время.
+    </p>
+
+    <button 
+      onClick={() => setIsModalOpen(true)}
+      className="bg-stone-800 text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:bg-stone-700 transition-all duration-300 shadow-sm"
+    >
+      Открыть анкету клиента →
+    </button>
+  </div>
+</FadeIn>
 
             {/* Шаг 2: Выбор времени */}
             <FadeIn direction="up" delay={0.2}>
@@ -878,6 +870,45 @@ function App() {
       </footer>
 
       <ScrollToTopButton />
+      {/* ПРЕМИАЛЬНОЕ МОДАЛЬНОЕ ОКНО С ФОРМОЙ */}
+{isModalOpen && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div 
+      className="absolute inset-0 bg-stone-900/40 backdrop-blur-md transition-opacity"
+      onClick={() => setIsModalOpen(false)}
+    ></div>
+
+    <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl h-[85vh] flex flex-col overflow-hidden z-10">
+      
+      <div className="flex justify-between items-center px-6 py-4 border-b border-stone-100 bg-stone-50/50">
+        <h3 className="text-sm font-medium tracking-wide text-stone-700 uppercase">Анкета предварительной записи</h3>
+        <button 
+          onClick={() => setIsModalOpen(false)}
+          className="text-stone-400 hover:text-stone-700 transition-colors p-1"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div className="flex-1 w-full h-full bg-white overflow-hidden relative">
+  <iframe 
+    src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/" 
+    className="absolute top-0 left-1/2 border-0"
+    style={{
+      width: '140%',
+      height: '700px',
+      transform: 'translateX(-50%) translateY(-40px)',
+    }}
+    title="Анкета для консультации"
+  />
+</div>
+      
+    </div>
+  </div>
+)}
+
     </div>
   );
 }
