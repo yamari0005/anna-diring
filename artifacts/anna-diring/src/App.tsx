@@ -758,7 +758,7 @@ function App() {
 
             <FadeIn direction="up" delay={0.1}>
               <p className="text-lg text-muted-foreground font-light leading-relaxed text-center max-w-2xl mx-auto mb-10">
-                Пожалуйста, заполните короткую анкету ниже. Это поможет мне лучше понять вашу ситуацию до нашей встречи. После отправки формы вы сможете выбрать удобное время.
+               Запись на индивидуальную онлайн-консультацию проходит в два простых шага - это поможет нам сэкономить время на первой встрече
               </p>
             </FadeIn>
 
@@ -771,12 +771,13 @@ function App() {
     </div>
     
     <p className="text-sm text-gray-500 italic max-w-xl mx-auto mb-6">
-      Для того чтобы наша первая сессия прошла продуктивно, прошу ответить на несколько вопросов. Это поможет мне лучше понять вашу ситуацию до нашей встречи. После отправки формы вы сможете выбрать удобное время.
+      Для того чтобы наша первая сессия прошла продуктивно, прошу ответить на несколько вопросов. Это позволит мне лучше понять вашу ситуацию до нашей встречи. После отправки формы вы сможете выбрать удобное время.
     </p>
 
     <button 
       onClick={() => setIsModalOpen(true)}
-    className="bg-[hsl(104,25%,45%)] text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:bg-[hsl(104,25%,40%)] hover:scale-[1.02] transition-all duration-300 shadow-sm"
+    style={{ backgroundColor: 'hsl(104, 25%, 45%)' }}
+className="text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
     >
       Открыть анкету клиента →
     </button>
@@ -897,9 +898,9 @@ function App() {
             src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/"
             className="absolute top-0 left-1/2 border-0"
             style={{
-              width: '150%',
-              height: '600px',
-              transform: 'translateX(-50%) translateY(-80px)',
+              width: '140%',
+              height: '820px',
+              transform: 'translateX(-50%) translateY(-75px)',
             }}
             title="Анкета для консультации"
           />
