@@ -776,7 +776,7 @@ function App() {
 
     <button 
       onClick={() => setIsModalOpen(true)}
-     className="bg-primary text-primary-foreground text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
+    className="bg-[hsl(104,25%,45%)] text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:bg-[hsl(104,25%,40%)] hover:scale-[1.02] transition-all duration-300 shadow-sm"
     >
       Открыть анкету клиента →
     </button>
