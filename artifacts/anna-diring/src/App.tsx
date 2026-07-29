@@ -431,7 +431,9 @@ function App() {
                     className="w-full flex items-center justify-between gap-2 px-4 py-3.5 hover:bg-[hsl(104,25%,93%)] transition-colors duration-200"
                   >
                     <div className="flex items-center gap-2">
-                      <span>✅</span>
+                      <svg className="w-4 h-4 text-[hsl(104,28%,32%)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+</svg>
                       <span className="text-sm font-medium text-[hsl(104,28%,32%)] uppercase tracking-widest">Хороший запрос</span>
                     </div>
                     <span className={`text-[hsl(104,28%,32%)] text-lg leading-none transition-transform duration-300 ${openCard === 'good' ? 'rotate-180' : ''}`}>▾</span>
@@ -459,7 +461,9 @@ function App() {
                     className="w-full flex items-center justify-between gap-2 px-4 py-3.5 hover:bg-[hsl(10,35%,93%)] transition-colors duration-200"
                   >
                     <div className="flex items-center gap-2">
-                      <span>❌</span>
+                      <svg className="w-4 h-4 text-[hsl(10,40%,45%)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+</svg>
                       <span className="text-sm font-medium text-[hsl(10,40%,45%)] uppercase tracking-widest">Плохой запрос</span>
                     </div>
                     <span className={`text-[hsl(10,40%,45%)] text-lg leading-none transition-transform duration-300 ${openCard === 'bad' ? 'rotate-180' : ''}`}>▾</span>
