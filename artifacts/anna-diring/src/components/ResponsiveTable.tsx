@@ -45,8 +45,8 @@ export function InfoTable({ leftHeader, rightHeader, rows }: InfoTableProps) {
 }
 
 interface ComparisonTableProps {
-  badHeader: string;
-  goodHeader: string;
+  badHeader: React.ReactNode;
+  goodHeader: React.ReactNode;
   rows: [bad: string, good: string][];
 }
 
@@ -61,8 +61,18 @@ export function ComparisonTable({ badHeader, goodHeader, rows }: ComparisonTable
         <table className="w-full text-sm border-collapse bg-white">
           <thead>
             <tr className="border-b border-border">
-              <th className="text-left px-4 py-2 text-xs uppercase tracking-widest text-[hsl(10,40%,45%)] font-medium w-1/2 bg-[hsl(10,45%,96%)]">{badHeader}</th>
-              <th className="text-left px-4 py-2 text-xs uppercase tracking-widest text-[hsl(104,28%,32%)] font-medium w-1/2 bg-[hsl(104,30%,96%)]">{goodHeader}</th>
+ <th className="...">
+  <svg className="w-4 h-4 inline mr-1.5 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+   </svg>
+   Плохой запрос
+ </th>
+ <th className="...">
+   <svg className="w-4 h-4 inline mr-1.5 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+   </svg>
+   Хороший запрос
+ </th>
             </tr>
           </thead>
           <tbody>
@@ -80,11 +90,20 @@ export function ComparisonTable({ badHeader, goodHeader, rows }: ComparisonTable
         {rows.map(([bad, good], i) => (
           <div key={i} className="rounded-xl border border-border shadow-sm overflow-hidden">
             <div className="px-3 py-2 bg-[hsl(10,45%,96%)] text-[hsl(10,25%,42%)] text-sm font-light italic leading-snug">
-              <span className="text-xs uppercase tracking-widest text-[hsl(10,40%,45%)] font-medium block mb-0.5">{badHeader}</span>
+              <span className="text-xs uppercase tracking-widest text-[hsl(10,40%,45%)] font-medium block mb-0.5">
+  <svg className="w-3.5 h-3.5 inline mr-1 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+  </svg>
+  Плохой запрос
+</span>
               {bad}
             </div>
-            <div className="px-3 py-2 bg-[hsl(104,30%,96%)] text-[hsl(104,20%,28%)] text-sm font-light leading-snug">
-              <span className="text-xs uppercase tracking-widest text-[hsl(104,28%,32%)] font-medium block mb-0.5">{goodHeader}</span>
+            <span className="text-xs uppercase tracking-widest text-[hsl(104,28%,32%)] font-medium block mb-0.5">
+  <svg className="w-3.5 h-3.5 inline mr-1 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+  </svg>
+  Хороший запрос
+</span>
               {good}
             </div>
           </div>
