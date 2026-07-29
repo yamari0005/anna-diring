@@ -907,7 +907,6 @@ className="text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full h
         </div>
 </div>     
     </div>
-  </div>
 )}
     </div>
     </div>
