@@ -535,8 +535,8 @@ function App() {
                   <div className="animate-in fade-in slide-in-from-top-2 duration-300">
                     <div className="pt-6">
                       <ComparisonTable
-                        badHeader="❌ Плохой запрос"
-                        goodHeader="✅ Хороший запрос"
+                        badHeader="• Плохой запрос"
+                        goodHeader="+ Хороший запрос"
                         rows={[
                           ['«Хочу стать счастливой»', '«Хочу перестать просыпаться с чувством вины»'],
                           ['«Хочу, чтобы муж перестал кричать»', '«Хочу научиться спокойно реагировать на критику и говорить о своих чувствах»'],
