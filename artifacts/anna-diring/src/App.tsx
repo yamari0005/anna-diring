@@ -905,12 +905,10 @@ className="text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full h
             title="Анкета для консультации"
           />
         </div>
-</div>
-      
+</div>     
     </div>
-  </div>
 )}
-
+    </div>
     </div>
   );
 }
