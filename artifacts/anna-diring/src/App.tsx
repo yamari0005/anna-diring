@@ -899,8 +899,8 @@ className="text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full h
             className="absolute top-0 left-1/2 border-0"
             style={{
               width: '140%',
-              height: '820px',
-              transform: 'translateX(-50%) translateY(-75px)',
+              height: '600px',
+              transform: 'translateX(-50%) translateY(-80px)',
             }}
             title="Анкета для консультации"
           />
