@@ -98,15 +98,16 @@ export function ComparisonTable({ badHeader, goodHeader, rows }: ComparisonTable
 </span>
               {bad}
             </div>
-            <span className="text-xs uppercase tracking-widest text-[hsl(104,28%,32%)] font-medium block mb-0.5">
-  <svg className="w-3.5 h-3.5 inline mr-1 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-  </svg>
-  Хороший запрос
-</span>
+                       <div className="px-3 py-2 bg-[hsl(104,30%,96%)] text-[hsl(104,20%,28%)] text-sm font-light leading-snug">
+              <span className="text-xs uppercase tracking-widest text-[hsl(104,28%,32%)] font-medium block mb-0.5">
+                <svg className="w-3.5 h-3.5 inline mr-1 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                </svg>
+                Хороший запрос
+              </span>
               {good}
             </div>
-          </div>
+            </div>
         ))}
       </div>
     </>
