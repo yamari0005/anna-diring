@@ -776,7 +776,7 @@ function App() {
 
     <button 
       onClick={() => setIsModalOpen(true)}
-      className="bg-stone-800 text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:bg-stone-700 transition-all duration-300 shadow-sm"
+     className="bg-primary text-primary-foreground text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
     >
       Открыть анкету клиента →
     </button>
@@ -892,17 +892,18 @@ function App() {
         </button>
       </div>
 
-      <div className="flex-1 w-full h-full bg-white overflow-hidden relative">
-  <iframe 
-    src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/" 
-    className="absolute top-0 left-1/2 border-0"
-    style={{
-      width: '140%',
-      height: '700px',
-      transform: 'translateX(-50%) translateY(-40px)',
-    }}
-    title="Анкета для консультации"
-  />
+              <div className="flex-1 w-full h-full bg-white overflow-hidden relative">
+          <iframe
+            src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/"
+            className="absolute top-0 left-1/2 border-0"
+            style={{
+              width: '150%',
+              height: '600px',
+              transform: 'translateX(-50%) translateY(-80px)',
+            }}
+            title="Анкета для консультации"
+          />
+        </div>
 </div>
       
     </div>
