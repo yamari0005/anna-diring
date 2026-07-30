@@ -758,7 +758,7 @@ function App() {
 
             <FadeIn direction="up" delay={0.1}>
               <p className="text-lg text-muted-foreground font-light leading-relaxed text-center max-w-2xl mx-auto mb-10">
-               Запись на индивидуальную онлайн-консультацию проходит в два простых шага - это поможет нам сэкономить время на первой встрече
+                Пожалуйста, заполните короткую анкету ниже. Это поможет мне лучше понять вашу ситуацию до нашей встречи. После отправки формы вы сможете выбрать удобное время.
               </p>
             </FadeIn>
 
@@ -771,13 +771,12 @@ function App() {
     </div>
     
     <p className="text-sm text-gray-500 italic max-w-xl mx-auto mb-6">
-      Для того чтобы наша первая сессия прошла продуктивно, прошу ответить на несколько вопросов. Это позволит мне лучше понять вашу ситуацию до нашей встречи. После отправки формы вы сможете выбрать удобное время.
+      Для того чтобы наша первая сессия прошла продуктивно, прошу ответить на несколько вопросов. Это поможет мне лучше понять вашу ситуацию до нашей встречи. После отправки формы вы сможете выбрать удобное время.
     </p>
 
     <button 
       onClick={() => setIsModalOpen(true)}
-    style={{ backgroundColor: 'hsl(104, 25%, 45%)' }}
-className="text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
+      className="bg-stone-800 text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:bg-stone-700 transition-all duration-300 shadow-sm"
     >
       Открыть анкету клиента →
     </button>
@@ -893,21 +892,24 @@ className="text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full h
         </button>
       </div>
 
-              <div className="flex-1 w-full h-full bg-white overflow-hidden relative">
-          <iframe
-            src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/"
-            className="absolute top-0 left-1/2 border-0"
-            style={{
-              width: '140%',
-              height: '600px',
-              transform: 'translateX(-50%) translateY(-80px)',
-            }}
-            title="Анкета для консультации"
-          />
-        </div>
-</div>     
+      <div className="flex-1 w-full h-full bg-white overflow-hidden relative">
+  <iframe 
+    src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/" 
+    className="absolute top-0 left-1/2 border-0"
+    style={{
+      width: '140%',
+      height: '700px',
+      transform: 'translateX(-50%) translateY(-40px)',
+    }}
+    title="Анкета для консультации"
+  />
+</div>
+      
     </div>
-  )}
+  </div>
+)}
+
+    </div>
   );
 }
 
