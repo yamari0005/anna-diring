@@ -758,7 +758,7 @@ function App() {
 
             <FadeIn direction="up" delay={0.1}>
               <p className="text-lg text-muted-foreground font-light leading-relaxed text-center max-w-2xl mx-auto mb-10">
-                Пожалуйста, заполните короткую анкету ниже. Это поможет мне лучше понять вашу ситуацию до нашей встречи. После отправки формы вы сможете выбрать удобное время.
+                Запись на онлайн-консультацию проходит в два простых шага - это поможет нам съэкономить время на первой встрече
               </p>
             </FadeIn>
 
@@ -771,12 +771,13 @@ function App() {
     </div>
     
     <p className="text-sm text-gray-500 italic max-w-xl mx-auto mb-6">
-      Для того чтобы наша первая сессия прошла продуктивно, прошу ответить на несколько вопросов. Это поможет мне лучше понять вашу ситуацию до нашей встречи. После отправки формы вы сможете выбрать удобное время.
+      Пожалуйста, ответьте на несколько вопросов ниже. Это позволит мне лучше понять вашу ситуацию. После отправки формы вы сможете выбрать удобное время.
     </p>
 
     <button 
       onClick={() => setIsModalOpen(true)}
-      className="bg-stone-800 text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:bg-stone-700 transition-all duration-300 shadow-sm"
+      style={{ backgroundColor: 'rgb(120, 143, 108)' }}
+      className="text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:opacity-90 transition-all duration-300 shadow-sm"
     >
       Открыть анкету клиента →
     </button>
