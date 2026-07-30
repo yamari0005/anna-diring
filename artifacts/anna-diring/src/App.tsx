@@ -764,7 +764,7 @@ function App() {
 
             {/* Шаг 1: Анкета */}
 <FadeIn direction="up" delay={0.15}>
-  <div className="bg-background border border-border rounded-2xl p-4 md:p-6 shadow-sm text-center mb-14">
+  <div className="bg-background border border-border rounded-2xl p-3 md:p-5 shadow-sm text-center mb-10">
     <div className="flex justify-center items-center gap-4 mb-2">
       <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">1</span>
       <h3 className="text-xl md:text-2xl font-serif text-foreground">Шаг 1: Заполните анкету</h3>
@@ -776,7 +776,7 @@ function App() {
 
     <button 
       onClick={() => setIsModalOpen(true)}
-      style={{ backgroundColor: 'rgb(120, 143, 108)' }}
+      style={{ backgroundColor: 'rgb(153, 169, 147)' }}
       className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:opacity-90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm"
       >
       Открыть анкету клиента →
@@ -786,7 +786,7 @@ function App() {
 
             {/* Шаг 2: Выбор времени */}
             <FadeIn direction="up" delay={0.2}>
-              <div className="bg-background border border-border rounded-2xl p-4 md:p-6 shadow-sm text-center mb-14">
+              <div className="bg-background border border-border rounded-2xl p-3 md:p-5 shadow-sm text-center mb-10">
              <div className="flex justify-center items-center gap-4 mb-2">   
                 <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">2</span>
                 <h3 className="text-xl md:text-2xl font-serif text-foreground">Шаг 2: Выберите время</h3>
