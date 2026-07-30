@@ -764,7 +764,7 @@ function App() {
 
             {/* Шаг 1: Анкета */}
 <FadeIn direction="up" delay={0.15}>
-  <div className="mb-14 text-center">
+  <div className="bg-white border border-border rounded-2xl p-6 md:p-8 shadow-sm text-center mb-14">
     <div className="flex justify-center items-center gap-4 mb-2">
       <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">1</span>
       <h3 className="text-xl md:text-2xl font-serif text-foreground">Заполните анкету</h3>
@@ -786,7 +786,7 @@ function App() {
 
             {/* Шаг 2: Выбор времени */}
             <FadeIn direction="up" delay={0.2}>
-              <div className="bg-white border border-border rounded-2xl p-8 md:p-10 shadow-sm text-center flex flex-col items-center gap-4">
+              <div className="bg-white border border-border rounded-2xl p-6 md:p-8 shadow-sm text-center flex flex-col items-center gap-4">
                 <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm mb-1">2</span>
                 <h3 className="text-xl md:text-2xl font-serif text-foreground">Шаг 2: Выберите время</h3>
                 <p className="text-base text-muted-foreground font-light leading-relaxed max-w-md">
