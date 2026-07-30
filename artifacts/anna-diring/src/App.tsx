@@ -296,7 +296,7 @@ function App() {
               <h2 className="text-2xl md:text-4xl font-serif mb-8 text-center">Вам это нужно, если...</h2>
             </FadeIn>
             
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
               {[
                 "Если вы привыкли всё тянуть на себя",
                 "Если нужно принять сложное решение, но страшно",
@@ -307,9 +307,9 @@ function App() {
                 "Если вы чувствуете, что живёте не свою жизнь"
               ].map((item, index) => (
                 <FadeIn key={index} direction="up" delay={0.1 + index * 0.1}>
-                  <div className="bg-white border border-border p-5 rounded-2xl flex items-start gap-5 hover:border-primary/50 transition-colors duration-500 group shadow-sm">
+                  <div className="bg-white border border-border p-4 rounded-2xl flex items-start gap-5 hover:border-primary/50 transition-colors duration-500 group shadow-sm">
                     <div className="w-2 h-2 rounded-full bg-secondary mt-2 group-hover:bg-primary transition-colors duration-500 flex-shrink-0"></div>
-                    <p className="text-lg md:text-xl font-light text-foreground/90">{item}</p>
+                    <p className="text-base md:text-lg font-light text-foreground/90">{item}</p>
                   </div>
                 </FadeIn>
               ))}
