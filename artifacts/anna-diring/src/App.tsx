@@ -898,8 +898,8 @@ function App() {
     src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/" 
     className="absolute top-0 left-1/2 border-0"
     style={{
-      width: '150%',
-      height: '600px',
+      width: '100%',
+      height: '100px',
       transform: 'translateX(-50%) translateY(-100px)',
     }}
     title="Анкета для консультации"
