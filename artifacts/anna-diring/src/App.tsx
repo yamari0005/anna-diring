@@ -899,8 +899,8 @@ function App() {
     className="absolute top-0 left-1/2 border-0"
     style={{
       width: '150%',
-      height: '500px',
-      transform: 'translateX(-50%) translateY(-80px)',
+      height: '420px',
+      transform: 'translateX(-50%) translateY(-120px)',
     }}
     title="Анкета для консультации"
   />
