@@ -758,7 +758,7 @@ function App() {
 
             <FadeIn direction="up" delay={0.1}>
               <p className="text-lg text-muted-foreground font-light leading-relaxed text-center max-w-2xl mx-auto mb-10">
-                Запись на онлайн-консультацию проходит в два простых шага - это поможет нам съэкономить время на первой встрече
+                Запись на онлайн-консультацию проходит в два простых шага - это поможет нам сэкономить время на первой встрече
               </p>
             </FadeIn>
 
@@ -771,7 +771,7 @@ function App() {
     </div>
     
     <p className="text-sm text-gray-500 italic max-w-xl mx-auto mb-6">
-      Пожалуйста, ответьте на несколько вопросов ниже. Это позволит мне лучше понять вашу ситуацию. После отправки формы вы сможете выбрать удобное время.
+      Пожалуйста, ответьте на несколько вопросов ниже. Это позволит мне лучше понять вашу ситуацию. После отправки формы вы сможете выбрать удобное время
     </p>
 
     <button 
@@ -898,9 +898,9 @@ function App() {
     src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/" 
     className="absolute top-0 left-1/2 border-0"
     style={{
-      width: '140%',
-      height: '700px',
-      transform: 'translateX(-50%) translateY(-40px)',
+      width: '150%',
+      height: '500px',
+      transform: 'translateX(-50%) translateY(-80px)',
     }}
     title="Анкета для консультации"
   />
