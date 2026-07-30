@@ -879,7 +879,7 @@ function App() {
       onClick={() => setIsModalOpen(false)}
     ></div>
 
-    <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl h-[85vh] flex flex-col overflow-hidden z-10">
+    <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl h-[65vh] flex flex-col overflow-hidden z-10">
       
       <div className="flex justify-between items-center px-6 py-4 border-b border-stone-100 bg-stone-50/50">
         <h3 className="text-sm font-medium tracking-wide text-stone-700 uppercase">Анкета предварительной записи</h3>
