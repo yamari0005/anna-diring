@@ -92,7 +92,7 @@ function AccordionStep({
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="w-full flex items-center gap-4 p-5 md:p-6 text-left"
+        className="w-full flex items-center gap-3 p-3 md:p-4 text-left"
       >
         <span
           className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-base font-serif shadow-sm transition-colors duration-300 ${
@@ -271,7 +271,7 @@ export function PreparationAccordion() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-3">
         <AccordionStep
           stepNumber={1}
           title="Определите «зону боли»"
