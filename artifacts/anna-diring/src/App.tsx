@@ -902,8 +902,8 @@ function App() {
       left: '50%',
       border: 'none',
       width: '150%',
-      height: '500px',
-       transform: 'translateX(-50%) translateY(-180px)',
+      height: '600px',
+       transform: 'translateX(-50%) translateY(-200px)',
     }}
     title="Анкета для консультации"
   />
