@@ -896,11 +896,11 @@ function App() {
       <div className="flex-1 w-full h-full bg-white overflow-hidden relative">
   <iframe 
     src="https://forms.yandex.ru/u/67b338f302848f01bc274c59/" 
-    className="absolute top-0 left-1/2 border-0"
+    className="w-full h-full border-0"
     style={{
       width: '100%',
-      height: '100px',
-      transform: 'translateX(-50%) translateY(-100px)',
+      height: '100%',
+       border: 'none',
     }}
     title="Анкета для консультации"
   />
