@@ -770,7 +770,7 @@ function App() {
       <h3 className="text-xl md:text-2xl font-serif text-foreground">Шаг 1: Заполните анкету</h3>
     </div>
     
-    <p className="text-sm text-gray-500 italic max-w-xl mx-auto mb-6">
+    <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-md mx-auto mb-6">
       Пожалуйста, ответьте на несколько вопросов ниже. Это позволит мне лучше понять вашу ситуацию. После отправки формы вы сможете выбрать удобное время
     </p>
 
