@@ -366,7 +366,7 @@ function App() {
               </p>
             </FadeIn>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
               {[
                 { title: "Консультация клинического психолога", duration: "60 минут" },
                 { title: "Диагностика семейных отношений", duration: "60 минут" },
@@ -375,9 +375,9 @@ function App() {
                 { title: "Персональная медитация", duration: "25 минут" },
               ].map((item, index) => (
                 <FadeIn key={index} direction="up" delay={0.1 + index * 0.05}>
-                  <div className="bg-white border border-border p-4 rounded-2xl flex items-start justify-between gap-4 h-full shadow-sm">
-                    <p className="text-base md:text-lg text-foreground/90 font-light">{item.title}</p>
-                    <span className="text-sm uppercase tracking-widest text-primary whitespace-nowrap flex-shrink-0 mt-1">{item.duration}</span>
+                  <div className="bg-white border border-border p-3 rounded-2xl flex items-start justify-between gap-3 h-full shadow-sm">
+                    <p className="text-sm md:text-lg text-foreground/90 font-light">{item.title}</p>
+                    <span className="text-xs uppercase tracking-widest text-primary whitespace-nowrap flex-shrink-0 mt-1">{item.duration}</span>
                   </div>
                 </FadeIn>
               ))}
@@ -413,7 +413,7 @@ function App() {
 
             {/* Что такое запрос */}
             <FadeIn direction="up" delay={0.1}>
-              <div className="mt-10 mb-10 bg-accent/50 border border-border rounded-2xl p-8 shadow-sm">
+              <div className="mt-8 mb-8 bg-accent/50 border border-border rounded-2xl p-8 shadow-sm">
                 <h3 className="text-xl md:text-2xl font-serif mb-3 text-foreground">Что такое «запрос»?</h3>
                 <p className="text-lg text-muted-foreground font-light leading-relaxed">
                   Запрос — это ответ на вопрос: <span className="text-foreground font-normal">«Чего я хочу добиться в терапии? Что должно измениться в моей жизни?»</span>
@@ -764,7 +764,7 @@ function App() {
 
             {/* Шаг 1: Анкета */}
 <FadeIn direction="up" delay={0.15}>
-  <div className="bg-background border border-border rounded-2xl p-3 md:p-5 shadow-sm text-center mb-10">
+  <div className="bg-background border border-border rounded-2xl p-2 md:p-4 shadow-sm text-center mb-10">
     <div className="flex justify-center items-center gap-4 mb-2">
       <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">1</span>
       <h3 className="text-xl md:text-2xl font-serif text-foreground">Шаг 1: Заполните анкету</h3>
@@ -777,7 +777,7 @@ function App() {
     <button 
       onClick={() => setIsModalOpen(true)}
       style={{ backgroundColor: 'rgb(153, 169, 147)' }}
-      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:opacity-90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm"
+      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-primary-foreground px-8 py-4 rounded-full text-xs uppercase tracking-widest hover:opacity-90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm"
       >
       Открыть анкету клиента →
     </button>
@@ -786,7 +786,7 @@ function App() {
 
             {/* Шаг 2: Выбор времени */}
             <FadeIn direction="up" delay={0.2}>
-              <div className="bg-background border border-border rounded-2xl p-3 md:p-5 shadow-sm text-center mb-10">
+              <div className="bg-background border border-border rounded-2xl p-2 md:p-4 shadow-sm text-center mb-10">
              <div className="flex justify-center items-center gap-4 mb-2">   
                 <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-serif shadow-sm">2</span>
                 <h3 className="text-xl md:text-2xl font-serif text-foreground">Шаг 2: Выберите время</h3>
@@ -798,7 +798,7 @@ function App() {
                   href="https://dikidi.net/1773633?p=0.pi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm mt-2"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full text-xs uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 shadow-sm mt-2"
                 >
                   Выбрать время консультации →
                 </a>
