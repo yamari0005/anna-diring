@@ -125,12 +125,12 @@ function App() {
             Публикации
           </a>
           <a
-            href="#booking"
+            {/* href="#booking"
             onClick={(e) => scrollToSection(e, 'booking')}
             className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
             Записаться
-          </a>
+          </a> */}
           <a
             href="#contacts"
             onClick={(e) => scrollToSection(e, 'contacts')}
@@ -242,7 +242,7 @@ function App() {
               </div>
             </FadeIn>
 
-            <FadeIn direction="up" delay={0.7} className="w-full sm:w-auto">
+             {/* <FadeIn direction="up" delay={0.7} className="w-full sm:w-auto">
               <a 
                 href="#booking"
                 onClick={(e) => scrollToSection(e, 'booking')}
@@ -250,7 +250,7 @@ function App() {
               >
                 Записаться на консультацию
               </a>
-            </FadeIn>
+            </FadeIn> */}
           </div>
         </section>
 
@@ -338,13 +338,13 @@ function App() {
                 {selectedMood && (
                   <div className="animate-in fade-in slide-in-from-top-2 duration-300 flex flex-col items-center gap-3">
                     <p className="text-sm text-foreground/75 font-light italic">Я понимаю это состояние. Давайте поговорим.</p>
-                    <a
+                    {/* <a
                       href="#booking"
                       onClick={(e) => scrollToSection(e, 'booking')}
                       className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-primary text-primary-foreground text-xs uppercase tracking-widest hover:bg-primary/90 transition-colors duration-300 shadow-sm"
                     >
                       Записаться
-                    </a>
+                    </a> */}
                   </div>
                 )}
               </div>
@@ -389,7 +389,7 @@ function App() {
               </p>
             </FadeIn>
 
-            <FadeIn direction="up" delay={0.4}>
+           {/* <FadeIn direction="up" delay={0.4}>
               <div className="flex justify-center">
                 <a 
                   href="#booking"
@@ -397,9 +397,9 @@ function App() {
                   className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300 shadow-sm"
                 >
                   Записаться на консультацию
-                </a>
+                </a> 
               </div>
-            </FadeIn>
+            </FadeIn> */}
           </div>
         </section>
 
@@ -617,7 +617,7 @@ function App() {
             </FadeIn>
 
             {/* CTA */}
-            <FadeIn direction="up" delay={0.35}>
+           {/* <FadeIn direction="up" delay={0.35}>
               <div className="flex justify-center">
                 <a
                   href="#booking"
@@ -627,7 +627,7 @@ function App() {
                   Перейти к записи на консультацию
                 </a>
               </div>
-            </FadeIn>
+            </FadeIn> */}
           </div>
         </section>
 
@@ -749,7 +749,7 @@ function App() {
         </section>
 
         {/* BOOKING SECTION */}
-        <section id="booking" className="py-10 md:py-14 px-6 bg-accent/30 relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
+       {/* <section id="booking" className="py-10 md:py-14 px-6 bg-accent/30 relative overflow-hidden" style={{ scrollMarginTop: '100px' }}>
           <BotanicalBg side="right" />
           <div className="max-w-4xl mx-auto">
             <FadeIn direction="up">
@@ -762,7 +762,7 @@ function App() {
               </p>
             </FadeIn>
 
-            {/* Шаг 1: Анкета */}
+            {/* Шаг 1: Анкета 
 <FadeIn direction="up" delay={0.15}>
   <div className="bg-background border border-border rounded-2xl p-2 md:p-4 shadow-sm text-center mb-10">
     <div className="flex justify-center items-center gap-4 mb-2">
@@ -784,7 +784,7 @@ function App() {
   </div>
 </FadeIn>
 
-            {/* Шаг 2: Выбор времени */}
+            {/* Шаг 2: Выбор времени
             <FadeIn direction="up" delay={0.2}>
               <div className="bg-background border border-border rounded-2xl p-2 md:p-4 shadow-sm text-center mb-10">
              <div className="flex justify-center items-center gap-4 mb-2">   
@@ -805,7 +805,7 @@ function App() {
               </div>
             </FadeIn>
           </div>
-        </section>
+        </section> */}
       </main>
 
       {/* FOOTER / CONTACTS */}
@@ -813,9 +813,9 @@ function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
           <div>
             <FadeIn direction="up">
-              <p className="text-lg md:text-xl font-light text-background/80 leading-relaxed max-w-sm">
+             {/* <p className="text-lg md:text-xl font-light text-background/80 leading-relaxed max-w-sm">
                 Запишитесь на первую консультацию, чтобы обсудить ваш запрос и понять, насколько вам комфортно работать со мной.
-              </p>
+              </p> */}
               <h3 className="mt-3 text-lg text-background/60 font-light">
                 Провожу индивидуальные консультации онлайн.
               </h3>
@@ -823,7 +823,7 @@ function App() {
           </div>
           
           <div className="flex flex-col items-start md:items-end justify-center gap-8">
-            <FadeIn direction="up" delay={0.1} className="w-full md:w-auto">
+            {/* <FadeIn direction="up" delay={0.1} className="w-full md:w-auto">
               <p className="text-background/70 text-lg md:text-xl uppercase tracking-widest mb-4">
                 Запись на консультацию и расписание:
               </p>
@@ -835,7 +835,7 @@ function App() {
               >
                 Открыть расписание на Dikidi
               </a>
-            </FadeIn>
+            </FadeIn> */}
             
             <FadeIn direction="up" delay={0.2} className="w-full md:w-auto pt-4 border-t border-background/10 md:text-right">
               <a href="mailto:Annadiring@yandex.ru" className="block text-xl md:text-2xl font-light hover:text-primary transition-colors duration-300">
@@ -873,7 +873,7 @@ function App() {
       </footer>
 
       <ScrollToTopButton />
-      {/* ПРЕМИАЛЬНОЕ МОДАЛЬНОЕ ОКНО С ФОРМОЙ */}
+      {/* ПРЕМИАЛЬНОЕ МОДАЛЬНОЕ ОКНО С ФОРМОЙ
 {isModalOpen && (
   <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
     <div 
@@ -914,7 +914,7 @@ function App() {
     </div>
   </div>
 )}
-
+ */}
     </div>
   );
 }
