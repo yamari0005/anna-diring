@@ -124,8 +124,8 @@ function App() {
           >
             Публикации
           </a>
-          <a
-            {/* href="#booking"
+         {/* <a
+            href="#booking"
             onClick={(e) => scrollToSection(e, 'booking')}
             className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
